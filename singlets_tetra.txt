@@ -1,11 +1,3 @@
-Grid[{{Hyperlink[Mouseover[-Image-, -Image-], paclet:GroupMath/tutorial/GroupMathDoc], XXXXXXXXXXXXXXXXXXXXXXXXXXX GroupMath XXXXXXXXXXXXXXXXXXXXXXXXXX
-Version: 1.1.3 (19/December/2024)
-Author: Renato Fonseca
-Reference: Comput. Phys. Commun. 267 (2021), 2011.01764 [hep-th]
-Website: Hyperlink[Mouseover[renatofonseca.net/groupmath, renatofonseca.net/groupmath], http://renatofonseca.net/groupmath]
-Built-in documentation: Hyperlink[Mouseover[here, here], paclet:GroupMath/tutorial/GroupMathDoc]
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX}}, Alignment -> {Left, Center}]
-
 === Model M1 ===
 Group: SO7
 Irreps: psi = 7, chi = 8
