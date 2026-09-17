@@ -1,0 +1,50 @@
+(* ************************************************************* *)
+(* *****                                                   ***** *)
+(* *****  FeynRules model file to include the modified     ***** *)
+(* *****  EW couplings between H and SM gauge bosons       ***** *)
+(* *****                                                   ***** *)
+(* *****  Author: Luca Panizzi                             ***** *)
+(* *****                                                   ***** *)
+(* ************************************************************* *)
+
+(* ************************** *)
+(* *****      Setup     ***** *)
+(* ************************** *)
+M$ModelName = "EW couplings between SM gauge bosons and Higgs";
+
+M$Information = {
+  Authors -> {"Luca Panizzi"}, 
+  Version -> "1.1",
+  Date -> "27.07.2022"
+};
+
+(* 2022.07.27 v1.1 - Fixed coupling order to be only HVVMOD *)
+
+FeynmanGauge = False;
+
+M$InteractionOrderHierarchy = { {HVVMOD,2}  };
+M$InteractionOrderLimit     = { {HVVMOD,99} };
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+
+M$Parameters = {
+
+  (* VSS couplings (not photon) *)
+  KHWW  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {{HVVMOD, 1},{QED,-1}}, BlockName -> KHVV, Value -> 0, Description -> "H-W-W modified coupling"},
+  KHZZ  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {{HVVMOD, 1},{QED,-1}}, BlockName -> KHVV, Value -> 0, Description -> "H-Z-Z modified coupling"}
+  
+};
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+LHWW := 2 MW^2 (KHWW - 1) 1/vev H W[mu] Wbar[mu] ;
+LHZZ := 1/cw^2 MW^2 (KHZZ - 1) 1/vev H Z[mu] Z[mu] ;
+
+LHVV := LHWW + LHZZ;
+
+ 

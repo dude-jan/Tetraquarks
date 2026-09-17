@@ -1,0 +1,160 @@
+
+(* ****************************************************************** *)
+(* *****                                                        ***** *)
+(* *****  FeynRules model file to make the old VLA model exotic ***** *)
+(* *****  charged scalar                                        ***** *)
+(* *****                                                        ***** *)
+(* *****  Author: Benjamin Fuks                                 ***** *)
+(* *****                                                        ***** *)
+(* ****************************************************************** *)
+
+(* ************************** *)
+(* *****      Setup     ***** *)
+(* ************************** *)
+M$ModelName = "eVLQ_S112";
+
+M$Information = {
+  Authors -> {"B. Fuks"}, 
+  Version -> "1.0",
+  Date -> "26.10.2019"
+};
+
+(* 2019.10.26 v1.0 - only partial set of interactions    *)
+
+FeynmanGauge = False;
+
+M$InteractionOrderHierarchy = { {QCD, 1},  {QED, 2},  {VLQ,2},  {SX,2}  };
+M$InteractionOrderLimit     = { {QCD, 99}, {QED, 99}, {VLQ,99}, {SX,99} };
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+M$Parameters = {
+
+  (* S112 couplings to the SM *)
+
+  GS112qq == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+    InteractionOrder -> {SX, 1}, BlockName -> GS112qq, Definitions -> {GS112qq[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+    Value -> {GS112qq[1,1] -> 0.101, GS112qq[2,2] -> 0.102, GS112qq[3,3] -> 0.103},
+    Description -> "S112 - quark scalar coupling"},
+  GP112qq == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+    InteractionOrder -> {SX, 1}, BlockName -> GP112qq, Definitions -> {GP112qq[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+    Value -> {GP112qq[1,1] -> 0.101, GP112qq[2,2] -> 0.102, GP112qq[3,3] -> 0.103},
+    Description -> "S112 - quark pseudoscalar coupling"},
+  GS112ll == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+    InteractionOrder -> {SX, 1}, BlockName -> GS112ll, Definitions -> {GS112ll[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+    Value -> {GS112ll[1,1] -> 0.0101, GS112ll[2,2] -> 0.0102, GS112ll[3,3] -> 0.0103},
+    Description -> "S112 - lepton scalar coupling"},
+  GP112ll == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+    InteractionOrder -> {SX, 1}, BlockName -> GP112ll, Definitions -> {GP112ll[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+    Value -> {GP112ll[1,1] -> 0.0101, GP112ll[2,2] -> 0.0102, GP112ll[3,3] -> 0.0103},
+    Description -> "S112 - lepton pseudoscalar coupling"},
+
+  (* S112 loop-induced couplings to the SM gauge bosons *)
+  KS112WA == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS112VV, OrderBlock->1, Value -> 0.142, Description -> "S112-WA coupling"},
+  KS112WZ == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS112VV, OrderBlock->2, Value -> 0.143, Description -> "S112-WZ coupling"},
+  KP112WA == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KP112VV, OrderBlock->1, Value -> 0.144, Description -> "S112-WA coupling"},
+  KP112WZ == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KP112VV, OrderBlock->2, Value -> 0.145, Description -> "S112-WZ coupling"},
+
+  (* S112 - VLQ - SM interactions *)
+
+  GS112TdL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS112TdL,
+    Value -> {GS112TdL[1] -> 0.151, GS112TdL[2] -> 0.152, GS112TdL[3] -> 0.153},
+    Description -> "S112-T-dq coupling (left-handed)"},
+  GS112TdR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS112TdR,
+    Value -> {GS112TdR[1] -> 0.154, GS112TdR[2] -> 0.155, GS112TdR[3] -> 0.156},
+    Description -> "S112-T-dq coupling (right-handed)"},
+  GS112BuL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS112BuL,
+    Value -> {GS112BuL[1] -> 0.161, GS112BuL[2] -> 0.162, GS112BuL[3] -> 0.163},
+    Description -> "S112-B-uq coupling (left-handed)"},
+  GS112BuR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS112BuR,
+    Value -> {GS112BuR[1] -> 0.164, GS112BuR[2] -> 0.165, GS112BuR[3] -> 0.166},
+    Description -> "S112-B-uq coupling (right-handed)"},
+  GS112XuL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS112XuL,
+    Value -> {GS112XuL[1] -> 0.161, GS112XuL[2] -> 0.162, GS112XuL[3] -> 0.163},
+    Description -> "S112-X-uq coupling (left-handed)"},
+  GS112XuR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS112XuR,
+    Value -> {GS112XuR[1] -> 0.164, GS112XuR[2] -> 0.165, GS112XuR[3] -> 0.166},
+    Description -> "S112-X-uq coupling (right-handed)"},
+  GS112YdL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS112YdL,
+    Value -> {GS112YdL[1] -> 0.151, GS112YdL[2] -> 0.152, GS112YdL[3] -> 0.153},
+    Description -> "S112-Y-dq coupling (left-handed)"},
+  GS112YdR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS112YdR,
+    Value -> {GS112YdR[1] -> 0.154, GS112YdR[2] -> 0.155, GS112YdR[3] -> 0.156},
+    Description -> "S112-Y-dq coupling (right-handed)"},
+
+
+  (* S112 - VLQ - VLQ interactions  *)
+
+  GS112TBL == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS112TBL, 
+    Value ->  0.153, Description -> "S112-T-B vector coupling (left-handed)"},
+  GS112TBR == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS112TBR, 
+    Value ->  0.153, Description -> "S112-T-B vector coupling (right-handed)"},
+  GS112BYL == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS112BYL, 
+    Value ->  0.154, Description -> "S112-B-Y vector coupling (left-handed)"},
+  GS112BYR == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS112BYR, 
+    Value ->  0.154, Description -> "S112-B-Y vector coupling (right-handed)"},
+  GS112XTL == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS112XTL, 
+    Value ->  0.155, Description -> "S112-X-T vector coupling (left-handed)"},
+  GS112XTR == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS112XTR, 
+    Value ->  0.155, Description -> "S112-X-T vector coupling (right-handed)"},
+
+  (* S112 to Higgs couplings *)
+  KS112H1 == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS112H, OrderBlock->1, Value -> 0.171, Description -> "S112-S112-H coupling"},
+  KS112H2 == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,1}}, BlockName -> KS112H, OrderBlock->2, Value -> 0.172, Description -> "S112-S112-H coupling"},
+  KS112HW == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KS112H, OrderBlock->3, Value -> 0.174, Description -> "S112-H-W coupling"}
+};
+
+
+(* ************************** *)
+(* *****   Fields       ***** *)
+(* ************************** *)
+
+M$ClassesDescription = {
+  (* charged scalar *)
+    S[1012] == { ClassName -> S112, SelfConjugate -> False, Mass  -> {MS112,  501}, Width -> {WS112, 15}, QuantumNumbers -> {Q -> 1},
+             PDG -> 6102002 }
+};
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* S112 Kinetic and mass terms *)
+LS112K :=     (DC[S112,mu] - I*ee*A[mu]*S112) (DC[S112bar,mu] + I*ee*A[mu]*S112bar) - MS112^2 S112 S112bar ;
+
+(* S112 - SM interactions *)
+LS112SM := S112    uqbar[sp1,ff1,cc].dq[sp2,ff2,cc] (GS112qq[ff1,ff2] IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP112qq[ff1,ff2]) \
+        + S112bar    lbar[sp1,ff1].vl[sp2,ff2]        (GS112ll[ff1,ff2] IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP112ll[ff1,ff2]);
+
+
+
+(* S112 to SM gauge boson couplings *)
+LS112VV := KS112WA/(16*Pi^2*vev) (ee^2 / sw) S112 FS[A,mu,nu] FS[Wbar,mu,nu] \
+        + KS112WZ/(16*Pi^2*vev) (ee^2 / (sw cw)) S112 FS[Z,mu,nu] FS[Wbar,mu,nu] \
+	+ KP112WA/(16*Pi^2*vev) (ee^2 / sw) S112 FS[A,mu,nu] Dual[FS][Wbar,mu,nu] \
+        + KP112WZ/(16*Pi^2*vev) (ee^2 / (sw cw)) S112 FS[Z,mu,nu] Dual[FS][Wbar,mu,nu];
+
+(* T interactions *)
+LS112T := S112     tpbar[sp1,cc].dq[sp2,ff,cc] (ProjM[sp1,sp2] GS112TdL[ff] + ProjP[sp1,sp2] GS112TdR[ff]) \
+       + S112     tpbar[sp1,cc].bp[sp2,cc]    (ProjM[sp1,sp2] GS112TBL + ProjP[sp1,sp2] GS112TBR);
+
+(* B interactions *)
+LS112B := S112bar  bpbar[sp1,cc].uq[sp2,ff,cc] (ProjM[sp1,sp2] GS112BuL[ff] + ProjP[sp1,sp2] GS112BuR[ff]) \
+       + S112     bpbar[sp1,cc].y[sp2,cc]     (ProjM[sp1,sp2] GS112BYL + ProjP[sp1,sp2] GS112BYR);
+
+(* X interactions *)
+LS112X := S112  xbar[sp1,cc].uq[sp2,ff,cc] (ProjM[sp1,sp2] GS112XuL[ff] + ProjP[sp1,sp2] GS112XuR[ff]) \
+       + S112  xbar[sp1,cc].tp[sp2,cc]    (ProjM[sp1,sp2] GS112XTL + ProjP[sp1,sp2] GS112XTR);
+
+(* Y interactions *)
+LS112Y := S112bar ybar[sp1,cc].dq[sp2,ff,cc] (ProjM[sp1,sp2] GS112YdL[ff] + ProjP[sp1,sp2] GS112YdR[ff])   ;
+
+(* Interactions with the Higgs *)
+LS112H := KS112H1/vev H del[S112bar,mu]del[S112,mu] + KS112H2 vev H S112bar S112 + KS112HW del[S112,mu] Wbar[mu] H + HC[KS112HW del[S112,mu] Wbar[mu] H];
+LS112Hno5 := KS112H2 vev H S112bar S112;
+
+
+LS112 := LS112K + LS112SM + LS112VV + LS112H + LS112T + LS112B + LS112X + LS112Y + HC[LS112SM + LS112VV + LS112T + LS112B + LS112X + LS112Y];
+LS112no5 := LS112K + LS112SM + LS112Hno5 + LS112T + LS112B + LS112X + LS112Y + HC[LS112SM + LS112VV + LS112T + LS112B + LS112X + LS112Y];

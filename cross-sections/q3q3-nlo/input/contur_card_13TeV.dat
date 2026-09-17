@@ -1,0 +1,27 @@
+# Pool                    Switch    # description
+ATLAS_13_3L                on       # trileptons
+ATLAS_13_4L                on       # four leptons
+ATLAS_13_GAMMA             on       # inclusive (multi)photons
+ATLAS_13_GAMMA_MET         on       # photon plus missing transverse momentum
+ATLAS_13_HMDY              on       # dileptons above the Z pole
+ATLAS_13_JETS              on       # inclusive hadronic final states
+ATLAS_13_L1L2MET           on       # unlike dileptons plus missing transverse momentum channel, with jet veto
+ATLAS_13_L1L2METJET        on       # unlike dileptons plus missing transverse momentum and jets
+ATLAS_13_L1L2MET_GAMMA     on       # fully leptonic ttbar plus photon
+ATLAS_13_LLJET             on       # dileptons at the Z pole, plus optional jets
+ATLAS_13_LL_GAMMA          on       # dileptons plus photon
+ATLAS_13_LMETJET           on       # lepton, missing transverse momentum, plus optional jets (typically W, semi-leptonic ttbar analyses)
+ATLAS_13_LMET_GAMMA        on       # semileptonic ttbar plus photon
+ATLAS_13_METJET            on       # missing transverse momentum plus jets
+ATLAS_13_SSLLMET           on       # two same-sign leptons (e/mu) plus missing transverse momentum and jets
+ATLAS_13_TAU               on       # tau measurements
+ATLAS_13_TTHAD             on       # fully hadronic top events
+CMS_13_3LJET               on       # dileptons or trileptons + MET
+CMS_13_HMDY                on       # dileptons above the Z pole
+CMS_13_JETS                on       # inclusive hadronic final states
+CMS_13_L1L2MET             on       # WW analyses in dileptons plus optional jets
+CMS_13_L1L2MET_GAMMA       on       # unlike dileptons, MET, photons
+CMS_13_LLJET               on       # dileptons at the Z pole, plus optional jets
+CMS_13_LMETJET             on       # lepton, missing transverse momentum, plus optional jets (typically W, semi-leptonic ttbar analyses)
+CMS_13_TTHAD               on       # fully hadronic top events
+LHCB_13_L1L2B              on       # top pairs via e mu plus b

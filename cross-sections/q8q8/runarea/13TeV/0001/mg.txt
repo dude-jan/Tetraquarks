@@ -1,0 +1,12 @@
+import model ../../../CHM5-FeynRules/CHM5_UFO
+generate u u~ > q80 q80~
+output mgevents
+launch
+shower=OFF
+analysis=Off
+set mq80 3000.0
+set lpp1 0
+set lpp2 0
+set run_card nevents 10000
+set run_card ebeam1 6500.0
+set run_card ebeam2 6500.0

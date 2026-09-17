@@ -1,0 +1,28 @@
+SetDirectory[NotebookDirectory[]]
+
+foo=Import["param_card.dat","String"];
+foostr=StringToStream[foo];
+fooout=CreateFile[];
+t1=ReadLine[foostr];
+bemass=0;
+
+Quiet[While[t1!="EndOfFile", (* don't read beyond end of file *)
+If[t1=="Block mass ",bemass=1];(* don't modify anything behind Block mass; just copy; that's masses, SM values, widths *)
+If[bemass==0,
+If[ReadList[StringToStream[t1],Word][[1]]=="Block",
+ WriteLine[fooout,t1]; (* write block line and read next *)
+t1=ReadLine[foostr];
+While[NumberQ[ ReadList[StringToStream[t1],Number][[1]]], (* check whether the line is a data line starting with a blocknumber *)
+tpos=1;
+While[NumberQ[ ReadList[StringToStream[t1],Number][[tpos+1]]],tpos++];
+t1=StringReplace[ReadList[StringToStream[t1],Word][[tpos]]-> "0.000000e-01"][t1];(* replace parameter with 0 in the line*)
+WriteLine[fooout, t1];
+t1=ReadLine[foostr]
+]
+]];
+WriteLine[fooout, t1];
+t1=ReadLine[foostr]
+]
+]
+
+CopyFile[fooout,"restrict_all.dat"]

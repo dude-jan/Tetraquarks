@@ -1,0 +1,48 @@
+# Pool                    Switch   NSR    Lumi      # description
+atlas_1604_01306           on       1      3.2      # photon + MET search at 13 TeV
+atlas_1605_09318           on       8      3.3      # >= 3 b-jets + 0-1 lepton + Etmiss
+atlas_1609_01599           on       9      3.2      # ttV cross section measurement at 13 TeV
+atlas_1704_03848           on       5      36.1     # monophoton dark matter search
+atlas_conf_2015_082        on       1      3.2      # leptonic Z + jets + Etmiss
+atlas_conf_2016_013        on       10     3.2      # 4 top quark (1 lepton + jets, vector like quark search)
+atlas_conf_2016_050        on       5      13.3     # 1-lepton + jets + etmiss (stop)
+atlas_conf_2016_054        on       10     14.8     # 1-lepton + jets + etmiss (squarks and gluino)
+atlas_conf_2016_076        on       6      13.3     # 2 leptons + jets + etmiss
+atlas_conf_2016_096        on       8      13.3     # 2-3 leptons + etmiss (electroweakino)
+atlas_conf_2017_060        on       20     36.1     # monojet search
+atlas_conf_2016_066        on       2      13.3     # search for photons, jets and met
+atlas_1712_08119           on       39     36.1     # electroweakinos search with soft leptons
+atlas_1712_02332           on       24     36.1     # squarks and gluinos, 0 lepton, 2-6 jets
+atlas_1709_04183           on       14     36.1     # stop pair production, 0 leptons
+atlas_1802_03158           on       7      36.1     # search for GMSB with photons
+atlas_1708_07875           on       2      36.1     # electroweakino search with taus and MET
+atlas_1706_03731           on       19     36.1     # same-sign or 3 leptons RPC and RPV SUSY
+atlas_1908_08215           on       16     139      # charginos/sleptons, 2 leptons + MET
+atlas_1909_08457           on       5      139      # search for squarks and gluinos with same-sign leptons
+atlas_conf_2019_020        on       2      139      # Search for chargino-neutralino production with mass splittings near the electroweak scale
+atlas_1803_02762           on       20     36.1     # Search for electroweakino production in final states with two or three leptons
+atlas_2101_01629           on       32     139      # squarks/gluinos, 1 lepton, jets, MET
+atlas_2004_14060           on       14     139      # stops, leptoquarks, 0 lepton
+atlas_1908_03122           on       10     139      # 0 leptons, 3 or more b-jets, sbottoms
+atlas_1911_12606           on       87     139      # search for sleptons and electroweakinos with soft leptons
+atlas_1807_07447           on       633    3.2      # general search for new phenomena
+atlas_2103_11684           on       2      139      # Search for SUSY in events with four or more leptons (gravitino SR)
+atlas_2004_10894           on       12     139      # EWino search in Higgs (diphoton) and met
+atlas_2106_09609           on       21     139      # Search for RPV SUSY in final states with leptons and many jets CRASH
+atlas_1911_06660           on       2      139      # search for direct stau production
+# atlas_2010_14293           on       78     139      # search for squarks and gluinos in MET_jet final states CRASH
+atlas_2211_08028           on       22     139      # search for gluinos decaying via 3rd gen; multi b-jets and MET
+atlas_2106_01676           on       72     139      # electroweakinos, 3 leptons, WZ, Wh, on+off-shell
+atlas_2006_05880           on       28     139      # Search for top squarks in events whith a Higgs or a Z boson
+atlas_2111_08372           on       23     139      # dark matter and invisible Higgs with Z boson
+atlas_2202_07953           on       17     139      # invisible Higgs decays in VBF
+# atlas_2209_13935           on       59     139      # search for charginos and sleptons in 2-lepton final states CRASH
+atlas_2102_10874           on       26     139      # monojet
+cms_pas_sus_15_011         on       47     2.2      # CMS, 13 TeV, 2 leptons + jets + MET
+cms_sus_16_039             on       158    35.9     # electrowekinos in multilepton final state
+cms_sus_16_025             on       14     12.9     # electroweakino and stop compressed spectra
+cms_sus_16_048             on       20     35.9     # two soft opposite sign leptons
+cms_sus_19_005             on       303    137.0    # hadronic final states with MT2
+cms_1908_04722             on       186    137.0    # hadronic final states with HT, post-fit and simple fitting
+cms_2107_13201             on       88     137.0    # monojet with multibin
+cms_2205_09597             on       40     137.0    # search for electroweakinos in hadronic final states

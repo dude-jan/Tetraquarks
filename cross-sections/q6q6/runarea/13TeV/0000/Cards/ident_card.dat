@@ -1,0 +1,447 @@
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c      written by the UFO converter
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+ckmblock 1 mdl_cabi
+
+gp10bb 1 mdl_GP10BB
+
+gp10d 1 1 mdl_GP10D1x1
+
+gp10d 2 2 mdl_GP10D2x2
+
+gp10d 3 3 mdl_GP10D3x3
+
+gp10e 1 1 mdl_GP10E1x1
+
+gp10e 2 2 mdl_GP10E2x2
+
+gp10e 3 3 mdl_GP10E3x3
+
+gp10n 1 1 mdl_GP10N1x1
+
+gp10n 2 2 mdl_GP10N2x2
+
+gp10n 3 3 mdl_GP10N3x3
+
+gp10tt 1 mdl_GP10TT
+
+gp10u 1 1 mdl_GP10U1x1
+
+gp10u 2 2 mdl_GP10U2x2
+
+gp10u 3 3 mdl_GP10U3x3
+
+gp10xx 1 mdl_GP10XX
+
+gp10yy 1 mdl_GP10YY
+
+gp11qq 3 3 mdl_GP11qq3x3
+
+gp80b 1 mdl_GP80B
+
+gp80t 1 mdl_GP80T
+
+gp80x 1 mdl_GP80X
+
+gp80y 1 mdl_GP80Y
+
+gs10bb 1 mdl_GS10BB
+
+gs10bl 1 mdl_GS10BL1
+
+gs10bl 2 mdl_GS10BL2
+
+gs10bl 3 mdl_GS10BL3
+
+gs10br 1 mdl_GS10BR1
+
+gs10br 2 mdl_GS10BR2
+
+gs10br 3 mdl_GS10BR3
+
+gs10d 1 1 mdl_GS10D1x1
+
+gs10d 2 2 mdl_GS10D2x2
+
+gs10d 3 3 mdl_GS10D3x3
+
+gs10e 1 1 mdl_GS10E1x1
+
+gs10e 2 2 mdl_GS10E2x2
+
+gs10e 3 3 mdl_GS10E3x3
+
+gs10n 1 1 mdl_GS10N1x1
+
+gs10n 2 2 mdl_GS10N2x2
+
+gs10n 3 3 mdl_GS10N3x3
+
+gs10tl 1 mdl_GS10TL1
+
+gs10tl 2 mdl_GS10TL2
+
+gs10tl 3 mdl_GS10TL3
+
+gs10tr 1 mdl_GS10TR1
+
+gs10tr 2 mdl_GS10TR2
+
+gs10tr 3 mdl_GS10TR3
+
+gs10tt 1 mdl_GS10TT
+
+gs10u 1 1 mdl_GS10U1x1
+
+gs10u 2 2 mdl_GS10U2x2
+
+gs10u 3 3 mdl_GS10U3x3
+
+gs10xx 1 mdl_GS10XX
+
+gs10yy 1 mdl_GS10YY
+
+gs11bul 1 mdl_GS11BuL1
+
+gs11bul 2 mdl_GS11BuL2
+
+gs11bul 3 mdl_GS11BuL3
+
+gs11bur 1 mdl_GS11BuR1
+
+gs11bur 2 mdl_GS11BuR2
+
+gs11bur 3 mdl_GS11BuR3
+
+gs11byl 1 mdl_GS11BYL
+
+gs11byr 1 mdl_GS11BYR
+
+gs11tbl 1 mdl_GS11TBL
+
+gs11tbr 1 mdl_GS11TBR
+
+gs11tdl 1 mdl_GS11TdL1
+
+gs11tdl 2 mdl_GS11TdL2
+
+gs11tdl 3 mdl_GS11TdL3
+
+gs11tdr 1 mdl_GS11TdR1
+
+gs11tdr 2 mdl_GS11TdR2
+
+gs11tdr 3 mdl_GS11TdR3
+
+gs11xtl 1 mdl_GS11XTL
+
+gs11xtr 1 mdl_GS11XTR
+
+gs11xul 3 mdl_GS11XuL3
+
+gs11xur 3 mdl_GS11XuR3
+
+gs11ydl 1 mdl_GS11YdL1
+
+gs11ydl 2 mdl_GS11YdL2
+
+gs11ydl 3 mdl_GS11YdL3
+
+gs11ydr 1 mdl_GS11YdR1
+
+gs11ydr 2 mdl_GS11YdR2
+
+gs11ydr 3 mdl_GS11YdR3
+
+gs12xbl 1 mdl_GS12XBL
+
+gs12xbr 1 mdl_GS12XBR
+
+gs12xdl 3 mdl_GS12XDL3
+
+gs12xdr 3 mdl_GS12XDR3
+
+gs12ytl 1 mdl_GS12YTL
+
+gs12ytr 1 mdl_GS12YTR
+
+gs12yul 1 mdl_GS12YUL1
+
+gs12yul 2 mdl_GS12YUL2
+
+gs12yul 3 mdl_GS12YUL3
+
+gs12yur 1 mdl_GS12YUR1
+
+gs12yur 2 mdl_GS12YUR2
+
+gs12yur 3 mdl_GS12YUR3
+
+gs80b 1 mdl_GS80B
+
+gs80bdl 1 mdl_GS80BDL1
+
+gs80bdl 2 mdl_GS80BDL2
+
+gs80bdl 3 mdl_GS80BDL3
+
+gs80bdr 1 mdl_GS80BDR1
+
+gs80bdr 2 mdl_GS80BDR2
+
+gs80bdr 3 mdl_GS80BDR3
+
+gs80t 1 mdl_GS80T
+
+gs80tul 1 mdl_GS80TUL1
+
+gs80tul 2 mdl_GS80TUL2
+
+gs80tul 3 mdl_GS80TUL3
+
+gs80tur 1 mdl_GS80TUR1
+
+gs80tur 2 mdl_GS80TUR2
+
+gs80tur 3 mdl_GS80TUR3
+
+gs80u 3 3 mdl_GS80U3x3
+
+gs80x 1 mdl_GS80X
+
+gs80y 1 mdl_GS80Y
+
+k5q10mz 1 mdl_K5Q10MZ
+
+k5q10z 1 mdl_K5Q10Z
+
+k5q11z 1 mdl_K5Q11Z
+
+k5q80mz 1 mdl_K5Q80MZ
+
+k5q80z 1 mdl_K5Q80Z
+
+k5q81z 1 mdl_K5Q81Z
+
+kp10vv 1 mdl_KP10G
+
+kp10vv 2 mdl_KP10W
+
+kp10vv 3 mdl_KP10ZZ
+
+kp10vv 4 mdl_KP10ZA
+
+kp10vv 5 mdl_KP10AA
+
+kp80vv 1 mdl_KP80G
+
+kp80vv 2 mdl_KP80GZ
+
+kp80vv 3 mdl_KP80GA
+
+kq10z 1 mdl_KQ10Z
+
+kq11z 1 mdl_KQ11Z
+
+kq613p6q1 1 mdl_KQ613p6q1
+
+kq613p6q8 1 mdl_KQ613p6q8
+
+kq613p8q3 1 mdl_KQ613p8q3
+
+kq623p6q1 1 mdl_KQ623p6q1
+
+kq623p6q1m 1 mdl_KQ623p6q1M
+
+kq623p6q8 1 mdl_KQ623p6q8
+
+kq623p6q8m 1 mdl_KQ623p6q8M
+
+kq623p8q3 1 mdl_KQ623p8q3
+
+kq653p8q3 1 mdl_KQ653p8q3
+
+kq80z 1 mdl_KQ80Z
+
+kq81z 1 mdl_KQ81Z
+
+ks10h 1 mdl_KS10H1
+
+ks10h 2 mdl_KS10H2
+
+ks10h 3 mdl_KS10HH
+
+ks10h 4 mdl_KS10HZ
+
+ks10vv 1 mdl_KS10G
+
+ks10vv 2 mdl_KS10W
+
+ks10vv 3 mdl_KS10ZZ
+
+ks10vv 4 mdl_KS10ZA
+
+ks10vv 5 mdl_KS10AA
+
+ks12s11w 1 mdl_Ks12s11w
+
+ks323h 1 mdl_KS323H1
+
+ks323h 2 mdl_KS323H2
+
+ks323h 3 mdl_KS323HH
+
+ks80h 1 mdl_KS80H1
+
+ks80h 2 mdl_KS80H2
+
+ks80h 3 mdl_KS80HH
+
+ks80vv 1 mdl_KS80G
+
+ks80vv 2 mdl_KS80GZ
+
+ks80vv 3 mdl_KS80GA
+
+kxlw 3 mdl_KXL3
+
+sminputs 1 aEWM1
+
+sminputs 2 mdl_Gf
+
+sminputs 3 aS
+
+yukawa 1 mdl_ymdo
+
+yukawa 2 mdl_ymup
+
+yukawa 3 mdl_yms
+
+yukawa 4 mdl_ymc
+
+yukawa 5 mdl_ymb
+
+yukawa 6 mdl_ymt
+
+yukawa 11 mdl_yme
+
+yukawa 13 mdl_ymm
+
+yukawa 15 mdl_ymtau
+
+frblock48 3 3 mdl_LDDLR3x3
+
+mass 23 mdl_MZ
+
+mass 11 mdl_Me
+
+mass 13 mdl_MMU
+
+mass 15 mdl_MTA
+
+mass 2 mdl_MU
+
+mass 4 mdl_MC
+
+mass 6 mdl_MT
+
+mass 1 mdl_MD
+
+mass 3 mdl_MS
+
+mass 5 mdl_MB
+
+mass 25 mdl_MH
+
+mass 6000011 mdl_MQ11
+
+mass 6000010 mdl_MQ10
+
+mass 6001010 mdl_MQ10M
+
+mass 6000653 mdl_MQ653
+
+mass 6000623 mdl_MQ623
+
+mass 6000613 mdl_MQ613
+
+mass 6000081 mdl_MQ81
+
+mass 6000080 mdl_MQ80
+
+mass 6001080 mdl_MQ80M
+
+mass 6100001 mdl_MS10
+
+mass 6108000 mdl_MS80
+
+mass 6100002 mdl_MS11
+
+mass 6100003 mdl_MS12
+
+mass 6100300 mdl_MS323
+
+mass 9000005 mdl_MSIX1
+
+mass 9000006 mdl_MS623
+
+mass 9000007 mdl_MSIX3
+
+mass 6000005 mdl_MX
+
+mass 6000006 mdl_MTP
+
+mass 6000007 mdl_MBP
+
+mass 6000008 mdl_MY
+
+decay 23 mdl_WZ
+
+decay 24 mdl_WW
+
+decay 6 mdl_WT
+
+decay 25 mdl_WH
+
+decay 6000011 mdl_WQ11
+
+decay 6000010 mdl_WQ10
+
+decay 6001010 mdl_WQ10M
+
+decay 6000653 mdl_WQ653
+
+decay 6000623 mdl_WQ623
+
+decay 6000613 mdl_WQ613
+
+decay 6000081 mdl_WQ81
+
+decay 6000080 mdl_WQ80
+
+decay 6001080 mdl_WQ80M
+
+decay 6100001 mdl_WS10
+
+decay 6108000 mdl_WS80
+
+decay 6100002 mdl_WS11
+
+decay 6100003 mdl_WS12
+
+decay 6100300 mdl_WS323
+
+decay 9000005 mdl_WSIX1
+
+decay 9000006 mdl_WS623
+
+decay 9000007 mdl_WSIX3
+
+decay 6000005 mdl_WX
+
+decay 6000006 mdl_WTP
+
+decay 6000007 mdl_WBP
+
+decay 6000008 mdl_WY

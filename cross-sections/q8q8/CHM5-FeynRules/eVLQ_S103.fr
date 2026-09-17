@@ -1,0 +1,183 @@
+(* ****************************************************************** *)
+(* *****                                                        ***** *)
+(* *****  FeynRules model file to make the old VLA model exotic ***** *)
+(* *****                  SM singlet scalar                     ***** *)
+(* *****                                                        ***** *)
+(* *****  Author: Benjamin Fuks                                 ***** *)
+(* *****                                                        ***** *)
+(* ****************************************************************** *)
+
+(* ************************** *)
+(* *****      Setup     ***** *)
+(* ************************** *)
+M$ModelName = "eVLQ_S103";
+
+M$Information = {
+  Authors -> {"B. Fuks"}, 
+  Version -> "1.5",
+  Date -> "16.01.2020"
+};
+
+(* 2019.10.26 v1.31 - S103-VLQ-VLQ interactions added  (T)  *)
+(* 2019.11.24 v1.4 - S103-gauge interactions in mass eigenbasis  *)
+(* 2020.01.16 v1.5 - bug fix in the S103-A-Z interaction for scalar S103  *)
+
+FeynmanGauge = False;
+
+M$InteractionOrderHierarchy = { {QCD, 1},  {QED, 2},  {VLQ,2},  {SX,2}  };
+M$InteractionOrderLimit     = { {QCD, 99}, {QED, 99}, {VLQ,99}, {SX,99} };
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+M$Parameters = {
+
+  (* S103 couplings to the SM *)
+  GS103U == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+    InteractionOrder -> {SX, 1}, BlockName -> GS103U, Definitions -> {GS103U[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+    Value -> {GS103U[1,1] -> 0.101, GS103U[2,2] -> 0.103, GS103U[3,3] -> 0.103},
+    Description -> "S103 - up quark scalar coupling"},
+  GP103U == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+    InteractionOrder -> {SX, 1}, BlockName -> GP103U, Definitions -> {GP103U[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+    Value -> {GP103U[1,1] -> 0.104, GP103U[2,2] -> 0.105, GP103U[3,3] -> 0.106},
+    Description -> "S103 - up quark pseudoscalar coupling"},
+  GS103D == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+    InteractionOrder -> {SX, 1}, BlockName -> GS103D, Definitions -> {GS103D[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+    Value -> {GS103D[1,1] -> 0.111, GS103D[2,2] -> 0.112, GS103D[3,3] -> 0.113},
+    Description -> "S103 - up quark scalar coupling"},
+  GP103D == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+    InteractionOrder -> {SX, 1}, BlockName -> GP103D, Definitions -> {GP103D[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+    Value -> {GP103D[1,1] -> 0.114, GP103D[2,2] -> 0.115, GP103D[3,3] -> 0.116},
+    Description -> "S103 - up quark pseudoscalar coupling"},
+  GS103E == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+    InteractionOrder -> {SX, 1}, BlockName -> GS103E, Definitions -> {GS103E[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+    Value -> {GS103E[1,1] -> 0.121, GS103E[2,2] -> 0.122, GS103E[3,3] -> 0.123},
+    Description -> "S103 - up quark scalar coupling"},
+  GP103E == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+    InteractionOrder -> {SX, 1}, BlockName -> GP103E, Definitions -> {GP103E[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+    Value -> {GP103E[1,1] -> 0.124, GP103E[2,2] -> 0.125, GP103E[3,3] -> 0.126},
+    Description -> "S103 - up quark pseudoscalar coupling"},
+  GS103N == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+    InteractionOrder -> {SX, 1}, BlockName -> GS103N, Definitions -> {GS103N[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+    Value -> {GS103N[1,1] -> 0.131, GS103N[2,2] -> 0.132, GS103N[3,3] -> 0.133},
+    Description -> "S103 - up quark scalar coupling"},
+  GP103N == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+    InteractionOrder -> {SX, 1}, BlockName -> GP103N, Definitions -> {GP103N[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+    Value -> {GP103N[1,1] -> 0.134, GP103N[2,2] -> 0.135, GP103N[3,3] -> 0.136},
+    Description -> "S103 - up quark pseudoscalar coupling"},
+
+  (* S103 loop-induced couplings to the SM gauge bosons *)
+  KS103G == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS103VV, OrderBlock->1, Value -> 0.141, Description -> "S103-GG coupling"},
+  KS103W == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS103VV, OrderBlock->2, Value -> 0.142, Description -> "S103-WW coupling"},
+  KS103ZZ == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS103VV, OrderBlock->3, Value -> 0.143, Description -> "S103-ZZ coupling"},
+  KS103ZA == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS103VV, OrderBlock->4, Value -> 0.144, Description -> "S103-Za coupling"},
+  KS103AA == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS103VV, OrderBlock->5, Value -> 0.145, Description -> "S103-aa coupling"},
+  KP103G == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KP103VV, OrderBlock->1, Value -> 0.146, Description -> "P103-GG coupling"},
+  KP103W == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KP103VV, OrderBlock->2, Value -> 0.147, Description -> "P103-WW coupling"},
+  KP103ZZ == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KP103VV, OrderBlock->3, Value -> 0.148, Description -> "P103-ZZ coupling"},
+  KP103ZA == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KP103VV, OrderBlock->4, Value -> 0.149, Description -> "P103-Za coupling"},
+  KP103AA == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KP103VV, OrderBlock->5, Value -> 0.150, Description -> "P103-aa coupling"},
+
+  (* S103 - VLQ - SM interactions *)
+  GS103TL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS103TL,
+    Value -> {GS103TL[1] -> 0.151, GS103TL[2] -> 0.152, GS103TL[3] -> 0.153},
+    Description -> "S103-T-uq coupling (left-handed)"},
+  GS103TR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS103TR,
+    Value -> {GS103TR[1] -> 0.154, GS103TR[2] -> 0.155, GS103TR[3] -> 0.156},
+    Description -> "S103-T-uq coupling (right-handed)"},
+  GS103BL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS103BL,
+    Value -> {GS103BL[1] -> 0.161, GS103BL[2] -> 0.162, GS103BL[3] -> 0.163},
+    Description -> "S103-B-uq coupling (left-handed)"},
+  GS103BR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS103BR,
+    Value -> {GS103BR[1] -> 0.164, GS103BR[2] -> 0.165, GS103BR[3] -> 0.166},
+    Description -> "S103-B-uq coupling (right-handed)"},
+
+ (* S103 - VLQ - VLQ  interactions *)
+
+  GS103TT == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS103TT, 
+    Value ->  0.153, Description -> "S103-T-T scalar coupling"},
+  GP103TT == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GP103TT, 
+    Value ->  0.153, Description -> "S103-T-T pseudoscalar coupling"},
+  GS103BB == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS103BB, 
+    Value ->  0.154, Description -> "S103-B-B scalar coupling"},
+  GP103BB == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GP103BB, 
+    Value ->  0.154, Description -> "S103-B-B pseudoscalar coupling"},
+  GS103XX == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS103XX, 
+    Value ->  0.155, Description -> "S103-X-X coupling (scalar coupling)"},
+  GP103XX == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GP103XX, 
+    Value ->  0.155, Description -> "S103-X-X pseudoscalar coupling"},
+  GS103YY == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS103YY, 
+    Value ->  0.156, Description -> "S103-Y-Y coupling scalar coupling"},
+  GP103YY == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GP103YY, 
+    Value ->  0.156, Description -> "S103-Y-Y pseudoscalar coupling"},
+
+
+  (* S103 to Higgs couplings *)
+  KS103H1 == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS103H, OrderBlock->1, Value -> 0.171, Description -> "S103-S103-H coupling"},
+  KS103H2 == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,1}}, BlockName -> KS103H, OrderBlock->2, Value -> 0.172, Description -> "S103-S103-H coupling"},
+  KS103HH == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,1}}, BlockName -> KS103H, OrderBlock->3, Value -> 0.173, Description -> "S103-H-H coupling"},
+  KS103HZ == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KS103H, OrderBlock->4, Value -> 0.174, Description -> "S103-H-Z coupling"}
+};
+
+
+(* ************************** *)
+(* *****   Fields       ***** *)
+(* ************************** *)
+
+M$ClassesDescription = {
+  (* Neutral scalar singlet *)
+  S[1003] == { ClassName -> S103,  SelfConjugate -> True, Mass -> {MS103,511},  Width -> {WS103, 1.1}, PDG -> 6103001}
+};
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* Kinetic and mass terms *)
+LS103K := 1/2 del[S103,mu]^2 - 1/2 MS103^2 S103^2;
+
+(* S103 - SM interactions *)
+LS103SM := \
+    S103 uqbar[sp1,ff1,cc].uq[sp2,ff2,cc] (GS103U[ff1,ff2] IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP103U[ff1,ff2]) \
+  + S103 dqbar[sp1,ff1,cc].dq[sp2,ff2,cc] (GS103D[ff1,ff2] IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP103D[ff1,ff2]) \
+  + S103 lbar[sp1,ff1].l[sp2,ff2]         (GS103E[ff1,ff2] IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP103E[ff1,ff2]) \
+  + S103 vlbar[sp1,ff1].vl[sp2,ff2]       (GS103N[ff1,ff2] IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP103N[ff1,ff2]);
+
+(* S103 - SM gauge boson couplings *)
+LS103VV := ExpandIndices[\
+    KS103G/(16*Pi^2*vev) gs^2 S103 FS[G,mu,nu,a ]^2 \
+  + KS103W/(16*Pi^2*vev) gw^2 S103 FS[W,mu,nu] FS[Wbar,mu,nu] \
+  + KS103ZZ/(16*Pi^2*vev) (ee^2 / (sw^2 cw^2)) S103 FS[Z,mu,nu]^2 \
+  + KS103ZA/(16*Pi^2*vev) (2 ee^2 / (sw cw)) S103 FS[Z,mu,nu] FS[A,mu,nu] \
+  + KS103AA/(16*Pi^2*vev) ee^2 S103 FS[A,mu,nu]^2 \
+  + KP103G/(16*Pi^2*vev) gs^2 S103 FS[G,mu, nu,a] Dual[FS][G,mu,nu,a] \
+  + KP103W/(16*Pi^2*vev) gw^2 S103 FS[W,mu,nu] Dual[FS][Wbar,mu,nu] \
+  + KP103ZZ/(16*Pi^2*vev) (ee^2 / (sw^2 cw^2)) S103 FS[Z,mu,nu] Dual[FS][Z,mu,nu] \
+  + KP103ZA/(16*Pi^2*vev) (2 ee^2 / (sw cw)) S103 FS[A,mu,nu] Dual[FS][Z,mu,nu] \
+  + KP103AA/(16*Pi^2*vev) ee^2 S103 FS[A,mu,nu] Dual[FS][A,mu,nu], FlavorExpand->SU2W];
+
+
+(* Interactions with the Higgs *)
+LS103H := KS103H1/vev H del[S103,mu]^2 + KS103H2 vev H S103^2 + KS103HH vev H^2 S103 + KS103HZ del[S103,mu] Z[mu] H;
+LS103Hno5 := KS103H2 vev H S103^2 + KS103HH vev H^2 S103;
+
+
+(* T interactions *)
+LS103T := S103 tpbar[sp1,cc].uq[sp2,ff,cc] (ProjM[sp1,sp2] GS103TL[ff] + ProjP[sp1,sp2] GS103TR[ff]) \
+       + S103 tpbar[sp1,cc].tp[sp2,cc] (GS103TT /2 IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP103TT /2);
+
+(* B interactions *)
+LS103B := S103 bpbar[sp1,cc].dq[sp2,ff,cc] (ProjM[sp1,sp2] GS103BL[ff] + ProjP[sp1,sp2] GS103BR[ff]) \
+       + S103 bpbar[sp1,cc].bp[sp2,cc] (GS103BB/2 IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP103BB/2);
+
+(* X interactions *)
+LS103X := S103 xbar[sp1,cc].x[sp2,cc] (GS103XX/2 IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP103XX/2);
+
+(* Y interactions *)
+LS103Y := S103 ybar[sp1,cc].y[sp2,cc] (GS103YY/2 IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP103YY/2);
+
+
+(* Full LS103 Lagrangian *)
+LS103 := LS103K + LS103SM + LS103VV + LS103T + LS103B + LS103X + LS103Y + LS103H + HC[LS103SM + LS103T + LS103B + LS103X + LS103Y];
+LS103no5 := LS103K + LS103SM + LS103T + LS103B + LS103X + LS103Y + LS103Hno5 + HC[LS103SM + LS103T + LS103B + LS103X + LS103Y];

@@ -1,0 +1,257 @@
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c      written by the UFO converter
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+ckmblock 1 mdl_cabi
+
+gp80b 1 mdl_GP80B
+
+gp80d 1 1 mdl_GP80D1x1
+
+gp80d 2 2 mdl_GP80D2x2
+
+gp80d 3 3 mdl_GP80D3x3
+
+gp80t 1 mdl_GP80T
+
+gp80u 1 1 mdl_GP80U1x1
+
+gp80u 2 2 mdl_GP80U2x2
+
+gp80u 3 3 mdl_GP80U3x3
+
+gp80x 1 mdl_GP80X
+
+gp80y 1 mdl_GP80Y
+
+gs80b 1 mdl_GS80B
+
+gs80bdl 1 mdl_GS80BDL1
+
+gs80bdl 2 mdl_GS80BDL2
+
+gs80bdl 3 mdl_GS80BDL3
+
+gs80bdr 1 mdl_GS80BDR1
+
+gs80bdr 2 mdl_GS80BDR2
+
+gs80bdr 3 mdl_GS80BDR3
+
+gs80d 1 1 mdl_GS80D1x1
+
+gs80d 2 2 mdl_GS80D2x2
+
+gs80d 3 3 mdl_GS80D3x3
+
+gs80t 1 mdl_GS80T
+
+gs80tul 1 mdl_GS80TUL1
+
+gs80tul 2 mdl_GS80TUL2
+
+gs80tul 3 mdl_GS80TUL3
+
+gs80tur 1 mdl_GS80TUR1
+
+gs80tur 2 mdl_GS80TUR2
+
+gs80tur 3 mdl_GS80TUR3
+
+gs80u 1 1 mdl_GS80U1x1
+
+gs80u 2 2 mdl_GS80U2x2
+
+gs80u 3 3 mdl_GS80U3x3
+
+gs80x 1 mdl_GS80X
+
+gs80y 1 mdl_GS80Y
+
+kblh 1 mdl_KBLh1
+
+kblh 2 mdl_KBLh2
+
+kblh 3 mdl_KBLh3
+
+kblw 1 mdl_KBLw1
+
+kblw 2 mdl_KBLw2
+
+kblw 3 mdl_KBLw3
+
+kblz 1 mdl_KBLz1
+
+kblz 2 mdl_KBLz2
+
+kblz 3 mdl_KBLz3
+
+kbrh 1 mdl_KBRh1
+
+kbrh 2 mdl_KBRh2
+
+kbrh 3 mdl_KBRh3
+
+kbrw 1 mdl_KBRw1
+
+kbrw 2 mdl_KBRw2
+
+kbrw 3 mdl_KBRw3
+
+kbrz 1 mdl_KBRz1
+
+kbrz 2 mdl_KBRz2
+
+kbrz 3 mdl_KBRz3
+
+kp80vv 1 mdl_KP80G
+
+kp80vv 2 mdl_KP80GZ
+
+kp80vv 3 mdl_KP80GA
+
+ks80h 1 mdl_KS80H1
+
+ks80h 2 mdl_KS80H2
+
+ks80h 3 mdl_KS80HH
+
+ks80vv 1 mdl_KS80G
+
+ks80vv 2 mdl_KS80GZ
+
+ks80vv 3 mdl_KS80GA
+
+ktlh 1 mdl_KTLh1
+
+ktlh 2 mdl_KTLh2
+
+ktlh 3 mdl_KTLh3
+
+ktlw 1 mdl_KTLw1
+
+ktlw 2 mdl_KTLw2
+
+ktlw 3 mdl_KTLw3
+
+ktlz 1 mdl_KTLz1
+
+ktlz 2 mdl_KTLz2
+
+ktlz 3 mdl_KTLz3
+
+ktrh 1 mdl_KTRh1
+
+ktrh 2 mdl_KTRh2
+
+ktrh 3 mdl_KTRh3
+
+ktrw 1 mdl_KTRw1
+
+ktrw 2 mdl_KTRw2
+
+ktrw 3 mdl_KTRw3
+
+ktrz 1 mdl_KTRz1
+
+ktrz 2 mdl_KTRz2
+
+ktrz 3 mdl_KTRz3
+
+kxlw 1 mdl_KXL1
+
+kxlw 2 mdl_KXL2
+
+kxlw 3 mdl_KXL3
+
+kxrw 1 mdl_KXR1
+
+kxrw 2 mdl_KXR2
+
+kxrw 3 mdl_KXR3
+
+kylw 1 mdl_KYL1
+
+kylw 2 mdl_KYL2
+
+kylw 3 mdl_KYL3
+
+kyrw 1 mdl_KYR1
+
+kyrw 2 mdl_KYR2
+
+kyrw 3 mdl_KYR3
+
+sminputs 1 aEWM1
+
+sminputs 2 mdl_Gf
+
+sminputs 3 aS
+
+yukawa 1 mdl_ymdo
+
+yukawa 2 mdl_ymup
+
+yukawa 3 mdl_yms
+
+yukawa 4 mdl_ymc
+
+yukawa 5 mdl_ymb
+
+yukawa 6 mdl_ymt
+
+yukawa 11 mdl_yme
+
+yukawa 13 mdl_ymm
+
+yukawa 15 mdl_ymtau
+
+mass 6108000 mdl_MS80
+
+mass 6000005 mdl_MX
+
+mass 6000006 mdl_MTP
+
+mass 6000007 mdl_MBP
+
+mass 6000008 mdl_MY
+
+mass 23 mdl_MZ
+
+mass 11 mdl_Me
+
+mass 13 mdl_MMU
+
+mass 15 mdl_MTA
+
+mass 2 mdl_MU
+
+mass 4 mdl_MC
+
+mass 6 mdl_MT
+
+mass 1 mdl_MD
+
+mass 3 mdl_MS
+
+mass 5 mdl_MB
+
+mass 25 mdl_MH
+
+decay 6108000 mdl_WS80
+
+decay 6000005 mdl_WX
+
+decay 6000006 mdl_WTP
+
+decay 6000007 mdl_WBP
+
+decay 6000008 mdl_WY
+
+decay 23 mdl_WZ
+
+decay 24 mdl_WW
+
+decay 6 mdl_WT
+
+decay 25 mdl_WH

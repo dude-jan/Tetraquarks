@@ -1,0 +1,68 @@
+(***************************************************************************************************************)
+(******                       FeynRules mod-file for Model Independent searches of top partners           ******)
+(******                                              T3(2/3)      with arbitrary couplings                ******)
+(******                                                                                                   ******)
+(******     Authors: B. Fuks, L. Panizzi                                                                  ******)
+(******     Compatibility with the new SM.fr of FR 2.0                                                    ******)
+(***************************************************************************************************************)
+
+M$ModelName = "eVLQ_tp3";
+
+M$Information = {
+  Authors -> {"L. Panizzi, B. Fuks"}, 
+  Version -> "4.0",
+  Date -> "20.08.2019"
+};
+
+FeynmanGauge =False;
+
+M$InteractionOrderHierarchy = { {QCD, 1},  {QED, 2},  {VLQ,2}};
+M$InteractionOrderLimit     = { {QCD, 99}, {QED, 99}, {VLQ,99}};
+
+
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+M$Parameters = {
+  KT3Lw == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "T3uW coupling (left-handed)",
+    BlockName -> KT3LW, Value -> {KT3Lw[1] -> 0.120112, KT3Lw[2] -> 0.120112, KT3Lw[3] -> 0.160149} },
+  KT3Rw == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "T3uW coupling (right-handed)",
+    BlockName -> KT3RW, Value -> {KT3Rw[1] -> 0., KT3Rw[2] -> 0., KT3Rw[3] -> 0.} },
+  KT3Lz == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "T3uZ coupling (left-handed)" ,
+    BlockName -> KT3LZ, Value -> {KT3Lz[1] -> 0.180284, KT3Lz[2] -> 0.180284, KT3Lz[3] -> 0.240379} },
+  KT3Rz == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "T3uZ coupling (right-handed)",
+    BlockName -> KT3RZ, Value -> {KT3Rz[1] -> 0., KT3Rz[2] -> 0., KT3Rz[3] -> 0.} },
+  KT3Lh == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, Description -> "T3uH coupling (left-handed)" ,
+    BlockName -> KT3LH, Value -> {KT3Lh[1] -> 0.479336, KT3Lh[2] -> 0.479336, KT3Lh[3] -> 0.639117} },
+  KT3Rh == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, Description -> "T3uH coupling (right-handed)",
+    BlockName -> KT3RH, Value -> {KT3Rh[1] -> 0., KT3Rh[2] -> 0., KT3Rh[3] -> 0.} }
+};
+
+
+
+(* ************************** *)
+(* *****   Fields       ***** *)
+(* ************************** *)
+
+M$ClassesDescription = {
+  (* VLQ Quarks T, Q=2/3 *)
+  F[63] == { ClassName -> tp3, SelfConjugate -> False, Indices -> {Index[Colour]}, Mass -> {MTP3,600.6}, Width -> {WTP3,5.}, QuantumNumbers -> {Q -> 2/3},
+    PropagatorLabel -> "tp3", PropagatorType -> Straight, PropagatorArrow -> Forward, PDG -> 6003006, FullName -> "T3-quark"}
+};
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* Kinetic and mass terms *)
+LT3K := I tp3bar.Ga[mu].DC[tp3, mu] - MTP3 tp3bar.tp3 + 2*ee/3 A[mu] tp3bar.Ga[mu].tp3;
+
+(* T interactions *)
+LT3W := gw/Sqrt[2] W[mu] Ga[mu,sp1,sp2] tp3bar[sp1,cc].dq[sp3,ff,cc] (ProjM[sp2,sp3] KT3Lw[ff] + ProjP[sp2,sp3] KT3Rw[ff]);
+LT3Z := gw/(2 cw)  Z[mu] Ga[mu,sp1,sp2] tp3bar[sp1,cc].uq[sp3,ff,cc] (ProjM[sp2,sp3] KT3Lz[ff] + ProjP[sp2,sp3] KT3Rz[ff]);
+LT3H :=            H     tp3bar[sp1,cc].uq[sp3,ff,cc] (ProjM[sp1,sp3] KT3Lh[ff] + ProjP[sp1,sp3] KT3Rh[ff]);
+
+LT3 := LT3W + LT3Z + LT3H + HC[LT3W + LT3Z + LT3H] + LT3K;
+LT3no5 := LT3W + LT3Z + LT3H + HC[LT3W + LT3Z + LT3H] + LT3K;

@@ -1,0 +1,117 @@
+(***************************************************************************************************************)
+(******                       FeynRules mod-file for color singlet scalars                                ******)
+(******                                        S12 (Q=2)                                                  ******)
+(******                                                                                                   ******)
+(******     Authors: M. Kunkel                                                                            ******)
+(******     Compatibility with the new SM.fr of FR 2.0 and VLQ_v4.fr                                      ******)
+(***************************************************************************************************************)
+
+M$ModelName = "eVLQ_S12";
+
+M$Information = {
+  Authors -> {"M. Kunkel"}, 
+  Version -> "1.1",
+  Date -> "11.03.2021"
+};
+
+(* 2021.03.11 v1.1 - Fixed bug in LS12VLQSM1 *)
+
+
+FeynmanGauge =False;
+
+(*VLQ as order 2 in eVLQ_S10.fr but order 1 in VLQ_v4.fr*)
+M$InteractionOrderHierarchy = { {QCD, 1},  {QED, 2},  {VLQ,2}, {SX,2}};
+M$InteractionOrderLimit     = { {QCD, 99}, {QED, 99}, {VLQ,99}, {SX,99}};
+
+
+(* ************************** *)
+(* *****   Fields       ***** *)
+(* ************************** *)
+
+M$ClassesDescription = {
+  (* Color octet scalar S12 (Q=2) *)
+
+    S[102] == { 
+        ClassName -> S12,  
+        SelfConjugate -> False, 
+        Indices -> {},
+        Mass -> {MS12, 500.5},  
+        Width -> {WS12, 1.1}, 
+        QuantumNumbers -> {Q -> 2},
+        PropagatorLabel -> "S12",
+        PropagatorType -> ScalarDash,
+        PDG -> 6100003,
+        FullName -> "S12-scalar"
+    }
+};
+
+
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+
+M$Parameters = {
+
+  (*S12 couplings to two VLQs*)
+  GS12XBL == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS12XBL, 
+      Value ->  0.151, Description -> "S12-X-B scalar coupling (left-handed)"},
+  GS12XBR == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS12XBR, 
+      Value ->  0.152, Description -> "S12-X-B scalar coupling (right-handed)"},
+  GS12YTL == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS12YTL, 
+      Value ->  0.153, Description -> "S12-Y-T scalar coupling (left-handed)"},
+  GS12YTR == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS12YTR, 
+      Value ->  0.154, Description -> "S12-Y-T scalar coupling (right-handed)"},
+
+  (*S12 couplings to one SM quark and one VLQ*)
+  GS12XDL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS12XDL,
+      Value -> {GS12XDL[1] -> 0.151, GS12XDL[2] -> 0.152, GS12XDL[3] -> 0.153}, Description -> "S12-X-dq coupling (left-handed)"},
+  GS12XDR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS12XDR,
+      Value -> {GS12XDR[1] -> 0.151, GS12XDR[2] -> 0.152, GS12XDR[3] -> 0.153}, Description -> "S12-X-dq coupling (right-handed)"},
+  GS12YUL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS12YUL,
+      Value -> {GS12YUL[1] -> 0.151, GS12YUL[2] -> 0.152, GS12YUL[3] -> 0.153}, Description -> "S12-Y-uq coupling (left-handed)"},
+  GS12YUR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS12YUR,
+      Value -> {GS12YUR[1] -> 0.151, GS12YUR[2] -> 0.152, GS12YUR[3] -> 0.153}, Description -> "S12-Y-uq coupling (right-handed)"},
+
+  (*S12 couplings to two vector bosons*)
+  KS12W == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS12W, Value -> 0.141, Description -> "S12-WW coupling"},
+  KP12W == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KP12W, Value -> 0.141, Description -> "P12-WW coupling"},
+
+  (*S12 couplings to the Higgs*)
+  KS12H1 == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS12H, OrderBlock->1, Value -> 0.171, Description -> "S12-S12-H coupling"},
+  KS12H2 == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,1}}, BlockName -> KS12H, OrderBlock->2, Value -> 0.172, Description -> "S12-S12-H coupling"},
+  KS12HH == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KS12H, OrderBlock->3, Value -> 0.173, Description -> "S12-S12-H-H coupling"}
+
+}
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* Kinetic and mass terms *)
+LS12K := (DC[S12bar, mu] + 2 I ee A[mu] S12bar) (DC[S12, mu] - 2 I ee A[mu] S12) - MS12^2 S12bar S12;
+
+(*S12 - VLQ interactions*)
+LS12VLQ1 := xbar[sp1,cc1].bp[sp2,cc1] (ProjM[sp1,sp2] GS12XBL + ProjP[sp1,sp2] GS12XBR) S12 \
+            + ybar[sp1,cc1].tp[sp2,cc1] (ProjM[sp1,sp2] GS12YTL + ProjP[sp1,sp2] GS12YTR) S12bar;
+LS12VLQ := LS12VLQ1 + HC[LS12VLQ1];
+
+(*S12 - VLQ - SM interactions*)
+LS12VLQSM1 := xbar[sp1,cc1].dq[sp2,ff,cc1] (ProjM[sp1,sp2] GS12XDL[ff] + ProjP[sp1,sp2] GS12XDR[ff]) S12 \
+            + ybar[sp1,cc1].uq[sp2,ff,cc1] (ProjM[sp1,sp2] GS12YUL[ff] + ProjP[sp1,sp2] GS12YUR[ff]) S12bar;
+LS12VLQSM := LS12VLQSM1 + HC[LS12VLQSM1];
+
+(*S12 - Vector boson interactions*)
+LS12VV1 := ExpandIndices[\
+          KS12W gw^2/(16 Pi^2 vev) S12 FS[Wbar, mu, nu] FS[Wbar, mu, nu] \
+        + KP12W gw^2/(16 Pi^2 vev) S12 FS[Wbar, mu, nu] Dual[FS][Wbar, mu, nu], FlavorExpand -> SU2W]; 
+LS12VV = LS12VV1 + HC[LS12VV1];
+      
+(*S12 - Higgs interactions*)
+LS12H := KS12H1/vev H (DC[S12bar, mu] + 2 I ee A[mu] S12bar) (DC[S12, mu] - 2 I ee A[mu] S12) + KS12H2 vev H S12bar S12 + KS12HH H^2 S12bar S12;
+LS12Hno5 := KS12H2 vev H S12bar S12;
+
+(*Lagrangian for S12*)
+LS12 := LS12K + LS12VLQ + LS12VLQSM + LS12VV + LS12H;
+LS12no5 := LS12K + LS12VLQ + LS12VLQSM + LS12Hno5 + LS12VV;

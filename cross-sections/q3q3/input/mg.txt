@@ -1,0 +1,10 @@
+import model ../../../VLQ_S80
+generate g g > t t~
+output mgevents
+launch
+shower=OFF
+analysis=Off
+set mtp {Mtp}
+set lpp1 0
+set lpp2 0
+

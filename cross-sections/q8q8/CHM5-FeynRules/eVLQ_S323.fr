@@ -1,0 +1,74 @@
+(***************************************************************************************************************)
+(******                       FeynRules mod-file for color triplet scalars                                ******)
+(******                                        S323 (Q=2/3)                                                  ******)
+(******                                                                                                   ******)
+(******     Authors: M. Kunkel                                                                            ******)
+(******     Compatibility with the new SM.fr of FR 2.0 and VLQ_v4.fr                                      ******)
+(***************************************************************************************************************)
+
+M$ModelName = "eVLQ_S323";
+
+M$Information = {
+  Authors -> {"M. Kunkel"}, 
+  Version -> "1.0",
+  Date -> "06.01.2021"
+};
+
+FeynmanGauge =False;
+
+(*VLQ as order 2 in eVLQ_S10.fr but order 1 in VLQ_v4.fr*)
+M$InteractionOrderHierarchy = { {QCD, 1},  {QED, 2},  {VLQ,2}, {SX,2}};
+M$InteractionOrderLimit     = { {QCD, 99}, {QED, 99}, {VLQ,99}, {SX,99}};
+
+
+(* ************************** *)
+(* *****   Fields       ***** *)
+(* ************************** *)
+
+M$ClassesDescription = {
+  (* Color octet scalar S323 (Q=2/3) *)
+
+    S[323] == { 
+        ClassName -> S323,  
+        SelfConjugate -> False, 
+        Indices -> {Index[Colour]},
+        Mass -> {MS323, 900},  
+        Width -> {WS323, 1.1}, 
+        QuantumNumbers -> {Q -> 2/3},
+        PropagatorLabel -> "S323",
+        PropagatorType -> ScalarDash,
+        PDG -> 6100300,
+        FullName -> "S323-scalar"
+    }
+};
+
+
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+
+M$Parameters = {
+  (*S323 couplings to the Higgs*)
+  KS323H1 == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS323H, OrderBlock->1, Value -> 0.171, Description -> "S323-S323-H coupling"},
+  KS323H2 == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,1}}, BlockName -> KS323H, OrderBlock->2, Value -> 0.172, Description -> "S323-S323-H coupling"},
+  KS323HH == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KS323H, OrderBlock->3, Value -> 0.173, Description -> "S323-S323-H-H coupling"}
+
+}
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* Kinetic and mass terms *)
+LS323K := (DC[S323bar[cc], mu] + 2/3 I ee A[mu]*S323bar[cc]) (DC[S323[cc], mu] - 2/3 I ee A[mu] S323[cc]) - MS323^2 S323bar[cc] S323[cc];
+
+
+(*S323 - Higgs interactions*)
+LS323H := KS323H1/vev H (DC[S323bar[cc], mu] + 2/3 I ee A[mu]*S323bar[cc]) (DC[S323[cc], mu] - 2/3 I ee A[mu] S323[cc]) + KS323H2 vev H S323bar[cc] S323[cc] + KS323HH H^2 S323bar[cc] S323[cc];
+LS323Hno5 := KS323H2 vev H S323bar[cc] S323[cc];
+
+(*Lagrangian for S323*)
+LS323 := LS323K + LS323H;
+LS323no5 := LS323K + LS323Hno5;

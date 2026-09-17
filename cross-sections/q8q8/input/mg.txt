@@ -1,0 +1,9 @@
+import model ../../../CHM5-FeynRules/CHM5_UFO
+generate u u~ > q80 q80~
+output mgevents
+launch
+shower=OFF
+analysis=Off
+set mq80 {mq8}
+set lpp1 0
+set lpp2 0

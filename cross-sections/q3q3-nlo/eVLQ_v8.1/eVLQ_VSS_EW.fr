@@ -1,0 +1,83 @@
+(* ************************************************************* *)
+(* *****                                                   ***** *)
+(* *****  FeynRules model file to include the EW couplings ***** *)
+(* *****  between different new scalars                    ***** *)
+(* *****                                                   ***** *)
+(* *****  Author: Luca Panizzi                             ***** *)
+(* *****                                                   ***** *)
+(* ************************************************************* *)
+
+(* ************************** *)
+(* *****      Setup     ***** *)
+(* ************************** *)
+M$ModelName = "EW couplings between SM gauge bosons and new scalars";
+
+M$Information = {
+  Authors -> {"Luca Panizzi "}, 
+  Version -> "1.0",
+  Date -> "08.03.2022"
+};
+
+FeynmanGauge = False;
+
+M$InteractionOrderHierarchy = { {SX,2}  };
+M$InteractionOrderLimit     = { {SX,99} };
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+
+M$Parameters = {
+
+  (* VSS couplings (not photon) *)
+  KWS10S11  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {SX, 1}, BlockName -> KWSS, Value -> 0, Description -> "W-S10-S11"},
+  KWS11S12  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {SX, 1}, BlockName -> KWSS, Value -> 0, Description -> "W-S11-S12"},
+
+  KZS11S11 == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KZSS, Value -> 0, Description -> "Z-S11-S11 coupling"},
+  KZS12S12 == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KZSS, Value -> 0, Description -> "Z-S12-S12 coupling"},
+  
+  (* VVSS couplings *)
+  KWPWMSS10 == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KWPWMSS, Value -> 0, Description -> "WP-WM-S10-S10 coupling"},
+  KWPWMSS11 == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KWPWMSS, Value -> 0, Description -> "WP-WM-S11-S11 coupling"},
+  KWPWMSS12 == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KWPWMSS, Value -> 0, Description -> "WP-WM-S12-S12 coupling"},
+  
+  KWPWPSS11 == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KWPWPSS, Value -> 0, Description -> "WP-WP-S11-S11 coupling"},
+  KWPWPSS12 == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KWPWPSS, Value -> 0, Description -> "WP-WP-S12-S12 coupling"},
+
+  KZZSS10 == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KZZSS, Value -> 0, Description -> "Z-Z-S10-S10 coupling"},
+  KZZSS11 == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KZZSS, Value -> 0, Description -> "Z-Z-S11-S11 coupling"},
+  KZZSS12 == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KZZSS, Value -> 0, Description -> "Z-Z-S12-S12 coupling"},
+  
+  (* V1V2SS couplings *)
+  KAWS10S11 == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KAWSS, Value -> 0, Description -> "A-W-S10-S11 coupling"},
+  KAWS11S12 == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KAWSS, Value -> 0, Description -> "A-W-S11-S12 coupling"},
+  
+  KAZSS11 == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KAZSS, Value -> 0, Description -> "A-Z-S11-S11 coupling"},
+  KAZSS12 == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KAZSS, Value -> 0, Description -> "A-Z-S12-S12 coupling"},
+
+  KWZS10S11 == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KWZSS, Value -> 0, Description -> "W-Z-S10-S11 coupling"},
+  KWZS11S12 == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KWZSS, Value -> 0, Description -> "W-Z-S11-S12 coupling"}
+  
+};
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+LWSS := I gw    W[mu] ( KWS10S11 (S11bar del[S10,mu] - del[S11bar,mu] S10) + KWS11S12 (S12bar del[S11,mu] - del[S12bar,mu] S11) );
+LZSS := I gw/cw Z[mu] ( KZS11S11 (S11bar del[S11,mu] - del[S11bar,mu] S11) + KZS12S12 (S12bar del[S12,mu] - del[S12bar,mu] S12) );
+
+LWWSS1 := gw^2 ( KWPWMSS10 W[mu] Wbar[mu] S10 S10 + KWPWMSS11 W[mu] Wbar[mu] S11 S11bar + KWPWMSS12 W[mu] Wbar[mu] S12 S12bar );
+LWWSS2 := gw^2 (                                    KWPWPSS11 W[mu] W[mu] S11bar S11bar + KWPWPSS12 W[mu] W[mu] S10 S12bar );
+
+LZZSS := (gw/cw)^2 ( KZZSS10 Z[mu] Z[mu] S10 S10 + KZZSS11 Z[mu] Z[mu] S11 S11bar + KZZSS12 Z[mu] Z[mu] S12 S12bar );
+
+LAWSS := gw*ee ( KAWS10S11 A[mu] W[mu] S10 S11bar + KAWS11S12 A[mu] W[mu] S11 S12bar );
+LAZSS := gw*ee/cw ( KAZSS11 A[mu] Z[mu] S11 S11bar + KAZSS12 A[mu] Z[mu] S12 S12bar );
+LWZSS := gw^2/cw ( KWZS10S11 Z[mu] W[mu] S10 S11bar + KWZS11S12 Z[mu] W[mu] S11 S12bar );
+
+
+LVS := LWSS + LZSS + LWWSS1 + LWWSS2 + LZZSS + LAWSS + LAZSS + LWZSS + HC[LWSS + LWWSS2 + LAWSS + LWZSS];
+
+ 

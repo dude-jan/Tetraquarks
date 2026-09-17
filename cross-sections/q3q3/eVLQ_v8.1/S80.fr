@@ -1,0 +1,153 @@
+(***************************************************************************************************************)
+(******                       FeynRules mod-file for color octet scalars                                  ******)
+(******                                        S80 (Q=0)                                                  ******)
+(******                                                                                                   ******)
+(******     Authors: M. Kunkel                                                                            ******)
+(******     Compatibility with the new SM.fr of FR 2.0 and VLQ_v4.fr                                      ******)
+(***************************************************************************************************************)
+
+M$ModelName = "S8";
+
+M$Information = {
+  Authors -> {"M. Kunkel"}, 
+  Version -> "1.0",
+  Date -> "03.01.2021"
+};
+
+FeynmanGauge =False;
+
+(*VLQ as order 2 in eVLQ_S10.fr but order 1 in VLQ_v4.fr*)
+M$InteractionOrderHierarchy = { {QCD, 1},  {QED, 2},  {VLQ,2}, {SX,2}};
+M$InteractionOrderLimit     = { {QCD, 99}, {QED, 99}, {VLQ,99}, {SX,99}};
+
+
+(* ************************** *)
+(* *****   Fields       ***** *)
+(* ************************** *)
+
+M$ClassesDescription = {
+  (* Color octet scalar S80 (Q=0) *)
+
+    S[800] == { 
+        ClassName -> S80,  
+        SelfConjugate -> True, 
+        Indices -> {Index[Gluon]},
+        Mass -> {MS80, 200},  
+        Width -> {WS80, 1.1}, 
+        PropagatorLabel -> "S80",
+        PropagatorType -> ScalarDash,
+        PDG -> 6108000,
+        FullName -> "S80-scalar"
+    }
+};
+
+
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+
+M$Parameters = {
+
+
+  (*S80 couplings to the SM*)
+  GS80U == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+      InteractionOrder -> {SX, 1}, BlockName -> GS80U, Definitions -> {GS80U[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+      Value -> {GS80U[1,1] -> 0.0, GS80U[2,2] -> 0.00, GS80U[3,3] -> 0.0},
+      Description -> "S80 - up quark scalar coupling"},
+  GP80U == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+      InteractionOrder -> {SX, 1}, BlockName -> GP80U, Definitions -> {GP80U[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+      Value -> {GP80U[1,1] -> 0.0, GP80U[2,2] -> 0.0, GP80U[3,3] -> 0.100},
+      Description -> "S80 - up quark pseudoscalar coupling"},
+  GS80D == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+      InteractionOrder -> {SX, 1}, BlockName -> GS80D, Definitions -> {GS80D[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+      Value -> {GS80D[1,1] -> 0.00, GS80D[2,2] -> 0.00, GS80D[3,3] -> 0.00},
+      Description -> "S80 - down quark scalar coupling"},
+  GP80D == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+      InteractionOrder -> {SX, 1}, BlockName -> GP80D, Definitions -> {GP80D[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+      Value -> {GP80D[1,1] -> 0.00, GP80D[2,2] -> 0.00, GP80D[3,3] -> 0.00},
+      Description -> "S80 - down quark pseudoscalar coupling"},
+
+  (*S80 couplings to two VLQs*)
+  GS80X == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS80X, 
+      Value ->  0.153, Description -> "S80-X-X scalar coupling"},
+  GP80X == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GP80X, 
+      Value ->  0.153, Description -> "S80-X-X pseudoscalar coupling"},
+  GS80T == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS80T, 
+      Value ->  0.154, Description -> "S80-T-T scalar coupling"},
+  GP80T == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GP80T, 
+      Value ->  0.154, Description -> "S80-T-T pseudoscalar coupling"},
+  GS80B == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS80B, 
+      Value ->  0.155, Description -> "S80-B-B scalar coupling"},
+  GP80B == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GP80B, 
+      Value ->  0.155, Description -> "S80-B-B pseudoscalar coupling"},
+  GS80Y == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS80Y, 
+      Value ->  0.156, Description -> "S80-Y-Y scalar coupling"},
+  GP80Y == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GP80Y, 
+      Value ->  0.156, Description -> "S80-Y-Y pseudoscalar coupling"},
+
+  (*S80 couplings to one SM quark and one VLQ*)
+  GS80BDL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS80BDL,
+      Value -> {GS80BDL[1] -> 0.00, GS80BDL[2] -> 0.00, GS80BDL[3] -> 0.00}, Description -> "S80-B-dq coupling (left-handed)"},
+  GS80BDR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS80BDR,
+      Value -> {GS80BDR[1] -> 0.00, GS80BDR[2] -> 0.00, GS80BDR[3] -> 0.00}, Description -> "S80-B-dq coupling (right-handed)"},
+  GS80TUL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS80TUL,
+      Value -> {GS80TUL[1] -> 0.0, GS80TUL[2] -> 0.0, GS80TUL[3] -> 0.1}, Description -> "S80-T-uq coupling (left-handed)"},
+  GS80TUR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS80TUR,
+      Value -> {GS80TUR[1] -> 0.00, GS80TUR[2] -> 0.00, GS80TUR[3] -> 0.00}, Description -> "S80-T-uq coupling (right-handed)"},
+
+  (*S80 couplings to two vector bosons*)
+  KS80G == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS80VV, OrderBlock->1, Value -> 0.00, Description -> "S80-GG coupling"},
+  KP80G == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KP80VV, OrderBlock->1, Value -> 0.00, Description -> "P80-GG coupling"},
+  KS80GZ == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS80VV, OrderBlock->2, Value -> 0.00, Description -> "S80-GZ coupling"},
+  KP80GZ == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KP80VV, OrderBlock->2, Value -> 0.00, Description -> "P80-GZ coupling"},
+  KS80GA == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS80VV, OrderBlock->3, Value -> 0.00, Description -> "S80-GA coupling"},
+  KP80GA == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KP80VV, OrderBlock->3, Value -> 0.00, Description -> "P80-GA coupling"},
+
+  (*S80 couplings to the Higgs*)
+  KS80H1 == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS80H, OrderBlock->1, Value -> 0.00, Description -> "S80-S80-H coupling"},
+  KS80H2 == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,1}}, BlockName -> KS80H, OrderBlock->2, Value -> 0.00, Description -> "S80-S80-H coupling"},
+  KS80HH == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KS80H, OrderBlock->3, Value -> 0.00, Description -> "S80-S80-H-H coupling"}
+
+}
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* Kinetic and mass terms *)
+LS80K := 1/2 DC[S80[aa], mu] DC[S80[aa], mu] - 1/2 MS80^2 S80[aa] S80[aa];
+
+(*S80 - SM interactions*)
+LS80SM1 := uqbar[sp1,ff1,cc1].uq[sp2,ff2,cc2] (GS80U[ff1,ff2] IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP80U[ff1,ff2]) S80[aa] T[aa, cc1, cc2] \
+         + dqbar[sp1,ff1,cc1].dq[sp2,ff2,cc2] (GS80D[ff1,ff2] IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP80D[ff1,ff2]) S80[aa] T[aa, cc1, cc2];
+LS80SM := LS80SM1 + HC[LS80SM1];
+
+(*S80 - VLQ interactions*)
+LS80VLQ1 := xbar[sp1,cc1].x[sp2,cc2] (GS80X IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP80X) S80[aa] T[aa, cc1, cc2] \
+          + tpbar[sp1,cc1].tp[sp2,cc2] (GS80T IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP80T) S80[aa] T[aa, cc1, cc2] \
+          + bpbar[sp1,cc1].bp[sp2,cc2] (GS80B IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP80B) S80[aa] T[aa, cc1, cc2] \
+          + ybar[sp1,cc1].y[sp2,cc2] (GS80Y IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP80Y) S80[aa] T[aa, cc1, cc2];
+LS80VLQ := LS80VLQ1 + HC[LS80VLQ1];
+
+(*S80 - VLQ - SM interactions*)
+LS80VLQSM1 := tpbar[sp1,cc1].uq[sp2,ff,cc2] (ProjM[sp1,sp2] GS80TUL[ff] + ProjP[sp1,sp2] GS80TUR[ff]) S80[aa] T[aa, cc1, cc2] \
+            + bpbar[sp1,cc1].dq[sp2,ff,cc2] (ProjM[sp1,sp2] GS80BDL[ff] + ProjP[sp1,sp2] GS80BDR[ff]) S80[aa] T[aa, cc1, cc2];
+LS80VLQSM := LS80VLQSM1 + HC[LS80VLQSM1];
+
+(*S80 - Vector boson interactions*)
+LS80VV := ExpandIndices[\
+          KS80G gs^2/(16 Pi^2 vev) 1/4 (dSUN[aa1, aa2, aa3] + I f[aa1, aa2, aa3]) S80[aa1] FS[G, mu, nu, aa2] FS[G, mu, nu, aa3] \
+        + KP80G gs^2/(16 Pi^2 vev) 1/4 (dSUN[aa1, aa2, aa3] + I f[aa1, aa2, aa3]) S80[aa1] FS[G, mu, nu, aa2] Dual[FS][G, mu, nu, aa3] \
+        + KS80GZ gs ee/(sw cw 16 Pi^2 vev) S80[aa] FS[G, mu, nu, aa] FS[Z, mu, nu] \
+        + KP80GZ gs ee/(sw cw 16 Pi^2 vev) S80[aa] FS[G, mu, nu, aa] Dual[FS][Z, mu, nu] \
+        + KS80GA gs ee/(16 Pi^2 vev) S80[aa] FS[G, mu, nu, aa] FS[A, mu, nu] \
+        + KP80GA gs ee/(16 Pi^2 vev) S80[aa] FS[G, mu, nu, aa] Dual[FS][A, mu, nu], FlavorExpand -> SU2W]; 
+      
+(*S80 - Higgs interactions*)
+LS80H := KS80H1/vev H DC[S80[aa], mu]^2 + KS80H2 vev H S80[aa]^2 + KS80HH H^2 S80[aa]^2;
+LS80Hno5 := KS80H2 vev H S80[aa]^2;
+
+(*Lagrangian for S80*)
+LS80 := LS80K + LS80SM + LS80VLQ + LS80VLQSM + LS80VV + LS80H;

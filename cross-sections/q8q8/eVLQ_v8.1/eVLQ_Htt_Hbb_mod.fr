@@ -1,0 +1,63 @@
+(* ************************************************************* *)
+(* *****                                                   ***** *)
+(* *****  FeynRules model file to include the htt and hbb  ***** *)
+(* *****  modified vertices                                ***** *)
+(* *****                                                   ***** *)
+(* *****  Author: Luca Panizzi                             ***** *)
+(* *****                                                   ***** *)
+(* ************************************************************* *)
+
+(* ************************** *)
+(* *****      Setup     ***** *)
+(* ************************** *)
+M$ModelName = "Higgs top and bottom modified couplings";
+
+M$Information = {
+  Authors -> {"L. Panizzi"}, 
+  Version -> "1.0",
+  Date -> "11.03.2021"
+};
+
+FeynmanGauge = False;
+
+M$InteractionOrderHierarchy = { {HTTMOD,2} , {HBBMOD,2} };
+M$InteractionOrderLimit     = { {HTTMOD,99}, {HBBMOD,99}};
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+
+M$Parameters = {
+
+  KHTT  == { ParameterType -> External, ComplexParameter -> False, BlockName -> HQQSMMOD, Value -> 1, Description -> "modified Htt"},
+  KHBB  == { ParameterType -> External, ComplexParameter -> False, BlockName -> HQQSMMOD, Value -> 1, Description -> "modified Hbb"},
+
+  KHTT1 == { 
+    ParameterType -> Internal, 
+    Value         -> (KHTT-1) yt/Sqrt[2], 
+    TeX           -> Subscript[KHTT,1],
+    InteractionOrder -> {HTTMOD, 1},
+    Description   -> "modified Higgs-top-top coupling with SM part removed"
+  },
+
+  KHBB1 == { 
+    ParameterType -> Internal, 
+    Value         -> (KHBB-1) yb/Sqrt[2], 
+    TeX           -> Subscript[KHBB,1],
+    InteractionOrder -> {HBBMOD, 1},
+    Description   -> "modified Higgs-bottom-bottom coupling with SM part removed"
+  }
+  
+
+};
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+LHTT := - KHTT1 H tbar.t;
+LHBB := - KHBB1 H bbar.b;
+
+LHqqSMmod := LHTT + LHBB;
+

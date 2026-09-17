@@ -1,0 +1,28 @@
+import model ../../../SUSYQCD_UFO
+generate p p > go go [QCD]
+output mgevents
+launch
+shower=OFF
+fixed_order=on
+madanalysis=Off
+set mgo 2300.0
+set msdl 10000
+set msul 10000
+set mssl 10000
+set mscl 10000
+set msbl 10000
+set mstl 10000
+set msdr 10000
+set msur 10000
+set mssr 10000
+set mscr 10000
+set msbr 10000
+set mstr 10000
+set mchi 10000
+set fixed_ren_scale True
+set fixed_fac_scale True
+set muR_ref_fixed 2300.0
+set muF_ref_fixed 2300.0
+set run_card nevents 100
+set run_card ebeam1 6500.0
+set run_card ebeam2 6500.0

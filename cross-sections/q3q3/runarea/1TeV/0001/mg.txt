@@ -1,0 +1,13 @@
+import model ../../../VLQ_S80
+generate g g > t t~
+output mgevents
+launch
+shower=OFF
+analysis=Off
+set mtp 3000.0
+set lpp1 0
+set lpp2 0
+
+set run_card nevents 10000
+set run_card ebeam1 500.0
+set run_card ebeam2 500.0

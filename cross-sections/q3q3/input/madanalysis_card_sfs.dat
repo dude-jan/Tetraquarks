@@ -1,0 +1,19 @@
+# AnalysisName               PADType    Switch     DetectorCard
+# Detector cards must be located in the PAD(ForMA5tune/ForSFS) directory
+# Switches must be on or off
+atlas_conf_2019_040           vSFS        off    sfs_card_atlas_susy_2016_07.ma5                    #  ATLAS - 13 TeV - multijet + met (139/fb)
+atlas_exot_2018_05            vSFS        off   sfs_card_atlas_exot_2018_05.ma5                    #  ATLAS - 13 TeV - di-jet resonance with a photon (76.8/fb)
+atlas_exot_2018_06            vSFS        off   sfs_card_atlas_exot_2018_05.ma5                    #  ATLAS - 13 TeV - multijet + met [inclusive] (139/fb)
+atlas_exot_2019_03            vSFS        on    sfs_card_atlas_exot_2019_03.ma5                    #  ATLAS - 13 TeV - di-jet resonance (139/fb)
+atlas_exot_2022_37            vSFS        off   sfs_card_atlas_exot_2022_37.ma5                    #  ATLAS - 13 TeV - Semi-visible jets (139/fb)
+atlas_susy_2016_07            vSFS        off   sfs_card_atlas_susy_2016_07.ma5                    #  ATLAS - 13 TeV - multijet + met (36.1/fb)
+atlas_susy_2017_04_2body      vSFS        off   sfs_card_atlas_susy_2017_04.ma5                    #  ATLAS - 13 TeV - displaced vertices with opposite charge leptons, 2-body decays (32.8/fb)
+atlas_susy_2017_04_3body      vSFS        off   sfs_card_atlas_susy_2017_04.ma5                    #  ATLAS - 13 TeV - displaced vertices with opposite charge leptons, 3-body decays (32.8/fb)
+atlas_susy_2018_16            vSFS        off   sfs_card_atlas_susy_2018_16.ma5                    #  ATLAS - 13 TeV - ewkinos with two soft leptons and MET (139/fb)
+atlas_susy_2018_31            vSFS        on    sfs_card_atlas_susy_2018_31.ma5                    #  ATLAS - 13 TeV - multibottoms + MET (139/fb)
+atlas_susy_2019_09            vSFS        off   sfs_card_atlas_susy_2018_16.ma5                    #  ATLAS - 13 TeV - ewkinos with trileptons and MET (139/fb)
+cms_exo_16_022                vSFS        off   sfs_card_cms_exo_19_022.ma5                        #  CMS   - 13 TeV - Displaced leptons (2.6/fb)
+cms_exo_17_011                vSFS        off   sfs_card_cms_exo_17_011.ma5                        #  CMS   - 13 TeV - WR and heavy neutrino in the 2l2j mode (35.9/fb)
+cms_exo_19_010                vSFS        off   sfs_card_cms_exo_19_010.ma5                        #  CMS   - 13 TeV - Disappearing tracks (140/fb)
+cms_exo_20_002                vSFS        off   sfs_card_cms_exo_20_002.ma5                        #  CMS   - 13 TeV - WR and heavy neutrino in the 2l2j mode (138/fb)
+cms_sus_16_048                vSFS        off   sfs_card_cms_sus_16_048.ma5                        #  CMS   - 13 TeV - Soft dilepton (35.9/fb)

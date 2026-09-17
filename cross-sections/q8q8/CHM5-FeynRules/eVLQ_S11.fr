@@ -1,0 +1,160 @@
+
+(* ****************************************************************** *)
+(* *****                                                        ***** *)
+(* *****  FeynRules model file to make the old VLA model exotic ***** *)
+(* *****  charged scalar                                        ***** *)
+(* *****                                                        ***** *)
+(* *****  Author: Benjamin Fuks                                 ***** *)
+(* *****                                                        ***** *)
+(* ****************************************************************** *)
+
+(* ************************** *)
+(* *****      Setup     ***** *)
+(* ************************** *)
+M$ModelName = "eVLQ_S11";
+
+M$Information = {
+  Authors -> {"B. Fuks"}, 
+  Version -> "1.0",
+  Date -> "26.10.2019"
+};
+
+(* 2019.10.26 v1.0 - only partial set of interactions    *)
+
+FeynmanGauge = False;
+
+M$InteractionOrderHierarchy = { {QCD, 1},  {QED, 2},  {VLQ,2},  {SX,2}  };
+M$InteractionOrderLimit     = { {QCD, 99}, {QED, 99}, {VLQ,99}, {SX,99} };
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+M$Parameters = {
+
+  (* S11 couplings to the SM *)
+
+  GS11qq == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+    InteractionOrder -> {SX, 1}, BlockName -> GS11qq, Definitions -> {GS11qq[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+    Value -> {GS11qq[1,1] -> 0.101, GS11qq[2,2] -> 0.102, GS11qq[3,3] -> 0.103},
+    Description -> "S11 - quark scalar coupling"},
+  GP11qq == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+    InteractionOrder -> {SX, 1}, BlockName -> GP11qq, Definitions -> {GP11qq[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+    Value -> {GP11qq[1,1] -> 0.101, GP11qq[2,2] -> 0.102, GP11qq[3,3] -> 0.103},
+    Description -> "S11 - quark pseudoscalar coupling"},
+  GS11ll == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+    InteractionOrder -> {SX, 1}, BlockName -> GS11ll, Definitions -> {GS11ll[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+    Value -> {GS11ll[1,1] -> 0.0101, GS11ll[2,2] -> 0.0102, GS11ll[3,3] -> 0.0103},
+    Description -> "S11 - lepton scalar coupling"},
+  GP11ll == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]},
+    InteractionOrder -> {SX, 1}, BlockName -> GP11ll, Definitions -> {GP11ll[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)},
+    Value -> {GP11ll[1,1] -> 0.0101, GP11ll[2,2] -> 0.0102, GP11ll[3,3] -> 0.0103},
+    Description -> "S11 - lepton pseudoscalar coupling"},
+
+  (* S11 loop-induced couplings to the SM gauge bosons *)
+  KS11WA == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS11VV, OrderBlock->1, Value -> 0.142, Description -> "S11-WA coupling"},
+  KS11WZ == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS11VV, OrderBlock->2, Value -> 0.143, Description -> "S11-WZ coupling"},
+  KP11WA == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KP11VV, OrderBlock->1, Value -> 0.144, Description -> "S11-WA coupling"},
+  KP11WZ == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KP11VV, OrderBlock->2, Value -> 0.145, Description -> "S11-WZ coupling"},
+
+  (* S11 - VLQ - SM interactions *)
+
+  GS11TdL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS11TdL,
+    Value -> {GS11TdL[1] -> 0.151, GS11TdL[2] -> 0.152, GS11TdL[3] -> 0.153},
+    Description -> "S11-T-dq coupling (left-handed)"},
+  GS11TdR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS11TdR,
+    Value -> {GS11TdR[1] -> 0.154, GS11TdR[2] -> 0.155, GS11TdR[3] -> 0.156},
+    Description -> "S11-T-dq coupling (right-handed)"},
+  GS11BuL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS11BuL,
+    Value -> {GS11BuL[1] -> 0.161, GS11BuL[2] -> 0.162, GS11BuL[3] -> 0.163},
+    Description -> "S11-B-uq coupling (left-handed)"},
+  GS11BuR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS11BuR,
+    Value -> {GS11BuR[1] -> 0.164, GS11BuR[2] -> 0.165, GS11BuR[3] -> 0.166},
+    Description -> "S11-B-uq coupling (right-handed)"},
+  GS11XuL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS11XuL,
+    Value -> {GS11XuL[1] -> 0.161, GS11XuL[2] -> 0.162, GS11XuL[3] -> 0.163},
+    Description -> "S11-X-uq coupling (left-handed)"},
+  GS11XuR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS11XuR,
+    Value -> {GS11XuR[1] -> 0.164, GS11XuR[2] -> 0.165, GS11XuR[3] -> 0.166},
+    Description -> "S11-X-uq coupling (right-handed)"},
+  GS11YdL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS11YdL,
+    Value -> {GS11YdL[1] -> 0.151, GS11YdL[2] -> 0.152, GS11YdL[3] -> 0.153},
+    Description -> "S11-Y-dq coupling (left-handed)"},
+  GS11YdR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> GS11YdR,
+    Value -> {GS11YdR[1] -> 0.154, GS11YdR[2] -> 0.155, GS11YdR[3] -> 0.156},
+    Description -> "S11-Y-dq coupling (right-handed)"},
+
+
+  (* S11 - VLQ - VLQ interactions  *)
+
+  GS11TBL == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS11TBL, 
+    Value ->  0.153, Description -> "S11-T-B vector coupling (left-handed)"},
+  GS11TBR == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS11TBR, 
+    Value ->  0.153, Description -> "S11-T-B vector coupling (right-handed)"},
+  GS11BYL == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS11BYL, 
+    Value ->  0.154, Description -> "S11-B-Y vector coupling (left-handed)"},
+  GS11BYR == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS11BYR, 
+    Value ->  0.154, Description -> "S11-B-Y vector coupling (right-handed)"},
+  GS11XTL == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS11XTL, 
+    Value ->  0.155, Description -> "S11-X-T vector coupling (left-handed)"},
+  GS11XTR == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> GS11XTR, 
+    Value ->  0.155, Description -> "S11-X-T vector coupling (right-handed)"},
+
+  (* S11 to Higgs couplings *)
+  KS11H1 == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS11H, OrderBlock->1, Value -> 0.171, Description -> "S11-S11-H coupling"},
+  KS11H2 == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,1}}, BlockName -> KS11H, OrderBlock->2, Value -> 0.172, Description -> "S11-S11-H coupling"},
+  KS11HW == { ParameterType -> External, InteractionOrder -> {SX,1}, BlockName -> KS11H, OrderBlock->3, Value -> 0.174, Description -> "S11-H-W coupling"}
+};
+
+
+(* ************************** *)
+(* *****   Fields       ***** *)
+(* ************************** *)
+
+M$ClassesDescription = {
+  (* charged scalar *)
+    S[101] == { ClassName -> S11, SelfConjugate -> False, Mass  -> {MS11,  500}, Width -> {WS11, 15}, QuantumNumbers -> {Q -> 1},
+             PDG -> 6100002 }
+};
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* S11 Kinetic and mass terms *)
+LS11K :=  (DC[S11,mu] - I*ee*A[mu]*S11) (DC[S11bar,mu] + I*ee*A[mu]*S11bar) - MS11^2 S11 S11bar;
+
+(* S11 - SM interactions *)
+LS11SM := S11    uqbar[sp1,ff1,cc].dq[sp2,ff2,cc] (GS11qq[ff1,ff2] IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP11qq[ff1,ff2]) \
+        + S11bar    lbar[sp1,ff1].vl[sp2,ff2]        (GS11ll[ff1,ff2] IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] GP11ll[ff1,ff2]);
+
+
+
+(* S11 to SM gauge boson couplings *)
+LS11VV := KS11WA/(16*Pi^2*vev) (ee^2 / sw) S11 FS[A,mu,nu] FS[Wbar,mu,nu] \
+        + KS11WZ/(16*Pi^2*vev) (ee^2 / (sw cw)) S11 FS[Z,mu,nu] FS[Wbar,mu,nu] \
+	+ KP11WA/(16*Pi^2*vev) (ee^2 / sw) S11 FS[A,mu,nu] Dual[FS][Wbar,mu,nu] \
+        + KP11WZ/(16*Pi^2*vev) (ee^2 / (sw cw)) S11 FS[Z,mu,nu] Dual[FS][Wbar,mu,nu];
+
+(* T interactions *)
+LS11T := S11     tpbar[sp1,cc].dq[sp2,ff,cc] (ProjM[sp1,sp2] GS11TdL[ff] + ProjP[sp1,sp2] GS11TdR[ff]) \
+       + S11     tpbar[sp1,cc].bp[sp2,cc]    (ProjM[sp1,sp2] GS11TBL + ProjP[sp1,sp2] GS11TBR);
+
+(* B interactions *)
+LS11B := S11bar  bpbar[sp1,cc].uq[sp2,ff,cc] (ProjM[sp1,sp2] GS11BuL[ff] + ProjP[sp1,sp2] GS11BuR[ff]) \
+       + S11     bpbar[sp1,cc].y[sp2,cc]     (ProjM[sp1,sp2] GS11BYL + ProjP[sp1,sp2] GS11BYR);
+
+(* X interactions *)
+LS11X := S11  xbar[sp1,cc].uq[sp2,ff,cc] (ProjM[sp1,sp2] GS11XuL[ff] + ProjP[sp1,sp2] GS11XuR[ff]) \
+       + S11  xbar[sp1,cc].tp[sp2,cc]    (ProjM[sp1,sp2] GS11XTL + ProjP[sp1,sp2] GS11XTR);
+
+(* Y interactions *)
+LS11Y := S11bar ybar[sp1,cc].dq[sp2,ff,cc] (ProjM[sp1,sp2] GS11YdL[ff] + ProjP[sp1,sp2] GS11YdR[ff])   ;
+
+(* Interactions with the Higgs *)
+LS11H := KS11H1/vev H del[S11bar,mu]del[S11,mu] + KS11H2 vev H S11bar S11 + KS11HW del[S11,mu] Wbar[mu] H + HC[KS11HW del[S11,mu] Wbar[mu] H];
+LS11Hno5 := KS11H2 vev H S11bar S11;
+
+
+LS11 := LS11K + LS11SM + LS11VV + LS11H + LS11T + LS11B + LS11X + LS11Y + HC[LS11SM + LS11VV + LS11T + LS11B + LS11X + LS11Y];
+LS11no5 := LS11K + LS11SM + LS11Hno5 + LS11T + LS11B + LS11X + LS11Y + HC[LS11SM + LS11T + LS11B + LS11X + LS11Y];

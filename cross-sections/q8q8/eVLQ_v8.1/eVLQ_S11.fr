@@ -1,0 +1,147 @@
+
+(* ****************************************************************** *)
+(* *****                                                        ***** *)
+(* *****  FeynRules model file to make the old VLA model exotic ***** *)
+(* *****  charged scalar                                        ***** *)
+(* *****                                                        ***** *)
+(* *****  Author: Benjamin Fuks                                 ***** *)
+(* *****                                                        ***** *)
+(* ****************************************************************** *)
+
+(* ************************** *)
+(* *****      Setup     ***** *)
+(* ************************** *)
+M$ModelName = "eVLQ_S11";
+
+M$Information = {
+  Authors -> {"B. Fuks", "L.Panizzi"}, 
+  Version -> "1.2",
+  Date -> "20.07.2022"
+};
+
+(* 2022.07.20 v1.2 - Fixed coupling order for SVV interactions to be only SWZ *)
+(* 2022.03.08 v1.1 - added VSS interaction with Z boson and    *)
+(* 2019.10.26 v1.0 - only partial set of interactions    *)
+
+FeynmanGauge = False;
+
+M$InteractionOrderHierarchy = { {QCD, 1},  {QED, 2},  {VLQ,2},  {SWZ,2}, {SX,2}  };
+M$InteractionOrderLimit     = { {QCD, 99}, {QED, 99}, {VLQ,99}, {SWZ,2}, {SX,99} };
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+M$Parameters = {
+
+  (* S11 couplings to the SM *)
+
+  (*
+  KS11qq == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]}, InteractionOrder -> {SX, 1}, BlockName -> KS11qq, Definitions -> {KS11qq[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)}, Value -> {KS11qq[1,1] -> 0, KS11qq[2,2] -> 0, KS11qq[3,3] -> 0}, Description -> "S11 - quark scalar coupling"},
+  KP11qq == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]}, InteractionOrder -> {SX, 1}, BlockName -> KP11qq, Definitions -> {KP11qq[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)}, Value -> {KP11qq[1,1] -> 0, KP11qq[2,2] -> 0, KP11qq[3,3] -> 0}, Description -> "S11 - quark pseudoscalar coupling"},
+  KS11ll == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]}, InteractionOrder -> {SX, 1}, BlockName -> KS11ll, Definitions -> {KS11ll[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)}, Value -> {KS11ll[1,1] -> 0, KS11ll[2,2] -> 0, KS11ll[3,3] -> 0}, Description -> "S11 - lepton scalar coupling"},
+  KP11ll == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]}, InteractionOrder -> {SX, 1}, BlockName -> KP11ll, Definitions -> {KP11ll[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)}, Value -> {KP11ll[1,1] -> 0, KP11ll[2,2] -> 0, KP11ll[3,3] -> 0}, Description -> "S11 - lepton pseudoscalar coupling"},
+  *)
+  
+  KS11qqL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]}, InteractionOrder -> {SX, 1}, BlockName -> KS11qqL, Definitions -> {KS11qqL[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)}, Value -> {KS11qqL[1,1] -> 0, KS11qqL[2,2] -> 0, KS11qqL[3,3] -> 0}, Description -> "S11 - quark scalar coupling"},
+  KS11qqR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]}, InteractionOrder -> {SX, 1}, BlockName -> KS11qqR, Definitions -> {KS11qqR[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)}, Value -> {KS11qqR[1,1] -> 0, KS11qqR[2,2] -> 0, KS11qqR[3,3] -> 0}, Description -> "S11 - quark pseudoscalar coupling"},
+  KS11ll == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation], Index[Generation]}, InteractionOrder -> {SX, 1}, BlockName -> KS11ll, Definitions -> {KS11ll[i_?NumericQ, j_?NumericQ] :> 0  /; (i =!= j)}, Value -> {KS11ll[1,1] -> 0, KS11ll[2,2] -> 0, KS11ll[3,3] -> 0}, Description -> "S11 - lepton scalar coupling"},
+
+  (* S11 loop-induced couplings to the SM gauge bosons *)
+  KS11WA == { ParameterType -> External, InteractionOrder -> {{SWZ,1}, {QED,-3}}, BlockName -> KS11VV, OrderBlock->1, OrderBlock->1, Value -> 0, Description -> "S11-WA coupling"},
+  KS11WZ == { ParameterType -> External, InteractionOrder -> {{SWZ,1}, {QED,-3}}, BlockName -> KS11VV, OrderBlock->2, OrderBlock->2, Value -> 0, Description -> "S11-WZ coupling"},
+  KP11WA == { ParameterType -> External, InteractionOrder -> {{SWZ,1}, {QED,-3}}, BlockName -> KP11VV, OrderBlock->1, OrderBlock->1, Value -> 0, Description -> "S11-WA coupling"},
+  KP11WZ == { ParameterType -> External, InteractionOrder -> {{SWZ,1}, {QED,-3}}, BlockName -> KP11VV, OrderBlock->2, OrderBlock->2, Value -> 0, Description -> "S11-WZ coupling"},
+
+  (* S11 - VLQ - SM interactions *)
+
+  KS11TdL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> KS11TdL, Value -> {KS11TdL[1] -> 0, KS11TdL[2] -> 0, KS11TdL[3] -> 0}, Description -> "S11-T-dq coupling (left-handed)"},
+  KS11TdR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> KS11TdR, Value -> {KS11TdR[1] -> 0, KS11TdR[2] -> 0, KS11TdR[3] -> 0}, Description -> "S11-T-dq coupling (right-handed)"},
+  KS11BuL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> KS11BuL, Value -> {KS11BuL[1] -> 0, KS11BuL[2] -> 0, KS11BuL[3] -> 0}, Description -> "S11-B-uq coupling (left-handed)"},
+  KS11BuR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> KS11BuR, Value -> {KS11BuR[1] -> 0, KS11BuR[2] -> 0, KS11BuR[3] -> 0}, Description -> "S11-B-uq coupling (right-handed)"},
+  KS11XuL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> KS11XuL, Value -> {KS11XuL[1] -> 0, KS11XuL[2] -> 0, KS11XuL[3] -> 0}, Description -> "S11-X-uq coupling (left-handed)"},
+  KS11XuR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> KS11XuR, Value -> {KS11XuR[1] -> 0, KS11XuR[2] -> 0, KS11XuR[3] -> 0}, Description -> "S11-X-uq coupling (right-handed)"},
+  KS11YdL == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> KS11YdL, Value -> {KS11YdL[1] -> 0, KS11YdL[2] -> 0, KS11YdL[3] -> 0}, Description -> "S11-Y-dq coupling (left-handed)"},
+  KS11YdR == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, BlockName -> KS11YdR, Value -> {KS11YdR[1] -> 0, KS11YdR[2] -> 0, KS11YdR[3] -> 0}, Description -> "S11-Y-dq coupling (right-handed)"},
+
+
+  (* S11 - VLQ - VLQ interactions  *)
+
+  KS11TBL == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> KS11TB, Value ->  0, Description -> "S11-T-B vector coupling (left-handed)"},
+  KS11TBR == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> KS11TB, Value ->  0, Description -> "S11-T-B vector coupling (right-handed)"},
+  KS11BYL == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> KS11BY, Value ->  0, Description -> "S11-B-Y vector coupling (left-handed)"},
+  KS11BYR == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> KS11BY, Value ->  0, Description -> "S11-B-Y vector coupling (right-handed)"},
+  KS11XTL == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> KS11XT, Value ->  0, Description -> "S11-X-T vector coupling (left-handed)"},
+  KS11XTR == { ParameterType -> External, ComplexParameter -> False,  InteractionOrder -> {VLQ, 1}, BlockName -> KS11XT, Value ->  0, Description -> "S11-X-T vector coupling (right-handed)"},
+
+  (* S11 to Higgs couplings *)
+  KS11H1 == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,-1}}, BlockName -> KS11H, OrderBlock->1, Value -> 0, Description -> "S11-S11-H coupling (derivative)"},
+  KS11H2 == { ParameterType -> External, InteractionOrder -> {{SX,1}, {QED,1}} , BlockName -> KS11H, OrderBlock->2, Value -> 0, Description -> "S11-S11-H coupling"},
+  KS11HH == { ParameterType -> External, InteractionOrder -> {SX,1}            , BlockName -> KS11H, OrderBlock->3, Value -> 0, Description -> "S11-S11-H-H coupling"},
+  KS11HW == { ParameterType -> External, InteractionOrder -> {SX,1}            , BlockName -> KS11H, OrderBlock->4, Value -> 0, Description -> "S11-H-W coupling"}
+};
+
+
+(* ************************** *)
+(* *****   Fields       ***** *)
+(* ************************** *)
+
+M$ClassesDescription = {
+  (* charged scalar *)
+    S[101] == { 
+      ClassName -> S11, 
+      SelfConjugate -> False, 
+      Mass  -> {MS11,  500}, 
+      Width -> {WS11, 15}, 
+      QuantumNumbers -> {Q -> 1}, 
+      ParticleName -> "s+", 
+      AntiParticleName -> "s-", 
+      PDG -> 6100002 
+      }
+};
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* S11 Kinetic and mass terms *)
+LS11K := (DC[S11bar, mu] + I ee A[mu] S11bar) (DC[S11, mu] - I ee A[mu] S11) - MS11^2 S11 S11bar ;
+
+(* S11 - SM interactions *)
+(*
+LS11SM := S11    uqbar[sp1,ff1,cc].dq[sp2,ff2,cc] (KS11qq[ff1,ff2] IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] KP11qq[ff1,ff2]) \
+        + S11bar lbar[sp1,ff1].vl[sp2,ff2]        (KS11ll[ff1,ff2] IndexDelta[sp1,sp2] + I Ga[5,sp1,sp2] KP11ll[ff1,ff2]);
+*)
+
+LS11SM := S11    uqbar[sp1,ff1,cc].dq[sp2,ff2,cc] (KS11qqL[ff1,ff2] ProjM[sp1,sp2] + KS11qqR[ff1,ff2] ProjP[sp1,sp2]) \
+        + S11bar lbar[sp1,ff1].vl[sp2,ff2]        (KS11ll[ff1,ff2] ProjM[sp1,sp2] );
+        
+(* T interactions *)
+LS11T := S11     tpbar[sp1,cc].dq[sp2,ff,cc] (ProjM[sp1,sp2] KS11TdL[ff] + ProjP[sp1,sp2] KS11TdR[ff]) \
+       + S11     tpbar[sp1,cc].bp[sp2,cc]    (ProjM[sp1,sp2] KS11TBL     + ProjP[sp1,sp2] KS11TBR);
+
+(* B interactions *)
+LS11B := S11bar  bpbar[sp1,cc].uq[sp2,ff,cc] (ProjM[sp1,sp2] KS11BuL[ff] + ProjP[sp1,sp2] KS11BuR[ff]) \
+       + S11     bpbar[sp1,cc].y[sp2,cc]     (ProjM[sp1,sp2] KS11BYL     + ProjP[sp1,sp2] KS11BYR);
+
+(* X interactions *)
+LS11X := S11  xbar[sp1,cc].uq[sp2,ff,cc] (ProjM[sp1,sp2] KS11XuL[ff] + ProjP[sp1,sp2] KS11XuR[ff]) \
+       + S11  xbar[sp1,cc].tp[sp2,cc]    (ProjM[sp1,sp2] KS11XTL     + ProjP[sp1,sp2] KS11XTR);
+
+(* Y interactions *)
+LS11Y := S11bar ybar[sp1,cc].dq[sp2,ff,cc] (ProjM[sp1,sp2] KS11YdL[ff] + ProjP[sp1,sp2] KS11YdR[ff])   ;
+
+(* Interactions with the Higgs *)
+LS11H := KS11H1/vev H (del[S11bar, mu] + I ee A[mu] S11bar) (del[S11, mu] - I ee A[mu] S11 ) + KS11H2 vev H S11bar S11 + KS11HH H^2 S11bar S11 + KS11HW del[S11,mu] Wbar[mu] H + HC[KS11HW del[S11,mu] Wbar[mu] H];
+LS11Hno5 := KS11H2 vev H S11bar S11 + KS11HH H^2 S11bar S11 + KS11HW del[S11,mu] Wbar[mu] H + HC[KS11HW del[S11,mu] Wbar[mu] H];
+
+
+(* S11 to SM gauge boson couplings *)
+LS11VV := KS11WA/(16*Pi^2*vev) (2 ee^2 / sw)        S11 FS[A,mu,nu] FS[Wbar,mu,nu] \
+        + KS11WZ/(16*Pi^2*vev) (2 ee^2 / (sw^2 cw)) S11 FS[Z,mu,nu] FS[Wbar,mu,nu] \
+	    + KP11WA/(16*Pi^2*vev) (2 ee^2 / sw)        S11 FS[A,mu,nu] Dual[FS][Wbar,mu,nu] \
+        + KP11WZ/(16*Pi^2*vev) (2 ee^2 / (sw^2 cw)) S11 FS[Z,mu,nu] Dual[FS][Wbar,mu,nu];
+
+
+LS11 := LS11K + LS11SM + LS11VV + LS11H + LS11T + LS11B + LS11X + LS11Y + HC[LS11SM + LS11VV + LS11T + LS11B + LS11X + LS11Y];
+LS11no5 := LS11K + LS11SM + LS11Hno5 + LS11T + LS11B + LS11X + LS11Y + HC[LS11SM + LS11Hno5 + LS11T + LS11B + LS11X + LS11Y];

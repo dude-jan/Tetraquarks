@@ -1,0 +1,311 @@
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c      written by the UFO converter
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+loop 1 MU_R
+
+hqqsmmod 1 mdl_KHTT
+
+hqqsmmod 2 mdl_KHBB
+
+kawss 1 mdl_KAWS10S11
+
+kawss 2 mdl_KAWS11S12
+
+kazss 1 mdl_KAZSS11
+
+kazss 2 mdl_KAZSS12
+
+kblh 3 mdl_KBLh3
+
+kblw 3 mdl_KBLw3
+
+kblz 3 mdl_KBLz3
+
+kbrh 3 mdl_KBRh3
+
+kbrw 3 mdl_KBRw3
+
+kbrz 3 mdl_KBRz3
+
+khds10ds10 1 mdl_KHDS10DS10
+
+khvv 1 mdl_KHWW
+
+khvv 2 mdl_KHZZ
+
+kp10d 3 3 mdl_KP10D3x3
+
+kp10e 3 3 mdl_KP10E3x3
+
+kp10n 3 3 mdl_KP10N3x3
+
+kp10qq 1 mdl_KP10TT
+
+kp10qq 2 mdl_KP10BB
+
+kp10qq 3 mdl_KP10XX
+
+kp10qq 4 mdl_KP10YY
+
+kp10u 3 3 mdl_KP10U3x3
+
+kp10vv 1 mdl_KP10G
+
+kp10vv 2 mdl_KP10W
+
+kp10vv 3 mdl_KP10ZZ
+
+kp10vv 4 mdl_KP10ZA
+
+kp10vv 5 mdl_KP10AA
+
+kp11vv 1 mdl_KP11WA
+
+kp11vv 2 mdl_KP11WZ
+
+ks10bl 3 mdl_KS10BL3
+
+ks10br 3 mdl_KS10BR3
+
+ks10d 3 3 mdl_KS10D3x3
+
+ks10e 3 3 mdl_KS10E3x3
+
+ks10h 1 mdl_KHS10S10
+
+ks10h 2 mdl_KHHS10
+
+ks10h 3 mdl_KHS10Z
+
+ks10n 3 3 mdl_KS10N3x3
+
+ks10qq 1 mdl_KS10TT
+
+ks10qq 2 mdl_KS10BB
+
+ks10qq 3 mdl_KS10XX
+
+ks10qq 4 mdl_KS10YY
+
+ks10tl 3 mdl_KS10TL3
+
+ks10tr 3 mdl_KS10TR3
+
+ks10u 3 3 mdl_KS10U3x3
+
+ks10vv 1 mdl_KS10G
+
+ks10vv 2 mdl_KS10W
+
+ks10vv 3 mdl_KS10ZZ
+
+ks10vv 4 mdl_KS10ZA
+
+ks10vv 5 mdl_KS10AA
+
+ks11bul 3 mdl_KS11BuL3
+
+ks11bur 3 mdl_KS11BuR3
+
+ks11by 1 mdl_KS11BYL
+
+ks11by 2 mdl_KS11BYR
+
+ks11h 1 mdl_KS11H1
+
+ks11h 2 mdl_KS11H2
+
+ks11h 3 mdl_KS11HH
+
+ks11h 4 mdl_KS11HW
+
+ks11ll 3 3 mdl_KS11ll3x3
+
+ks11qql 3 3 mdl_KS11qqL3x3
+
+ks11qqr 3 3 mdl_KS11qqR3x3
+
+ks11tb 1 mdl_KS11TBL
+
+ks11tb 2 mdl_KS11TBR
+
+ks11tdl 3 mdl_KS11TdL3
+
+ks11tdr 3 mdl_KS11TdR3
+
+ks11vv 1 mdl_KS11WA
+
+ks11vv 2 mdl_KS11WZ
+
+ks11xt 1 mdl_KS11XTL
+
+ks11xt 2 mdl_KS11XTR
+
+ks11xul 3 mdl_KS11XuL3
+
+ks11xur 3 mdl_KS11XuR3
+
+ks11ydl 3 mdl_KS11YdL3
+
+ks11ydr 3 mdl_KS11YdR3
+
+ks12h 1 mdl_KS12H1
+
+ks12h 2 mdl_KS12H2
+
+ks12h 3 mdl_KS12HH
+
+ks12qq 1 mdl_KS12XBL
+
+ks12qq 2 mdl_KS12XBR
+
+ks12qq 3 mdl_KS12YTL
+
+ks12qq 4 mdl_KS12YTR
+
+ks12ww 1 mdl_KS12W
+
+ks12ww 2 mdl_KP12W
+
+ks12xdl 3 mdl_KS12XDL3
+
+ks12xdr 3 mdl_KS12XDR3
+
+ks12yul 3 mdl_KS12YUL3
+
+ks12yur 3 mdl_KS12YUR3
+
+ktlh 3 mdl_KTLh3
+
+ktlw 3 mdl_KTLw3
+
+ktlz 3 mdl_KTLz3
+
+ktrh 3 mdl_KTRh3
+
+ktrw 3 mdl_KTRw3
+
+ktrz 3 mdl_KTRz3
+
+kwpwmss 1 mdl_KWPWMSS10
+
+kwpwmss 2 mdl_KWPWMSS11
+
+kwpwmss 3 mdl_KWPWMSS12
+
+kwpwpss 1 mdl_KWPWPSS11
+
+kwpwpss 2 mdl_KWPWPSS12
+
+kwqq 1 mdl_KWXTL
+
+kwqq 2 mdl_KWXTR
+
+kwqq 3 mdl_KWTBL
+
+kwqq 4 mdl_KWTBR
+
+kwqq 5 mdl_KWBYL
+
+kwqq 6 mdl_KWBYR
+
+kwss 1 mdl_KWS10S11
+
+kwss 2 mdl_KWS11S12
+
+kwzss 1 mdl_KWZS10S11
+
+kwzss 2 mdl_KWZS11S12
+
+kxlw 3 mdl_KXL3
+
+kxrw 3 mdl_KXR3
+
+kylw 3 mdl_KYL3
+
+kyrw 3 mdl_KYR3
+
+kzqq 1 mdl_KZXXL
+
+kzqq 2 mdl_KZXXR
+
+kzqq 3 mdl_KZTTL
+
+kzqq 4 mdl_KZTTR
+
+kzqq 5 mdl_KZBBL
+
+kzqq 6 mdl_KZBBR
+
+kzqq 7 mdl_KZYYL
+
+kzqq 8 mdl_KZYYR
+
+kzss 1 mdl_KZS11S11
+
+kzss 2 mdl_KZS12S12
+
+kzzss 1 mdl_KZZSS10
+
+kzzss 2 mdl_KZZSS11
+
+kzzss 3 mdl_KZZSS12
+
+sminputs 1 aEWM1
+
+sminputs 2 mdl_Gf
+
+sminputs 3 aS
+
+yukawa 5 mdl_ymb
+
+yukawa 6 mdl_ymt
+
+yukawa 15 mdl_ymtau
+
+mass 23 mdl_MZ
+
+mass 15 mdl_MTA
+
+mass 6 mdl_MT
+
+mass 5 mdl_MB
+
+mass 25 mdl_MH
+
+mass 6000005 mdl_MX
+
+mass 6000006 mdl_MTP
+
+mass 6000007 mdl_MBP
+
+mass 6000008 mdl_MY
+
+mass 6100001 mdl_MS10
+
+mass 6100002 mdl_MS11
+
+mass 6100003 mdl_MS12
+
+decay 23 mdl_WZ
+
+decay 24 mdl_WW
+
+decay 6 mdl_WT
+
+decay 25 mdl_WH
+
+decay 6000005 mdl_WX
+
+decay 6000006 mdl_WTP
+
+decay 6000007 mdl_WBP
+
+decay 6000008 mdl_WY
+
+decay 6100001 mdl_WS10
+
+decay 6100002 mdl_WS11
+
+decay 6100003 mdl_WS12

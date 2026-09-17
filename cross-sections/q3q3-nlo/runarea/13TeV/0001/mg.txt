@@ -1,0 +1,15 @@
+import model ../../../eVLQ_v8.1/eVLQS012_v8_diagonalCKM_4FNS_only3rd_NLO_UFO
+generate p p > tp tp~ [QCD]
+output mgevents
+launch
+shower=OFF
+fixed_order=on
+madanalysis=Off
+set mtp 1600.0
+set fixed_ren_scale True
+set fixed_fac_scale True
+set muR_ref_fixed 1600.0
+set muF_ref_fixed 1600.0
+set run_card nevents 10000
+set run_card ebeam1 6500.0
+set run_card ebeam2 6500.0

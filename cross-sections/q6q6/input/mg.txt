@@ -1,0 +1,28 @@
+set nb_core 2
+set automatic_html_opening False
+import model ../../../SextetFermions_UFO-pheno
+generate p p > q623 q623~
+output mgevents
+launch
+shower=OFF
+analysis=OFF
+set use_syst false
+set MQ623 {mq6}
+set MS80 10000
+set MQ80 10000
+set MQ80M 10000
+set MQ81 10000
+set MQ10 10000
+set MQ10M 10000
+set MQ11 10000
+set MQ613 10000
+set MQ653 10000
+set MS623 10000
+set MS323 10000
+
+set fixed_ren_scale True
+set fixed_fac_scale True
+set scale {mq6}
+set dsqrt_q2fact1 {mq6}
+set dsqrt_q2fact2 {mq6}
+

@@ -1,0 +1,68 @@
+(* ************************************************************* *)
+(* *****                                                   ***** *)
+(* *****  FeynRules model file to include the EW couplings ***** *)
+(* *****  between different new scalars                    ***** *)
+(* *****                                                   ***** *)
+(* *****  Author: Luca Panizzi                             ***** *)
+(* *****                                                   ***** *)
+(* ************************************************************* *)
+
+(* ************************** *)
+(* *****      Setup     ***** *)
+(* ************************** *)
+M$ModelName = "EW couplings between SM gauge bosons and VLQs";
+
+M$Information = {
+  Authors -> {"Luca Panizzi "}, 
+  Version -> "1.0",
+  Date -> "04.05.2022"
+};
+
+FeynmanGauge = False;
+
+M$InteractionOrderHierarchy = { {VLQ,2}  };
+M$InteractionOrderLimit     = { {VLQ,99} };
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+
+M$Parameters = {
+
+  (* WQQ couplings *)
+  KWXTL  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {{QED,-1},{VLQ, 1}}, BlockName -> KWQQ, Value -> 0, Description -> "W-X-T left"},
+  KWXTR  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {{QED,-1},{VLQ, 1}}, BlockName -> KWQQ, Value -> 0, Description -> "W-X-T right"},
+  KWTBL  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {{QED,-1},{VLQ, 1}}, BlockName -> KWQQ, Value -> 0, Description -> "W-T-B left"},
+  KWTBR  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {{QED,-1},{VLQ, 1}}, BlockName -> KWQQ, Value -> 0, Description -> "W-T-B right"},
+  KWBYL  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {{QED,-1},{VLQ, 1}}, BlockName -> KWQQ, Value -> 0, Description -> "W-B-Y left"},
+  KWBYR  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {{QED,-1},{VLQ, 1}}, BlockName -> KWQQ, Value -> 0, Description -> "W-B-Y right"},
+
+  (* ZQQ couplings *)
+  KZXXL  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {{QED,-1},{VLQ, 1}}, BlockName -> KZQQ, Value -> 0, Description -> "Z-X-X left"},
+  KZXXR  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {{QED,-1},{VLQ, 1}}, BlockName -> KZQQ, Value -> 0, Description -> "Z-X-X right"},
+  KZTTL  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {{QED,-1},{VLQ, 1}}, BlockName -> KZQQ, Value -> 0, Description -> "Z-T-T left"},
+  KZTTR  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {{QED,-1},{VLQ, 1}}, BlockName -> KZQQ, Value -> 0, Description -> "Z-T-T right"},
+  KZBBL  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {{QED,-1},{VLQ, 1}}, BlockName -> KZQQ, Value -> 0, Description -> "Z-B-B left"},
+  KZBBR  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {{QED,-1},{VLQ, 1}}, BlockName -> KZQQ, Value -> 0, Description -> "Z-B-B right"},
+  KZYYL  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {{QED,-1},{VLQ, 1}}, BlockName -> KZQQ, Value -> 0, Description -> "Z-Y-Y left"},
+  KZYYR  == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {{QED,-1},{VLQ, 1}}, BlockName -> KZQQ, Value -> 0, Description -> "Z-Y-Y right"}
+  
+};
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+LWXT := gw/Sqrt[2] W[mu] Ga[mu,sp1,sp2] xbar[sp1,cc].tp[sp3,cc]  (ProjM[sp2,sp3] KWXTL + ProjP[sp2,sp3] KWXTR ); 
+LWTB := gw/Sqrt[2] W[mu] Ga[mu,sp1,sp2] tpbar[sp1,cc].bp[sp3,cc] (ProjM[sp2,sp3] KWTBL + ProjP[sp2,sp3] KWTBR ); 
+LWBY := gw/Sqrt[2] W[mu] Ga[mu,sp1,sp2] bpbar[sp1,cc].y[sp3,cc]  (ProjM[sp2,sp3] KWBYL + ProjP[sp2,sp3] KWBYR ); 
+
+LZXX := gw/(2 cw)  Z[mu] Ga[mu,sp1,sp2] xbar[sp1,cc].x[sp3,cc]   (ProjM[sp2,sp3] KZXXL + ProjP[sp2,sp3] KZXXR );
+LZTT := gw/(2 cw)  Z[mu] Ga[mu,sp1,sp2] tpbar[sp1,cc].tp[sp3,cc] (ProjM[sp2,sp3] KZTTL + ProjP[sp2,sp3] KZTTR );
+LZBB := gw/(2 cw)  Z[mu] Ga[mu,sp1,sp2] bpbar[sp1,cc].bp[sp3,cc] (ProjM[sp2,sp3] KZBBL + ProjP[sp2,sp3] KZBBR );
+LZYY := gw/(2 cw)  Z[mu] Ga[mu,sp1,sp2] ybar[sp1,cc].y[sp3,cc]   (ProjM[sp2,sp3] KZYYL + ProjP[sp2,sp3] KZYYR );
+
+LVQQ := LWXT + LWTB + LWBY + LZXX + LZTT + LZBB + LZYY + HC[LWXT + LWTB + LWBY];
+
+ 

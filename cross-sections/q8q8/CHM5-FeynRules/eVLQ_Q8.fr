@@ -1,0 +1,116 @@
+(***************************************************************************************************************)
+(******                       FeynRules mod-file for color octet fermions                                 ******)
+(******                       Q81(Q=1), Q80(Q=0), Q80M(Q=0,selfconjugate)                                 ******)
+(******                                                                                                   ******)
+(******     Authors: T. Flacke, M. Kunkel                                                                 ******)
+(******     Compatibility with the new SM.fr of FR 2.0 and VLQ_v4.fr                                      ******)
+(***************************************************************************************************************)
+
+M$ModelName = "VLQ8";
+
+M$Information = {
+  Authors -> {"T. Flacke, M. Kunkel"}, 
+  Version -> "2.0",
+  Date -> "05.01.2021"
+};
+
+(*v2.0: coupling constants and Lagrangians for VLQ8 - SM interactions added*)
+
+
+FeynmanGauge =False;
+
+M$InteractionOrderHierarchy = { {QCD, 1},  {QED, 2},  {VLQ,2}};
+M$InteractionOrderLimit     = { {QCD, 99}, {QED, 99}, {VLQ,99}};
+
+
+(* ************************** *)
+(* *****   Fields       ***** *)
+(* ************************** *)
+
+M$ClassesDescription = {
+  (* VLQS Quarks Q81, Q=1*)
+    F[8010] == { ClassName -> Q81,
+    SelfConjugate -> False,
+    Indices -> {Index[Gluon]},
+    Mass -> {MQ81,1013},
+    Width -> {WQ81, 5.},
+    QuantumNumbers -> {Q -> 1},
+    PropagatorLabel -> "Q81",
+    PropagatorType -> Straight,
+    PropagatorArrow -> Forward,
+    PDG -> 6000081,
+    FullName -> "Q81-quark"},
+
+
+  (* VLQS Quarks Q80, Q=0*)
+    F[8000] == { ClassName -> Q80,
+    SelfConjugate -> False,
+    Indices -> {Index[Gluon]},
+    Mass -> {MQ80,1012},
+    Width -> {WQ80, 5.},
+    QuantumNumbers -> {Q -> 0},
+    PropagatorLabel -> "Q80",
+    PropagatorType -> Straight,
+    PropagatorArrow -> Forward,
+    PDG -> 6000080,
+    FullName -> "Q80-quark"},
+
+(* VLQS Quarks Q80M, Q=0*)
+    F[8001] == { ClassName -> Q80M,
+    SelfConjugate -> True,
+    Indices -> {Index[Gluon]},
+    Mass -> {MQ80M,1011},
+    Width -> {WQ80M, 5.},
+    PropagatorLabel -> "Q80M",
+    PropagatorType -> Straight,
+    PropagatorArrow -> Forward,
+    PDG -> 6001080,
+    FullName -> "Q80M-quark"}
+
+
+};
+
+
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+
+M$Parameters = {
+  (*Q81 interactions with SM*)
+  KQ81Z == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {VLQ, 1}, BlockName -> KQ81Z, Value -> 0.101, Description -> "Q81 Q81 Z coupling (V)"},
+  K5Q81Z == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {VLQ, 1}, BlockName -> K5Q81Z, Value -> 0.102, Description -> "Q81 Q81 Z coupling (A)"},
+  
+
+  (*Q80 interactions with SM*)
+  KQ80Z == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {VLQ, 1}, BlockName -> KQ80Z, Value -> 0.102, Description -> "Q80 Q80 Z coupling (V)"},
+  K5Q80Z == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {VLQ, 1}, BlockName -> K5Q80Z, Value -> 0.103, Description -> "Q80 Q80 Z coupling (A)"},
+
+  (*Q80M interactions with SM*)
+  K5Q80MZ == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {VLQ, 1}, BlockName -> K5Q80MZ, Value -> 0.103, Description -> "Q80M Q80M Z coupling (A)"}
+}
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* Kinetic and mass terms *)
+L81K := I Q81bar.Ga[mu].DC[Q81, mu] - MQ81 Q81bar.Q81 + ee A[mu] Q81bar.Ga[mu].Q81;
+L80K := I Q80bar.Ga[mu].DC[Q80, mu] - MQ80 Q80bar.Q80;
+L80MK := I/2 Q80Mbar.Ga[mu].DC[Q80M, mu] - MQ80M/2 Q80Mbar.Q80M;
+
+
+(* Interactions of Q81 with SM *)
+L81SM := gw/(2 cw) Z[mu] (KQ81Z Ga[mu, sp1, sp2] Q81bar[sp1].Q81[sp2] + I K5Q81Z Ga[mu, sp1, sp2] Ga[5, sp2, sp3] Q81bar[sp1].Q81[sp3]); 
+
+(* Interactions of Q80 with SM *)
+L80SM := gw/(2 cw) Z[mu] (KQ80Z Ga[mu, sp1, sp2] Q80bar[sp1].Q80[sp2] + I K5Q80Z Ga[mu, sp1, sp2] Ga[5, sp2, sp3] Q80bar[sp1].Q80[sp3]);
+
+(* Interactions of Q80M with SM *)
+L80MSM := gw/(2 cw) Z[mu] I K5Q80MZ Ga[mu, sp1, sp2] Ga[5, sp2, sp3] Q80Mbar[sp1].Q80M[sp3];
+
+
+
+LVLQ8 := L81K + L80K + L80MK + L81SM + L80SM + L80MSM;
+LVLQ8no5 := L81K + L80K + L80MK;

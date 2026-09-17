@@ -1,0 +1,68 @@
+(***************************************************************************************************************)
+(******                       FeynRules mod-file for Model Independent searches of top partners           ******)
+(******                                              T2(2/3)      with arbitrary couplings                ******)
+(******                                                                                                   ******)
+(******     Authors: B. Fuks, L. Panizzi                                                                  ******)
+(******     Compatibility with the new SM.fr of FR 2.0                                                    ******)
+(***************************************************************************************************************)
+
+M$ModelName = "eVLQ_tp2";
+
+M$Information = {
+  Authors -> {"L. Panizzi, B. Fuks"}, 
+  Version -> "4.0",
+  Date -> "20.08.2019"
+};
+
+FeynmanGauge =False;
+
+M$InteractionOrderHierarchy = { {QCD, 1},  {QED, 2},  {VLQ,2}};
+M$InteractionOrderLimit     = { {QCD, 99}, {QED, 99}, {VLQ,99}};
+
+
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+M$Parameters = {
+  KT2Lw == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "T2uW coupling (left-handed)",
+    BlockName -> KT2LW, Value -> {KT2Lw[1] -> 0.120112, KT2Lw[2] -> 0.120112, KT2Lw[3] -> 0.160149} },
+  KT2Rw == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "T2uW coupling (right-handed)",
+    BlockName -> KT2RW, Value -> {KT2Rw[1] -> 0., KT2Rw[2] -> 0., KT2Rw[3] -> 0.} },
+  KT2Lz == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "T2uZ coupling (left-handed)" ,
+    BlockName -> KT2LZ, Value -> {KT2Lz[1] -> 0.180284, KT2Lz[2] -> 0.180284, KT2Lz[3] -> 0.240379} },
+  KT2Rz == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "T2uZ coupling (right-handed)",
+    BlockName -> KT2RZ, Value -> {KT2Rz[1] -> 0., KT2Rz[2] -> 0., KT2Rz[3] -> 0.} },
+  KT2Lh == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, Description -> "T2uH coupling (left-handed)" ,
+    BlockName -> KT2LH, Value -> {KT2Lh[1] -> 0.479336, KT2Lh[2] -> 0.479336, KT2Lh[3] -> 0.639117} },
+  KT2Rh == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, Description -> "T2uH coupling (right-handed)",
+    BlockName -> KT2RH, Value -> {KT2Rh[1] -> 0., KT2Rh[2] -> 0., KT2Rh[3] -> 0.} }
+};
+
+
+
+(* ************************** *)
+(* *****   Fields       ***** *)
+(* ************************** *)
+
+M$ClassesDescription = {
+  (* VLQ Quarks T, Q=2/3 *)
+  F[62] == { ClassName -> tp2, SelfConjugate -> False, Indices -> {Index[Colour]}, Mass -> {MTP2,600.5}, Width -> {WTP2,5.}, QuantumNumbers -> {Q -> 2/3},
+    PropagatorLabel -> "tp2", PropagatorType -> Straight, PropagatorArrow -> Forward, PDG -> 6002006, FullName -> "T2-quark"}
+};
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* Kinetic and mass terms *)
+LT2K := I tp2bar.Ga[mu].DC[tp2, mu] - MTP2 tp2bar.tp2 + 2*ee/3 A[mu] tp2bar.Ga[mu].tp2;
+
+(* T interactions *)
+LT2W := gw/Sqrt[2] W[mu] Ga[mu,sp1,sp2] tp2bar[sp1,cc].dq[sp3,ff,cc] (ProjM[sp2,sp3] KT2Lw[ff] + ProjP[sp2,sp3] KT2Rw[ff]);
+LT2Z := gw/(2 cw)  Z[mu] Ga[mu,sp1,sp2] tp2bar[sp1,cc].uq[sp3,ff,cc] (ProjM[sp2,sp3] KT2Lz[ff] + ProjP[sp2,sp3] KT2Rz[ff]);
+LT2H :=            H     tp2bar[sp1,cc].uq[sp3,ff,cc] (ProjM[sp1,sp3] KT2Lh[ff] + ProjP[sp1,sp3] KT2Rh[ff]);
+
+LT2 := LT2W + LT2Z + LT2H + HC[LT2W + LT2Z + LT2H] + LT2K;
+LT2no5 := LT2W + LT2Z + LT2H + HC[LT2W + LT2Z + LT2H] + LT2K;

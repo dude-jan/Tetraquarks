@@ -1,0 +1,105 @@
+(***************************************************************************************************************)
+(******                       FeynRules mod-file for Model Independent searches of top partners           ******)
+(******                         X(5/3), T(2/3), B(-1/3) & Y(-4/3) with arbitrary couplings                ******)
+(******                                                                                                   ******)
+(******     Authors: B. Fuks, L. Panizzi                                                                  ******)
+(******     Compatibility with the new SM.fr of FR 2.0                                                    ******)
+(***************************************************************************************************************)
+
+M$ModelName = "VLQ";
+
+M$Information = {
+  Authors -> {"B. Fuks, L. Panizzi"}, 
+  Version -> "5.0",
+  Date -> "12.07.2022"
+};
+
+(* 2022.07.12 v5.0 - the coupling order for X and Y interactions is now only VLQ (before it was VLQ and QED) *)
+(* 2022.03.11 v4.1 - LSM removed from the total Lagrangian, it has to be explicitely included in the nb *)
+(* 2022.03.11 v4.1 - All default values of couplings set to 0 *)
+
+FeynmanGauge =False;
+
+M$InteractionOrderHierarchy = { {QCD, 1},  {QED, 2},  {VLQ,2}};
+M$InteractionOrderLimit     = { {QCD, 99}, {QED, 99}, {VLQ,99}};
+
+
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+M$Parameters = {
+  KTLw == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "TuW coupling (left-handed)" , BlockName -> KTLW, Value -> {KTLw[1] -> 0, KTLw[2] -> 0, KTLw[3] -> 0} },
+  KTRw == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "TuW coupling (right-handed)", BlockName -> KTRW, Value -> {KTRw[1] -> 0, KTRw[2] -> 0, KTRw[3] -> 0} },
+  KTLz == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "TuZ coupling (left-handed)" , BlockName -> KTLZ, Value -> {KTLz[1] -> 0, KTLz[2] -> 0, KTLz[3] -> 0} },
+  KTRz == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "TuZ coupling (right-handed)", BlockName -> KTRZ, Value -> {KTRz[1] -> 0, KTRz[2] -> 0, KTRz[3] -> 0} },
+  KTLh == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, Description -> "TuH coupling (left-handed)" , BlockName -> KTLH, Value -> {KTLh[1] -> 0, KTLh[2] -> 0, KTLh[3] -> 0} },
+  KTRh == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, Description -> "TuH coupling (right-handed)", BlockName -> KTRH, Value -> {KTRh[1] -> 0, KTRh[2] -> 0, KTRh[3] -> 0} },
+
+  KBLw == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "BuW coupling (left-handed)" , BlockName -> KBLW, Value -> {KBLw[1] -> 0, KBLw[2] -> 0, KBLw[3] -> 0} },
+  KBRw == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "BuW coupling (right-handed)", BlockName -> KBRW, Value -> {KBRw[1] -> 0, KBRw[2] -> 0, KBRw[3] -> 0} },
+  KBLz == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "BuZ coupling (left-handed)" , BlockName -> KBLZ, Value -> {KBLz[1] -> 0, KBLz[2] -> 0, KBLz[3] -> 0} },
+  KBRz == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "BuZ coupling (right-handed)", BlockName -> KBRZ, Value -> {KBRz[1] -> 0, KBRz[2] -> 0, KBRz[3] -> 0} },
+  KBLh == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, Description -> "BuH coupling (left-handed)" , BlockName -> KBLH, Value -> {KBLh[1] -> 0, KBLh[2] -> 0, KBLh[3] -> 0} },
+  KBRh == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {VLQ, 1}, Description -> "BuH coupling (right-handed)", BlockName -> KBRH, Value -> {KBRh[1] -> 0, KBRh[2] -> 0, KBRh[3] -> 0} },
+
+  KXL  == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "XuW coupling (left-handed)" , BlockName -> KXLW, Value -> {KXL[1] -> 0, KXL[2] -> 0, KXL[3] -> 0} },
+  KXR  == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "XuW coupling (right-handed)", BlockName -> KXRW, Value -> {KXR[1] -> 0, KXR[2] -> 0, KXR[3] -> 0} },
+
+  KYL  == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "YdW coupling (left-handed)" , BlockName -> KYLW, Value -> {KYL[1] -> 0, KYL[2] -> 0, KYL[3] -> 0} },
+  KYR  == { ParameterType -> External, ComplexParameter -> False, Indices->{Index[Generation]}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "YdW coupling (right-handed)", BlockName -> KYRW, Value -> {KYR[1] -> 0, KYR[2] -> 0, KYR[3] -> 0} }
+};
+
+
+
+(* ************************** *)
+(* *****   Fields       ***** *)
+(* ************************** *)
+
+M$ClassesDescription = {
+  (* VLQ Quarks X, Q=5/3*)
+  F[5] == { ClassName -> x,  SelfConjugate -> False, Indices -> {Index[Colour]}, Mass -> {MX,1000},  Width -> {WX, 10.}, QuantumNumbers -> {Q -> 5/3},
+    PropagatorLabel -> "x",  PropagatorType -> Straight, PropagatorArrow -> Forward, PDG -> 6000005, FullName -> "X-quark"},
+
+  (* VLQ Quarks T, Q=2/3 *)
+  F[6] == { ClassName -> tp, SelfConjugate -> False, Indices -> {Index[Colour]}, Mass -> {MTP,1100}, Width -> {WTP,11.}, QuantumNumbers -> {Q -> 2/3},
+    PropagatorLabel -> "tp", PropagatorType -> Straight, PropagatorArrow -> Forward, PDG -> 6000006, FullName -> "T-quark"},
+
+  (* VLQ Quarks B, Q=-1/3 *)
+  F[7] == { ClassName -> bp, SelfConjugate -> False, Indices -> {Index[Colour]}, Mass -> {MBP,1200}, Width -> {WBP, 12.}, QuantumNumbers -> {Q -> -1/3},
+    PropagatorLabel -> "bp", PropagatorType -> Straight, PropagatorArrow -> Forward, PDG -> 6000007, FullName -> "B-quark"},
+
+  (* VLQ Quarks Y, Q=-4/3 *)
+  F[8] == { ClassName -> y,  SelfConjugate -> False, Indices -> {Index[Colour]}, Mass -> {MY,1300},  Width -> {WY, 13.}, QuantumNumbers -> {Q -> -4/3},
+    PropagatorLabel -> "y", PropagatorType -> Straight, PropagatorArrow -> Forward, PDG -> 6000008, FullName -> "Y-quark"}
+};
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* Kinetic and mass terms *)
+LTK := I tpbar.Ga[mu].DC[tp, mu] - MTP tpbar.tp + 2*ee/3 A[mu] tpbar.Ga[mu].tp;
+LBK := I bpbar.Ga[mu].DC[bp, mu] - MBP bpbar.bp -   ee/3 A[mu] bpbar.Ga[mu].bp;
+LXK := I xbar.Ga[mu].DC[x, mu]   - MX xbar.x    + 5*ee/3 A[mu] xbar.Ga[mu].x;
+LYK := I ybar.Ga[mu].DC[y, mu]   - MY ybar.y    - 4*ee/3 A[mu] ybar.Ga[mu].y;
+
+(* T interactions *)
+LTW := gw/Sqrt[2] W[mu] Ga[mu,sp1,sp2] tpbar[sp1,cc].dq[sp3,ff,cc] (ProjM[sp2,sp3] KTLw[ff] + ProjP[sp2,sp3] KTRw[ff]);
+LTZ := gw/(2 cw)  Z[mu] Ga[mu,sp1,sp2] tpbar[sp1,cc].uq[sp3,ff,cc] (ProjM[sp2,sp3] KTLz[ff] + ProjP[sp2,sp3] KTRz[ff]);
+LTH :=            H     tpbar[sp1,cc].uq[sp3,ff,cc] (ProjM[sp1,sp3] KTLh[ff] + ProjP[sp1,sp3] KTRh[ff]);
+
+
+(* B interactions *)
+LBW := gw/Sqrt[2] Wbar[mu] Ga[mu,sp1,sp2] bpbar[sp1,cc].uq[sp3,ff,cc] (ProjM[sp2,sp3] KBLw[ff] + ProjP[sp2,sp3] KBRw[ff]);
+LBZ := gw/(2 cw)  Z[mu]    Ga[mu,sp1,sp2] bpbar[sp1,cc].dq[sp3,ff,cc] (ProjM[sp2,sp3] KBLz[ff] + ProjP[sp2,sp3] KBRz[ff]);
+LBH :=            H        bpbar[sp1,cc].dq[sp3,ff,cc] (ProjM[sp1,sp3] KBLh[ff] + ProjP[sp1,sp3] KBRh[ff]);
+
+(* X interactions *)
+LXW := gw/Sqrt[2] W[mu] Ga[mu,sp1,sp2] xbar[sp1,cc].uq[sp3,ff,cc] (ProjM[sp2,sp3] KXL[ff] + ProjP[sp2,sp3] KXR[ff]);
+
+(* Y interactions *)
+LYW := gw/Sqrt[2] Wbar[mu] Ga[mu,sp1,sp2] ybar[sp1,cc].dq[sp3,ff,cc] (ProjM[sp2,sp3] KYL[ff] + ProjP[sp2,sp3] KYR[ff]);
+
+LVLQ := LTW + LTZ + LTH + LBW + LBZ + LBH + LXW + LYW + HC[LTW + LTZ + LTH + LBW + LBZ + LBH + LXW + LYW] + LTK + LBK + LXK + LYK;

@@ -1,0 +1,87 @@
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c      written by the UFO converter
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+loop 1 MU_R
+
+msoft 1 mdl_MstLR
+
+sminputs 1 aEWM1
+
+sminputs 2 mdl_Gf
+
+sminputs 3 aS
+
+yukawa 6 mdl_ymt
+
+yukawa 15 mdl_ymtau
+
+mass 23 mdl_MZ
+
+mass 15 mdl_MTA
+
+mass 6 mdl_MT
+
+mass 25 mdl_MH
+
+mass 1000021 mdl_Mgo
+
+mass 1000022 mdl_Mchi
+
+mass 1000002 mdl_MsuL
+
+mass 1000004 mdl_MscL
+
+mass 1000006 mdl_MstL
+
+mass 2000002 mdl_MsuR
+
+mass 2000004 mdl_MscR
+
+mass 2000006 mdl_MstR
+
+mass 1000001 mdl_MsdL
+
+mass 1000003 mdl_MssL
+
+mass 1000005 mdl_MsbL
+
+mass 2000001 mdl_MsdR
+
+mass 2000003 mdl_MssR
+
+mass 2000005 mdl_MsbR
+
+decay 23 mdl_WZ
+
+decay 24 mdl_WW
+
+decay 6 mdl_WT
+
+decay 25 mdl_WH
+
+decay 1000021 mdl_Wgo
+
+decay 1000002 mdl_WsuL
+
+decay 1000004 mdl_WscL
+
+decay 1000006 mdl_WstL
+
+decay 2000002 mdl_WsuR
+
+decay 2000004 mdl_WscR
+
+decay 2000006 mdl_WstR
+
+decay 1000001 mdl_WsdL
+
+decay 1000003 mdl_WssL
+
+decay 1000005 mdl_WsbL
+
+decay 2000001 mdl_WsdR
+
+decay 2000003 mdl_WssR
+
+decay 2000005 mdl_WsbR

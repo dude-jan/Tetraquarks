@@ -1,0 +1,44 @@
+#Restricted Params
+\ymb
+\ymt
+\ymtau
+\aEWM1
+\Gf
+\aS
+
+#Setup Masses
+Mx 2000
+MS12 1500
+MS11 1500
+MS112 1500
+
+#Setup Couplings
+KS103HZ 0.1
+KS105HZ 0.1
+KYL3 0.1
+CVLQSEWQL 0.1
+
+#Incoming particles (If none, default is used)
+#</Herwig/Particles/d
+#</Herwig/Particles/dbar
+#</Herwig/Particles/u
+#</Herwig/Particles/ubar
+#</Herwig/Particles/s
+#</Herwig/Particles/sbar
+#</Herwig/Particles/c
+#</Herwig/Particles/cbar
+#</Herwig/Particles/b
+#</Herwig/Particles/bbar
+#</Herwig/Particles/g
+
+#Outgoing particles (If none, default is used)
+>/Herwig/FRModel/Particles/x
+>/Herwig/FRModel/Particles/x~
+
+#Additional stuff
+
+#Processes - If not specified use default
+:Processes Exclusive
+
+#Insert stuff for Rivet? 1 = yes, otherwise = no
+:RivetAnalysis 1

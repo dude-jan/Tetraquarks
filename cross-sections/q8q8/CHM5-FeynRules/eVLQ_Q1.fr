@@ -1,0 +1,112 @@
+(***************************************************************************************************************)
+(******                       FeynRules mod-file for color singlet fermions                               ******)
+(******                        Q11(Q=1), Q10(Q=0), Q10M(Q=0,selfconjugate)                                ******)
+(******                                                                                                   ******)
+(******     Authors: T. Flacke, M. Kunkel                                                                 ******)
+(******     Compatibility with the new SM.fr of FR 2.0 and VLQ_v4.fr                                      ******)
+(***************************************************************************************************************)
+
+M$ModelName = "VLQ1";
+
+M$Information = {
+  Authors -> {"T. Flacke, M. Kunkel"}, 
+  Version -> "2.0",
+  Date -> "05.01.2021"
+};
+
+(*v2.0: coupling constants and Lagrangians for VLQ1 - SM interactions added*)
+
+FeynmanGauge =False;
+
+M$InteractionOrderHierarchy = { {QCD, 1},  {QED, 2},  {VLQ,2}};
+M$InteractionOrderLimit     = { {QCD, 99}, {QED, 99}, {VLQ,99}};
+
+
+(* ************************** *)
+(* *****   Fields       ***** *)
+(* ************************** *)
+
+M$ClassesDescription = {
+  (* VLQS Quarks Q11, Q=1*)
+    F[1010] == { ClassName -> Q11,
+    SelfConjugate -> False,
+    Indices -> {},
+    Mass -> {MQ11,1003},
+    Width -> {WQ11, 5.},
+    QuantumNumbers -> {Q -> 1},
+    PropagatorLabel -> "Q11",
+    PropagatorType -> Straight,
+    PropagatorArrow -> Forward,
+    PDG -> 6000011,
+    FullName -> "Q11-quark"},
+
+
+  (* VLQS Quarks Q10, Q=0*)
+    F[1000] == { ClassName -> Q10,
+    SelfConjugate -> False,
+    Indices -> {},
+    Mass -> {MQ10,1002},
+    Width -> {WQ10, 5.},
+    QuantumNumbers -> {Q -> 0},
+    PropagatorLabel -> "Q10",
+    PropagatorType -> Straight,
+    PropagatorArrow -> Forward,
+    PDG -> 6000010,
+    FullName -> "Q10-quark"},
+
+(* VLQS Quarks Q10M, Q=0*)
+    F[1001] == { ClassName -> Q10M,
+    SelfConjugate -> True,
+    Indices -> {},
+    Mass -> {MQ10M,1001},
+    Width -> {WQ10M, 5.},
+    PropagatorLabel -> "Q10M",
+    PropagatorType -> Straight,
+    PropagatorArrow -> Forward,
+    PDG -> 6001010,
+    FullName -> "Q10M-quark"}
+};
+
+
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+
+M$Parameters = {
+  (* Q11 interactions with SM *)
+  KQ11Z == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {VLQ, 1}, BlockName -> KQ11Z, Value -> 0.101, Description -> "Q11 Q11 Z coupling (V)"},
+  K5Q11Z == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {VLQ, 1}, BlockName -> K5Q11Z, Value -> 0.102, Description -> "Q11 Q11 Z coupling (A)"},
+  
+
+  (* Q10 interactions with SM *)
+  KQ10Z == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {VLQ, 1}, BlockName -> KQ10Z, Value -> 0.102, Description -> "Q10 Q10 Z coupling (V)"},
+  K5Q10Z == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {VLQ, 1}, BlockName -> K5Q10Z, Value -> 0.103, Description -> "Q10 Q10 Z coupling (A)"},
+
+  (* Q10M interactions with SM *)
+  K5Q10MZ == { ParameterType -> External, ComplexParameter -> False, InteractionOrder -> {VLQ, 1}, BlockName -> K5Q10MZ, Value -> 0.103, Description -> "Q10M Q10M Z coupling (A)"}
+}
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+(* Kinetic and mass terms *)
+L11K := I Q11bar.Ga[mu].del[Q11, mu] - MQ11 Q11bar.Q11 + ee A[mu] Q11bar.Ga[mu].Q11;
+L10K := I Q10bar.Ga[mu].del[Q10, mu] - MQ10 Q10bar.Q10;
+L10MK := I/2 Q10Mbar.Ga[mu].del[Q10M, mu] - MQ10M/2 Q10Mbar.Q10M;
+
+
+(* Interactions of Q11 with SM *)
+L11SM := gw/(2 cw) Z[mu] (KQ11Z Ga[mu, sp1, sp2] Q11bar[sp1].Q11[sp2] + I K5Q11Z Ga[mu, sp1, sp2] Ga[5, sp2, sp3] Q11bar[sp1].Q11[sp3]); 
+
+(* Interactions of Q10 with SM *)
+L10SM := gw/(2 cw) Z[mu] (KQ10Z Ga[mu, sp1, sp2] Q10bar[sp1].Q10[sp2] + I K5Q10Z Ga[mu, sp1, sp2] Ga[5, sp2, sp3] Q10bar[sp1].Q10[sp3]);
+
+(* Interactions of Q10M with SM *)
+L10MSM := gw/(2 cw) Z[mu] I K5Q10MZ Ga[mu, sp1, sp2] Ga[5, sp2, sp3] Q10Mbar[sp1].Q10M[sp3];
+
+
+
+LVLQ1 := L11K + L10K + L10MK + L11SM + L10SM + L10MSM;
+LVLQ1no5 := L11K + L10K + L10MK + L11SM + L10SM + L10MSM;

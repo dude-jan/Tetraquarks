@@ -1,0 +1,8 @@
+[Parameters]
+
+[[mq8]]
+mode = LIN
+start = 1500
+stop = 3000
+step = 100
+

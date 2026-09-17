@@ -1,0 +1,183 @@
+(***************************************************************************************************************)
+(******                       FeynRules mod-file for composite Higgs model #5                             ******)
+(******                                                                                                   ******)
+(******                                                                                                   ******)
+(******     Authors: G. Cacciapaglia, T. Flacke, M. Kunkel, W. Porod                                      ******)
+(******     Compatibility with the new SM.fr of FR 2.0, VLQ_v4.fr, and the eVLQ series                    ******)
+(***************************************************************************************************************)
+
+M$ModelName = "CHM5";
+
+M$Information = {
+  Authors -> {"G. Cacciapaglia, T. Flacke, M. Kunkel, W. Porod"}, 
+  Version -> "0.2",
+  Date -> "21.03.2021"
+};
+(*2021.03.11: removed redundant + signs and second LS323 in LCHM5*)
+(*2021.03.21: added Lspecial for cases 1) and 3)*)
+
+FeynmanGauge =False;
+
+(*VLQ as order 2 in eVLQ_S10.fr but order 1 in VLQ_v4.fr*)
+M$InteractionOrderHierarchy = { {QCD, 1},  {QED, 2},  {VLQ,2}, {SX,2}};
+M$InteractionOrderLimit     = { {QCD, 99}, {QED, 99}, {VLQ,99}, {SX,99}};
+
+
+(* ************************** *)
+(* *****   Fields       ***** *)
+(* ************************** *)
+
+
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)
+M$Parameters = {
+  
+  CQ80MS323t == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {{VLQ, 1}, {SX, 1}}, Description -> "Coupling Q80M-S323-top",
+    BlockName -> CQ80MS323t, Value -> 0.1},
+  CQ80S323t == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {{VLQ, 1}, {SX, 1}}, Description -> "Coupling Q80-S323-top",
+    BlockName -> CQ80S323t, Value -> 0.1},
+  CQ81S323t == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {{VLQ, 1}, {SX, 1}}, Description -> "Coupling Q81-S323-bottom",
+    BlockName -> CQ81S323t, Value -> 0.1},
+  CQ80MS80Q10M == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {{VLQ, 1}, {SX, 1}}, Description -> "Coupling Q80M-S80-Q10M",
+    BlockName -> CQ80MS80Q10M, Value -> 0.1},
+  CQ80S80Q10 == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {{VLQ, 1}, {SX, 1}}, Description -> "Coupling Q80-S80-Q10",
+    BlockName -> CQ80S80Q10, Value -> 0.1},
+  CQ81S80Q11 == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {{VLQ, 1}, {SX, 1}}, Description -> "Coupling Q81-S80-Q11",
+    BlockName -> CQ81S80Q11, Value -> 0.1},
+  CS323Q10Mt == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {{VLQ, 1}, {SX, 1}}, Description -> "Coupling S323-Q10M-top",
+    BlockName -> CS323Q10Mt, Value -> 0.1},
+  CQ10Q10MZ == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "Coupling Q10-Q10M-Z",
+    BlockName -> CQ10Q10MZ, Value -> 0.1},
+  CQ11Q10W == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {{VLQ, 1}, {QED, -1}}, Description -> "Coupling Q11-Q10-W",
+    BlockName -> CQ11Q10W, Value -> 0.1},
+  CS323tab == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {SX, 1}, Description -> "Coupling S323-tau-bottom",
+    BlockName -> CS323tab, Value -> 0.101},
+  CS323vtt == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {SX, 1}, Description -> "Coupling S323-nu_tau-top",
+    BlockName -> CS323vtt, Value -> 0.102},
+
+  (* couplings for BSM decays of VLQs, respectively lambda_{2,3,4,5} in the notes3 *)
+  CVLQSEWQL == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {{VLQ, 1}, {SX, 1}}, Description -> "Coupling VLQ - EW pNGB - left-handed SM quark",
+    BlockName -> CVLQSEWQL, Value -> 0.1}, 
+  CVLQSEWQR == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {{VLQ, 1}, {SX, 1}}, Description -> "Coupling VLQ - EW pNGB - right-handed SM quark",
+    BlockName -> CVLQSEWQR, Value -> 0.1},
+  CVLQSCQL == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {{VLQ, 1}, {SX, 1}}, Description -> "Coupling VLQ - colored pNGB - left-handed SM quark",
+    BlockName -> CVLQSCQL, Value -> 0.1},
+  CVLQSCQR == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {{VLQ, 1}, {SX, 1}}, Description -> "Coupling VLQ - colored pNGB - right-handed SM quark",
+    BlockName -> CVLQSCQR, Value -> 0.1},
+  includeWZW == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {SX, 1}, Description -> "Include WZW (boolean)",
+    BlockName -> includeWZW, Value -> 1},
+  ftgi == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {}, Description -> "LTGI Debug parameter",
+    BlockName -> ftgi, Value -> 1},
+
+  GS11tqbqL == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {SX, 1}, Description -> "Coupling S11-t-b left",
+    BlockName -> GS11tqbqL, Value -> 0.1},
+  GS112tqbqL == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {SX, 1}, Description -> "Coupling S112-t-b left",
+    BlockName -> GS112tqbqL, Value -> 0.1},
+  GS11tqbqR == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {SX, 1}, Description -> "Coupling S11-t-b right",
+    BlockName -> GS11tqbqR, Value -> 0.1},
+  GS112tqbqR == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {SX, 1}, Description -> "Coupling S112-t-b right",
+    BlockName -> GS112tqbqR, Value -> 0.1},
+  fpsi == { ParameterType -> External, ComplexParameter -> False, Indices->{}, InteractionOrder -> {SX, -1}, Description -> "EW pNGB decay constant",
+    BlockName -> fpsi, Value -> 1000}
+};
+
+
+
+(* ********************************** *)
+(* *****   Lagrangian for CHM5  ***** *)
+(* ********************************** *)
+(*Convention: S11=eta_3^+, S112=eta_5^+; S10=eta, S102=eta_1^0, S103=eta_3^0, S104=eta_5^0, S105=a*)
+
+(* *** WZW terms for SU(5)/SO(5) pNGBs *** *)
+LWZWS10 := S10*(3*Sqrt[2/5]*gw^2*sw^2*FS[A,mu,nu]*Dual[FS][A,mu,nu] \
+            + 3/(Sqrt[10])*gw^2*(3*cw*sw - sw/cw - sw^3/cw)*FS[A,mu,nu]*Dual[FS][Z,mu,nu] \
+            + 3/(4*Sqrt[10])*gw^2*(cw^2 + 3*1/cw^2 - 6*sw^2 + sw^4/cw^2)*FS[Z,mu,nu]*Dual[FS][Z,mu,nu] \
+            + 3*Sqrt[2/5]*gw^2*FS[W,mu,nu]*Dual[FS][Wbar,mu,nu]);
+
+LWZWS102 := S102*(Sqrt[6]*gw^2*sw^2*FS[A,mu,nu]*Dual[FS][A,mu,nu] \
+            - Sqrt[6]*gw^2*sw^2*FS[Z,mu,nu]*Dual[FS][Z,mu,nu] \
+            + Sqrt[3/2]*gw^2*(3*cw*sw- sw/cw - sw^3/cw)*FS[A,mu,nu]*Dual[FS][Z,mu,nu]);
+
+LWZWS11 := S11*(-3*I*gw^2*sw*FS[A,mu,nu]*Dual[FS][Wbar,mu,nu] \
+            +3*I*gw^2*sw^2/cw*FS[Z,mu,nu]*Dual[FS][Wbar,mu,nu]);
+
+LWZWS104 := S104*(-2*Sqrt[3]*gw^2*sw^2*FS[A,mu,nu]*Dual[FS][A,mu,nu] \
+            + 2*Sqrt[3]*gw^2*sw^2*FS[Z,mu,nu]*Dual[FS][Z,mu,nu] \
+            - Sqrt[3]*gw^2*(3*cw*sw - sw/cw - sw^3/cw)*FS[A,mu,nu]*Dual[FS][Z,mu,nu]);
+
+LWZWS112 := S112*(-3*gw^2*sw*FS[A,mu,nu]*Dual[FS][Wbar,mu,nu]\
+            + 3*gw^2*sw^2/cw*FS[Z,mu,nu]*Dual[FS][Wbar,mu,nu]);
+
+LWZWS12 := S12*(gw^2/Sqrt[2]*(vev/fpsi)^2*FS[Wbar,mu,nu]*Dual[FS][Wbar,mu,nu]);
+
+
+LWZW1 := LWZWS10 + LWZWS102 + LWZWS11 + LWZWS104 + LWZWS112 + LWZWS12 + HC[LWZWS11 + LWZWS112 + LWZWS12];
+LWZW := LWZW1 * 5/(48*Pi^2*fpsi);
+
+(* *** Trilinear Gauge Interactions EW pNGBs *** *)
+LPhoton := I*ee*A[mu]*(delLR[S112bar, S112, mu] + delLR[S11bar, S11, mu] + 2*delLR[S12bar, S12, mu]);
+
+LZBoson := Sqrt[2/3]*gw/cw * delLR[S102, S103, mu]*Z[mu] \
+          + gw/(Sqrt[3]*cw) * delLR[S104, S103, mu]*Z[mu] \
+          + gw/(2*cw) * delLR[S11, S112bar, mu]*Z[mu] \
+          + I*gw*(cw^2 - sw^2)/(2*cw) * delLR[S112bar, S112, mu]*Z[mu] \
+          + I*gw*(cw^2 - sw^2)/(2*cw) * delLR[S11bar, S11, mu]*Z[mu] \
+          + gw/(2*cw) * delLR[S11bar, S112, mu]*Z[mu] \
+          + I*gw*(cw^2 - sw^2)/cw * delLR[S12bar, S12, mu]*Z[mu];
+
+LWPBoson := I*Sqrt[3]/2*gw * delLR[S104, S112bar, mu]*W[mu] \
+          + gw/(2*Sqrt[3]) * delLR[S104, S11bar, mu]*W[mu] \
+          + gw/2 * delLR[S112bar, S103, mu]*W[mu] \
+          + Sqrt[2/3]*gw * delLR[S11bar, S102, mu]*W[mu] \
+          + I/2*gw * delLR[S11bar, S103, mu]*W[mu] \
+          + gw/Sqrt[2] * delLR[S12bar, S11, mu]*W[mu] \
+          + I*gw/Sqrt[2] * delLR[S12bar, S112, mu]*W[mu];
+
+LTGI := LZBoson + LWPBoson + HC[LWPBoson];
+
+(* *** Quartic Gauge Interactions EW pNGBs: To be done *** *)
+
+LQGIS12 := ee^2/(sw*cw) * 4*(cw^2 - sw^2)*A[mu]*Z[mu]*S12*S12bar \
+          + ee^2/(sw^2) * (1-vev^2/fpsi^2) *W[mu]*Wbar[mu]*S12*S12bar \
+          + ee^2/(sw^2*cw^2) * (cw^2 - sw^2)^2 *Z[mu]*Z[mu]*S12*S12bar;
+
+
+(* *** Decays of VLQs to pNGB+quark or V+quark *** *)
+
+LspecialX := - CVLQSEWQL/Sqrt[2] (S112 - I*S11) xbar[sp1,cc].t[sp2,cc] ProjM[sp1,sp2] \
+             - CVLQSEWQL S12 xbar[sp1,cc].b[sp2,cc] ProjM[sp1,sp2];
+
+
+
+(*decays of octet fermions*)
+LspecialQ8 := CQ80MS323t S323bar[cc1] Q80Mbar[sp1,aa].t[sp2,cc2] T[aa, cc1,cc2] ProjP[sp1, sp2] \
+            + CQ80S323t S323bar[cc1] CC[Q80bar][sp1,aa].t[sp2,cc2] T[aa, cc1,cc2] ProjM[sp1, sp2] \
+            + CQ81S323t S323bar[cc1] CC[Q81bar][sp1,aa].b[sp2,cc2] T[aa, cc1,cc2] ProjM[sp1, sp2] \
+            + 1/2 CQ80MS80Q10M S80[aa] Q80Mbar[sp1,aa].Q10M[sp1] \
+            + CQ80S80Q10 S80[aa] Q80bar[sp1,aa].Q10[sp1] \
+            + CQ81S80Q11 S80[aa] Q81bar[sp1,aa].Q11[sp1];
+
+(*decays of singlet fermions*)
+LspecialQ1 := gw/(2 cw) CQ10Q10MZ Z[mu] Ga[mu,sp1,sp2] Q10bar[sp1].Q10M[sp2]  \
+            + gw/(Sqrt[2]) CQ11Q10W W[mu] Ga[mu,sp1,sp2] Q11bar[sp1].Q10[sp2]; 
+
+(*decays of triplet pNGB; octet pNGB decays -> gg,tt are included in eVLQ_S80.fr*)
+LspecialS323 := CS323Q10Mt S323bar[cc] Q10Mbar[sp1].t[sp2,cc] ProjP[sp1, sp2] \
+              + CS323vtt S323bar[cc] vtbar[sp1].t[sp2,cc] ProjM[sp1, sp2] \
+              + CS323tab S323bar[cc] tabar[sp1].b[sp2,cc] ProjM[sp1, sp2];
+
+(*decays of charged color singlet pNGBs to tb *)
+LspecialS11 := GS11tqbqL S11 tbar[sp1,cc].b[sp2,cc] ProjM[sp1, sp2] \
+             + GS112tqbqL S112 tbar[sp1,cc].b[sp2,cc] ProjM[sp1, sp2] \
+             + GS11tqbqR S11 tbar[sp1,cc].b[sp2,cc] ProjP[sp1, sp2] \
+             + GS112tqbqR S112 tbar[sp1,cc].b[sp2,cc] ProjP[sp1, sp2];
+
+Lspecial1 := LspecialQ8 + LspecialQ1 + LspecialS323 + LspecialX + LspecialS11;
+Lspecial  := Lspecial1 + HC[Lspecial1];
+Lspecialno5 := Lspecial;
+
+LCHM5 := LSM + LVLQ + LT2 + LT3 + LVLQ1 + LVLQ8 + LS10 + LS102 + LS103 + LS104 + LS105 + LS11 + LS112 + LS12 + LS80 + LS323 + Lspecial + includeWZW*LWZW + ftgi*LTGI + ftgi*LQGIS12;
+LCHM5herwig := LSM + LVLQno5 + LT2no5 + LT3no5 + LVLQ1no5 + LVLQ8no5 + LS10no5 + LS102no5 + LS103no5 + LS104no5 + LS105no5 + LS11no5 + LS112no5 + LS12no5 + LS80no5 + LS323no5 + Lspecial + includeWZW*LWZW + ftgi*LTGI + ftgi*LQGIS12;
+

@@ -1,0 +1,1259 @@
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c      written by the UFO converter
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+cq10q10mz 1 mdl_CQ10Q10MZ
+
+cq11q10w 1 mdl_CQ11Q10W
+
+cq80ms323t 1 mdl_CQ80MS323t
+
+cq80ms80q10m 1 mdl_CQ80MS80Q10M
+
+cq80s323t 1 mdl_CQ80S323t
+
+cq80s80q10 1 mdl_CQ80S80Q10
+
+cq81s323t 1 mdl_CQ81S323t
+
+cq81s80q11 1 mdl_CQ81S80Q11
+
+cs323q10mt 1 mdl_CS323Q10Mt
+
+cs323tab 1 mdl_CS323tab
+
+cs323vtt 1 mdl_CS323vtt
+
+cvlqscql 1 mdl_CVLQSCQL
+
+cvlqscqr 1 mdl_CVLQSCQR
+
+cvlqsewql 1 mdl_CVLQSEWQL
+
+cvlqsewqr 1 mdl_CVLQSEWQR
+
+fpsi 1 mdl_fpsi
+
+ftgi 1 mdl_ftgi
+
+gp102bb 1 mdl_GP102BB
+
+gp102d 1 1 mdl_GP102D1x1
+
+gp102d 2 2 mdl_GP102D2x2
+
+gp102d 3 3 mdl_GP102D3x3
+
+gp102e 1 1 mdl_GP102E1x1
+
+gp102e 2 2 mdl_GP102E2x2
+
+gp102e 3 3 mdl_GP102E3x3
+
+gp102n 1 1 mdl_GP102N1x1
+
+gp102n 2 2 mdl_GP102N2x2
+
+gp102n 3 3 mdl_GP102N3x3
+
+gp102tt 1 mdl_GP102TT
+
+gp102u 1 1 mdl_GP102U1x1
+
+gp102u 2 2 mdl_GP102U2x2
+
+gp102u 3 3 mdl_GP102U3x3
+
+gp102xx 1 mdl_GP102XX
+
+gp102yy 1 mdl_GP102YY
+
+gp103bb 1 mdl_GP103BB
+
+gp103d 1 1 mdl_GP103D1x1
+
+gp103d 2 2 mdl_GP103D2x2
+
+gp103d 3 3 mdl_GP103D3x3
+
+gp103e 1 1 mdl_GP103E1x1
+
+gp103e 2 2 mdl_GP103E2x2
+
+gp103e 3 3 mdl_GP103E3x3
+
+gp103n 1 1 mdl_GP103N1x1
+
+gp103n 2 2 mdl_GP103N2x2
+
+gp103n 3 3 mdl_GP103N3x3
+
+gp103tt 1 mdl_GP103TT
+
+gp103u 1 1 mdl_GP103U1x1
+
+gp103u 2 2 mdl_GP103U2x2
+
+gp103u 3 3 mdl_GP103U3x3
+
+gp103xx 1 mdl_GP103XX
+
+gp103yy 1 mdl_GP103YY
+
+gp104bb 1 mdl_GP104BB
+
+gp104d 1 1 mdl_GP104D1x1
+
+gp104d 2 2 mdl_GP104D2x2
+
+gp104d 3 3 mdl_GP104D3x3
+
+gp104e 1 1 mdl_GP104E1x1
+
+gp104e 2 2 mdl_GP104E2x2
+
+gp104e 3 3 mdl_GP104E3x3
+
+gp104n 1 1 mdl_GP104N1x1
+
+gp104n 2 2 mdl_GP104N2x2
+
+gp104n 3 3 mdl_GP104N3x3
+
+gp104tt 1 mdl_GP104TT
+
+gp104u 1 1 mdl_GP104U1x1
+
+gp104u 2 2 mdl_GP104U2x2
+
+gp104u 3 3 mdl_GP104U3x3
+
+gp104xx 1 mdl_GP104XX
+
+gp104yy 1 mdl_GP104YY
+
+gp105bb 1 mdl_GP105BB
+
+gp105d 1 1 mdl_GP105D1x1
+
+gp105d 2 2 mdl_GP105D2x2
+
+gp105d 3 3 mdl_GP105D3x3
+
+gp105e 1 1 mdl_GP105E1x1
+
+gp105e 2 2 mdl_GP105E2x2
+
+gp105e 3 3 mdl_GP105E3x3
+
+gp105n 1 1 mdl_GP105N1x1
+
+gp105n 2 2 mdl_GP105N2x2
+
+gp105n 3 3 mdl_GP105N3x3
+
+gp105tt 1 mdl_GP105TT
+
+gp105u 1 1 mdl_GP105U1x1
+
+gp105u 2 2 mdl_GP105U2x2
+
+gp105u 3 3 mdl_GP105U3x3
+
+gp105xx 1 mdl_GP105XX
+
+gp105yy 1 mdl_GP105YY
+
+gp10bb 1 mdl_GP10BB
+
+gp10d 1 1 mdl_GP10D1x1
+
+gp10d 2 2 mdl_GP10D2x2
+
+gp10d 3 3 mdl_GP10D3x3
+
+gp10e 1 1 mdl_GP10E1x1
+
+gp10e 2 2 mdl_GP10E2x2
+
+gp10e 3 3 mdl_GP10E3x3
+
+gp10n 1 1 mdl_GP10N1x1
+
+gp10n 2 2 mdl_GP10N2x2
+
+gp10n 3 3 mdl_GP10N3x3
+
+gp10tt 1 mdl_GP10TT
+
+gp10u 1 1 mdl_GP10U1x1
+
+gp10u 2 2 mdl_GP10U2x2
+
+gp10u 3 3 mdl_GP10U3x3
+
+gp10xx 1 mdl_GP10XX
+
+gp10yy 1 mdl_GP10YY
+
+gp112ll 1 1 mdl_GP112ll1x1
+
+gp112ll 2 2 mdl_GP112ll2x2
+
+gp112ll 3 3 mdl_GP112ll3x3
+
+gp112qq 1 1 mdl_GP112qq1x1
+
+gp112qq 2 2 mdl_GP112qq2x2
+
+gp112qq 3 3 mdl_GP112qq3x3
+
+gp11ll 1 1 mdl_GP11ll1x1
+
+gp11ll 2 2 mdl_GP11ll2x2
+
+gp11ll 3 3 mdl_GP11ll3x3
+
+gp11qq 1 1 mdl_GP11qq1x1
+
+gp11qq 2 2 mdl_GP11qq2x2
+
+gp11qq 3 3 mdl_GP11qq3x3
+
+gp80b 1 mdl_GP80B
+
+gp80d 1 1 mdl_GP80D1x1
+
+gp80d 2 2 mdl_GP80D2x2
+
+gp80d 3 3 mdl_GP80D3x3
+
+gp80t 1 mdl_GP80T
+
+gp80u 1 1 mdl_GP80U1x1
+
+gp80u 2 2 mdl_GP80U2x2
+
+gp80u 3 3 mdl_GP80U3x3
+
+gp80x 1 mdl_GP80X
+
+gp80y 1 mdl_GP80Y
+
+gs102bb 1 mdl_GS102BB
+
+gs102bl 1 mdl_GS102BL1
+
+gs102bl 2 mdl_GS102BL2
+
+gs102bl 3 mdl_GS102BL3
+
+gs102br 1 mdl_GS102BR1
+
+gs102br 2 mdl_GS102BR2
+
+gs102br 3 mdl_GS102BR3
+
+gs102d 1 1 mdl_GS102D1x1
+
+gs102d 2 2 mdl_GS102D2x2
+
+gs102d 3 3 mdl_GS102D3x3
+
+gs102e 1 1 mdl_GS102E1x1
+
+gs102e 2 2 mdl_GS102E2x2
+
+gs102e 3 3 mdl_GS102E3x3
+
+gs102n 1 1 mdl_GS102N1x1
+
+gs102n 2 2 mdl_GS102N2x2
+
+gs102n 3 3 mdl_GS102N3x3
+
+gs102tl 1 mdl_GS102TL1
+
+gs102tl 2 mdl_GS102TL2
+
+gs102tl 3 mdl_GS102TL3
+
+gs102tr 1 mdl_GS102TR1
+
+gs102tr 2 mdl_GS102TR2
+
+gs102tr 3 mdl_GS102TR3
+
+gs102tt 1 mdl_GS102TT
+
+gs102u 1 1 mdl_GS102U1x1
+
+gs102u 2 2 mdl_GS102U2x2
+
+gs102u 3 3 mdl_GS102U3x3
+
+gs102xx 1 mdl_GS102XX
+
+gs102yy 1 mdl_GS102YY
+
+gs103bb 1 mdl_GS103BB
+
+gs103bl 1 mdl_GS103BL1
+
+gs103bl 2 mdl_GS103BL2
+
+gs103bl 3 mdl_GS103BL3
+
+gs103br 1 mdl_GS103BR1
+
+gs103br 2 mdl_GS103BR2
+
+gs103br 3 mdl_GS103BR3
+
+gs103d 1 1 mdl_GS103D1x1
+
+gs103d 2 2 mdl_GS103D2x2
+
+gs103d 3 3 mdl_GS103D3x3
+
+gs103e 1 1 mdl_GS103E1x1
+
+gs103e 2 2 mdl_GS103E2x2
+
+gs103e 3 3 mdl_GS103E3x3
+
+gs103n 1 1 mdl_GS103N1x1
+
+gs103n 2 2 mdl_GS103N2x2
+
+gs103n 3 3 mdl_GS103N3x3
+
+gs103tl 1 mdl_GS103TL1
+
+gs103tl 2 mdl_GS103TL2
+
+gs103tl 3 mdl_GS103TL3
+
+gs103tr 1 mdl_GS103TR1
+
+gs103tr 2 mdl_GS103TR2
+
+gs103tr 3 mdl_GS103TR3
+
+gs103tt 1 mdl_GS103TT
+
+gs103u 1 1 mdl_GS103U1x1
+
+gs103u 2 2 mdl_GS103U2x2
+
+gs103u 3 3 mdl_GS103U3x3
+
+gs103xx 1 mdl_GS103XX
+
+gs103yy 1 mdl_GS103YY
+
+gs104bb 1 mdl_GS104BB
+
+gs104bl 1 mdl_GS104BL1
+
+gs104bl 2 mdl_GS104BL2
+
+gs104bl 3 mdl_GS104BL3
+
+gs104br 1 mdl_GS104BR1
+
+gs104br 2 mdl_GS104BR2
+
+gs104br 3 mdl_GS104BR3
+
+gs104d 1 1 mdl_GS104D1x1
+
+gs104d 2 2 mdl_GS104D2x2
+
+gs104d 3 3 mdl_GS104D3x3
+
+gs104e 1 1 mdl_GS104E1x1
+
+gs104e 2 2 mdl_GS104E2x2
+
+gs104e 3 3 mdl_GS104E3x3
+
+gs104n 1 1 mdl_GS104N1x1
+
+gs104n 2 2 mdl_GS104N2x2
+
+gs104n 3 3 mdl_GS104N3x3
+
+gs104tl 1 mdl_GS104TL1
+
+gs104tl 2 mdl_GS104TL2
+
+gs104tl 3 mdl_GS104TL3
+
+gs104tr 1 mdl_GS104TR1
+
+gs104tr 2 mdl_GS104TR2
+
+gs104tr 3 mdl_GS104TR3
+
+gs104tt 1 mdl_GS104TT
+
+gs104u 1 1 mdl_GS104U1x1
+
+gs104u 2 2 mdl_GS104U2x2
+
+gs104u 3 3 mdl_GS104U3x3
+
+gs104xx 1 mdl_GS104XX
+
+gs104yy 1 mdl_GS104YY
+
+gs105bb 1 mdl_GS105BB
+
+gs105bl 1 mdl_GS105BL1
+
+gs105bl 2 mdl_GS105BL2
+
+gs105bl 3 mdl_GS105BL3
+
+gs105br 1 mdl_GS105BR1
+
+gs105br 2 mdl_GS105BR2
+
+gs105br 3 mdl_GS105BR3
+
+gs105d 1 1 mdl_GS105D1x1
+
+gs105d 2 2 mdl_GS105D2x2
+
+gs105d 3 3 mdl_GS105D3x3
+
+gs105e 1 1 mdl_GS105E1x1
+
+gs105e 2 2 mdl_GS105E2x2
+
+gs105e 3 3 mdl_GS105E3x3
+
+gs105n 1 1 mdl_GS105N1x1
+
+gs105n 2 2 mdl_GS105N2x2
+
+gs105n 3 3 mdl_GS105N3x3
+
+gs105tl 1 mdl_GS105TL1
+
+gs105tl 2 mdl_GS105TL2
+
+gs105tl 3 mdl_GS105TL3
+
+gs105tr 1 mdl_GS105TR1
+
+gs105tr 2 mdl_GS105TR2
+
+gs105tr 3 mdl_GS105TR3
+
+gs105tt 1 mdl_GS105TT
+
+gs105u 1 1 mdl_GS105U1x1
+
+gs105u 2 2 mdl_GS105U2x2
+
+gs105u 3 3 mdl_GS105U3x3
+
+gs105xx 1 mdl_GS105XX
+
+gs105yy 1 mdl_GS105YY
+
+gs10bb 1 mdl_GS10BB
+
+gs10bl 1 mdl_GS10BL1
+
+gs10bl 2 mdl_GS10BL2
+
+gs10bl 3 mdl_GS10BL3
+
+gs10br 1 mdl_GS10BR1
+
+gs10br 2 mdl_GS10BR2
+
+gs10br 3 mdl_GS10BR3
+
+gs10d 1 1 mdl_GS10D1x1
+
+gs10d 2 2 mdl_GS10D2x2
+
+gs10d 3 3 mdl_GS10D3x3
+
+gs10e 1 1 mdl_GS10E1x1
+
+gs10e 2 2 mdl_GS10E2x2
+
+gs10e 3 3 mdl_GS10E3x3
+
+gs10n 1 1 mdl_GS10N1x1
+
+gs10n 2 2 mdl_GS10N2x2
+
+gs10n 3 3 mdl_GS10N3x3
+
+gs10tl 1 mdl_GS10TL1
+
+gs10tl 2 mdl_GS10TL2
+
+gs10tl 3 mdl_GS10TL3
+
+gs10tr 1 mdl_GS10TR1
+
+gs10tr 2 mdl_GS10TR2
+
+gs10tr 3 mdl_GS10TR3
+
+gs10tt 1 mdl_GS10TT
+
+gs10u 1 1 mdl_GS10U1x1
+
+gs10u 2 2 mdl_GS10U2x2
+
+gs10u 3 3 mdl_GS10U3x3
+
+gs10xx 1 mdl_GS10XX
+
+gs10yy 1 mdl_GS10YY
+
+gs112bul 1 mdl_GS112BuL1
+
+gs112bul 2 mdl_GS112BuL2
+
+gs112bul 3 mdl_GS112BuL3
+
+gs112bur 1 mdl_GS112BuR1
+
+gs112bur 2 mdl_GS112BuR2
+
+gs112bur 3 mdl_GS112BuR3
+
+gs112byl 1 mdl_GS112BYL
+
+gs112byr 1 mdl_GS112BYR
+
+gs112ll 1 1 mdl_GS112ll1x1
+
+gs112ll 2 2 mdl_GS112ll2x2
+
+gs112ll 3 3 mdl_GS112ll3x3
+
+gs112qq 1 1 mdl_GS112qq1x1
+
+gs112qq 2 2 mdl_GS112qq2x2
+
+gs112qq 3 3 mdl_GS112qq3x3
+
+gs112tbl 1 mdl_GS112TBL
+
+gs112tbr 1 mdl_GS112TBR
+
+gs112tdl 1 mdl_GS112TdL1
+
+gs112tdl 2 mdl_GS112TdL2
+
+gs112tdl 3 mdl_GS112TdL3
+
+gs112tdr 1 mdl_GS112TdR1
+
+gs112tdr 2 mdl_GS112TdR2
+
+gs112tdr 3 mdl_GS112TdR3
+
+gs112tqbql 1 mdl_GS112tqbqL
+
+gs112tqbqr 1 mdl_GS112tqbqR
+
+gs112xtl 1 mdl_GS112XTL
+
+gs112xtr 1 mdl_GS112XTR
+
+gs112xul 1 mdl_GS112XuL1
+
+gs112xul 2 mdl_GS112XuL2
+
+gs112xul 3 mdl_GS112XuL3
+
+gs112xur 1 mdl_GS112XuR1
+
+gs112xur 2 mdl_GS112XuR2
+
+gs112xur 3 mdl_GS112XuR3
+
+gs112ydl 1 mdl_GS112YdL1
+
+gs112ydl 2 mdl_GS112YdL2
+
+gs112ydl 3 mdl_GS112YdL3
+
+gs112ydr 1 mdl_GS112YdR1
+
+gs112ydr 2 mdl_GS112YdR2
+
+gs112ydr 3 mdl_GS112YdR3
+
+gs11bul 1 mdl_GS11BuL1
+
+gs11bul 2 mdl_GS11BuL2
+
+gs11bul 3 mdl_GS11BuL3
+
+gs11bur 1 mdl_GS11BuR1
+
+gs11bur 2 mdl_GS11BuR2
+
+gs11bur 3 mdl_GS11BuR3
+
+gs11byl 1 mdl_GS11BYL
+
+gs11byr 1 mdl_GS11BYR
+
+gs11ll 1 1 mdl_GS11ll1x1
+
+gs11ll 2 2 mdl_GS11ll2x2
+
+gs11ll 3 3 mdl_GS11ll3x3
+
+gs11qq 1 1 mdl_GS11qq1x1
+
+gs11qq 2 2 mdl_GS11qq2x2
+
+gs11qq 3 3 mdl_GS11qq3x3
+
+gs11tbl 1 mdl_GS11TBL
+
+gs11tbr 1 mdl_GS11TBR
+
+gs11tdl 1 mdl_GS11TdL1
+
+gs11tdl 2 mdl_GS11TdL2
+
+gs11tdl 3 mdl_GS11TdL3
+
+gs11tdr 1 mdl_GS11TdR1
+
+gs11tdr 2 mdl_GS11TdR2
+
+gs11tdr 3 mdl_GS11TdR3
+
+gs11tqbql 1 mdl_GS11tqbqL
+
+gs11tqbqr 1 mdl_GS11tqbqR
+
+gs11xtl 1 mdl_GS11XTL
+
+gs11xtr 1 mdl_GS11XTR
+
+gs11xul 1 mdl_GS11XuL1
+
+gs11xul 2 mdl_GS11XuL2
+
+gs11xul 3 mdl_GS11XuL3
+
+gs11xur 1 mdl_GS11XuR1
+
+gs11xur 2 mdl_GS11XuR2
+
+gs11xur 3 mdl_GS11XuR3
+
+gs11ydl 1 mdl_GS11YdL1
+
+gs11ydl 2 mdl_GS11YdL2
+
+gs11ydl 3 mdl_GS11YdL3
+
+gs11ydr 1 mdl_GS11YdR1
+
+gs11ydr 2 mdl_GS11YdR2
+
+gs11ydr 3 mdl_GS11YdR3
+
+gs12xbl 1 mdl_GS12XBL
+
+gs12xbr 1 mdl_GS12XBR
+
+gs12xdl 1 mdl_GS12XDL1
+
+gs12xdl 2 mdl_GS12XDL2
+
+gs12xdl 3 mdl_GS12XDL3
+
+gs12xdr 1 mdl_GS12XDR1
+
+gs12xdr 2 mdl_GS12XDR2
+
+gs12xdr 3 mdl_GS12XDR3
+
+gs12ytl 1 mdl_GS12YTL
+
+gs12ytr 1 mdl_GS12YTR
+
+gs12yul 1 mdl_GS12YUL1
+
+gs12yul 2 mdl_GS12YUL2
+
+gs12yul 3 mdl_GS12YUL3
+
+gs12yur 1 mdl_GS12YUR1
+
+gs12yur 2 mdl_GS12YUR2
+
+gs12yur 3 mdl_GS12YUR3
+
+gs80b 1 mdl_GS80B
+
+gs80bdl 1 mdl_GS80BDL1
+
+gs80bdl 2 mdl_GS80BDL2
+
+gs80bdl 3 mdl_GS80BDL3
+
+gs80bdr 1 mdl_GS80BDR1
+
+gs80bdr 2 mdl_GS80BDR2
+
+gs80bdr 3 mdl_GS80BDR3
+
+gs80d 1 1 mdl_GS80D1x1
+
+gs80d 2 2 mdl_GS80D2x2
+
+gs80d 3 3 mdl_GS80D3x3
+
+gs80t 1 mdl_GS80T
+
+gs80tul 1 mdl_GS80TUL1
+
+gs80tul 2 mdl_GS80TUL2
+
+gs80tul 3 mdl_GS80TUL3
+
+gs80tur 1 mdl_GS80TUR1
+
+gs80tur 2 mdl_GS80TUR2
+
+gs80tur 3 mdl_GS80TUR3
+
+gs80u 1 1 mdl_GS80U1x1
+
+gs80u 2 2 mdl_GS80U2x2
+
+gs80u 3 3 mdl_GS80U3x3
+
+gs80x 1 mdl_GS80X
+
+gs80y 1 mdl_GS80Y
+
+includewzw 1 mdl_includeWZW
+
+k5q10mz 1 mdl_K5Q10MZ
+
+k5q10z 1 mdl_K5Q10Z
+
+k5q11z 1 mdl_K5Q11Z
+
+k5q80mz 1 mdl_K5Q80MZ
+
+k5q80z 1 mdl_K5Q80Z
+
+k5q81z 1 mdl_K5Q81Z
+
+kblh 1 mdl_KBLh1
+
+kblh 2 mdl_KBLh2
+
+kblh 3 mdl_KBLh3
+
+kblw 1 mdl_KBLw1
+
+kblw 2 mdl_KBLw2
+
+kblw 3 mdl_KBLw3
+
+kblz 1 mdl_KBLz1
+
+kblz 2 mdl_KBLz2
+
+kblz 3 mdl_KBLz3
+
+kbrh 1 mdl_KBRh1
+
+kbrh 2 mdl_KBRh2
+
+kbrh 3 mdl_KBRh3
+
+kbrw 1 mdl_KBRw1
+
+kbrw 2 mdl_KBRw2
+
+kbrw 3 mdl_KBRw3
+
+kbrz 1 mdl_KBRz1
+
+kbrz 2 mdl_KBRz2
+
+kbrz 3 mdl_KBRz3
+
+kp102vv 1 mdl_KP102G
+
+kp102vv 2 mdl_KP102W
+
+kp102vv 3 mdl_KP102ZZ
+
+kp102vv 4 mdl_KP102ZA
+
+kp102vv 5 mdl_KP102AA
+
+kp103vv 1 mdl_KP103G
+
+kp103vv 2 mdl_KP103W
+
+kp103vv 3 mdl_KP103ZZ
+
+kp103vv 4 mdl_KP103ZA
+
+kp103vv 5 mdl_KP103AA
+
+kp104vv 1 mdl_KP104G
+
+kp104vv 2 mdl_KP104W
+
+kp104vv 3 mdl_KP104ZZ
+
+kp104vv 4 mdl_KP104ZA
+
+kp104vv 5 mdl_KP104AA
+
+kp105vv 1 mdl_KP105G
+
+kp105vv 2 mdl_KP105W
+
+kp105vv 3 mdl_KP105ZZ
+
+kp105vv 4 mdl_KP105ZA
+
+kp105vv 5 mdl_KP105AA
+
+kp10vv 1 mdl_KP10G
+
+kp10vv 2 mdl_KP10W
+
+kp10vv 3 mdl_KP10ZZ
+
+kp10vv 4 mdl_KP10ZA
+
+kp10vv 5 mdl_KP10AA
+
+kp112vv 1 mdl_KP112WA
+
+kp112vv 2 mdl_KP112WZ
+
+kp11vv 1 mdl_KP11WA
+
+kp11vv 2 mdl_KP11WZ
+
+kp12w 1 mdl_KP12W
+
+kp80vv 1 mdl_KP80G
+
+kp80vv 2 mdl_KP80GZ
+
+kp80vv 3 mdl_KP80GA
+
+kq10z 1 mdl_KQ10Z
+
+kq11z 1 mdl_KQ11Z
+
+kq80z 1 mdl_KQ80Z
+
+kq81z 1 mdl_KQ81Z
+
+ks102h 1 mdl_KS102H1
+
+ks102h 2 mdl_KS102H2
+
+ks102h 3 mdl_KS102HH
+
+ks102h 4 mdl_KS102HZ
+
+ks102vv 1 mdl_KS102G
+
+ks102vv 2 mdl_KS102W
+
+ks102vv 3 mdl_KS102ZZ
+
+ks102vv 4 mdl_KS102ZA
+
+ks102vv 5 mdl_KS102AA
+
+ks103h 1 mdl_KS103H1
+
+ks103h 2 mdl_KS103H2
+
+ks103h 3 mdl_KS103HH
+
+ks103h 4 mdl_KS103HZ
+
+ks103vv 1 mdl_KS103G
+
+ks103vv 2 mdl_KS103W
+
+ks103vv 3 mdl_KS103ZZ
+
+ks103vv 4 mdl_KS103ZA
+
+ks103vv 5 mdl_KS103AA
+
+ks104h 1 mdl_KS104H1
+
+ks104h 2 mdl_KS104H2
+
+ks104h 3 mdl_KS104HH
+
+ks104h 4 mdl_KS104HZ
+
+ks104vv 1 mdl_KS104G
+
+ks104vv 2 mdl_KS104W
+
+ks104vv 3 mdl_KS104ZZ
+
+ks104vv 4 mdl_KS104ZA
+
+ks104vv 5 mdl_KS104AA
+
+ks105h 1 mdl_KS105H1
+
+ks105h 2 mdl_KS105H2
+
+ks105h 3 mdl_KS105HH
+
+ks105h 4 mdl_KS105HZ
+
+ks105vv 1 mdl_KS105G
+
+ks105vv 2 mdl_KS105W
+
+ks105vv 3 mdl_KS105ZZ
+
+ks105vv 4 mdl_KS105ZA
+
+ks105vv 5 mdl_KS105AA
+
+ks10h 1 mdl_KS10H1
+
+ks10h 2 mdl_KS10H2
+
+ks10h 3 mdl_KS10HH
+
+ks10h 4 mdl_KS10HZ
+
+ks10vv 1 mdl_KS10G
+
+ks10vv 2 mdl_KS10W
+
+ks10vv 3 mdl_KS10ZZ
+
+ks10vv 4 mdl_KS10ZA
+
+ks10vv 5 mdl_KS10AA
+
+ks112h 1 mdl_KS112H1
+
+ks112h 2 mdl_KS112H2
+
+ks112h 3 mdl_KS112HW
+
+ks112vv 1 mdl_KS112WA
+
+ks112vv 2 mdl_KS112WZ
+
+ks11h 1 mdl_KS11H1
+
+ks11h 2 mdl_KS11H2
+
+ks11h 3 mdl_KS11HW
+
+ks11vv 1 mdl_KS11WA
+
+ks11vv 2 mdl_KS11WZ
+
+ks12h 1 mdl_KS12H1
+
+ks12h 2 mdl_KS12H2
+
+ks12h 3 mdl_KS12HH
+
+ks12w 1 mdl_KS12W
+
+ks323h 1 mdl_KS323H1
+
+ks323h 2 mdl_KS323H2
+
+ks323h 3 mdl_KS323HH
+
+ks80h 1 mdl_KS80H1
+
+ks80h 2 mdl_KS80H2
+
+ks80h 3 mdl_KS80HH
+
+ks80vv 1 mdl_KS80G
+
+ks80vv 2 mdl_KS80GZ
+
+ks80vv 3 mdl_KS80GA
+
+kt2lh 1 mdl_KT2Lh1
+
+kt2lh 2 mdl_KT2Lh2
+
+kt2lh 3 mdl_KT2Lh3
+
+kt2lw 1 mdl_KT2Lw1
+
+kt2lw 2 mdl_KT2Lw2
+
+kt2lw 3 mdl_KT2Lw3
+
+kt2lz 1 mdl_KT2Lz1
+
+kt2lz 2 mdl_KT2Lz2
+
+kt2lz 3 mdl_KT2Lz3
+
+kt2rh 1 mdl_KT2Rh1
+
+kt2rh 2 mdl_KT2Rh2
+
+kt2rh 3 mdl_KT2Rh3
+
+kt2rw 1 mdl_KT2Rw1
+
+kt2rw 2 mdl_KT2Rw2
+
+kt2rw 3 mdl_KT2Rw3
+
+kt2rz 1 mdl_KT2Rz1
+
+kt2rz 2 mdl_KT2Rz2
+
+kt2rz 3 mdl_KT2Rz3
+
+kt3lh 1 mdl_KT3Lh1
+
+kt3lh 2 mdl_KT3Lh2
+
+kt3lh 3 mdl_KT3Lh3
+
+kt3lw 1 mdl_KT3Lw1
+
+kt3lw 2 mdl_KT3Lw2
+
+kt3lw 3 mdl_KT3Lw3
+
+kt3lz 1 mdl_KT3Lz1
+
+kt3lz 2 mdl_KT3Lz2
+
+kt3lz 3 mdl_KT3Lz3
+
+kt3rh 1 mdl_KT3Rh1
+
+kt3rh 2 mdl_KT3Rh2
+
+kt3rh 3 mdl_KT3Rh3
+
+kt3rw 1 mdl_KT3Rw1
+
+kt3rw 2 mdl_KT3Rw2
+
+kt3rw 3 mdl_KT3Rw3
+
+kt3rz 1 mdl_KT3Rz1
+
+kt3rz 2 mdl_KT3Rz2
+
+kt3rz 3 mdl_KT3Rz3
+
+ktlh 1 mdl_KTLh1
+
+ktlh 2 mdl_KTLh2
+
+ktlh 3 mdl_KTLh3
+
+ktlw 1 mdl_KTLw1
+
+ktlw 2 mdl_KTLw2
+
+ktlw 3 mdl_KTLw3
+
+ktlz 1 mdl_KTLz1
+
+ktlz 2 mdl_KTLz2
+
+ktlz 3 mdl_KTLz3
+
+ktrh 1 mdl_KTRh1
+
+ktrh 2 mdl_KTRh2
+
+ktrh 3 mdl_KTRh3
+
+ktrw 1 mdl_KTRw1
+
+ktrw 2 mdl_KTRw2
+
+ktrw 3 mdl_KTRw3
+
+ktrz 1 mdl_KTRz1
+
+ktrz 2 mdl_KTRz2
+
+ktrz 3 mdl_KTRz3
+
+kxlw 1 mdl_KXL1
+
+kxlw 2 mdl_KXL2
+
+kxlw 3 mdl_KXL3
+
+kxrw 1 mdl_KXR1
+
+kxrw 2 mdl_KXR2
+
+kxrw 3 mdl_KXR3
+
+kylw 1 mdl_KYL1
+
+kylw 2 mdl_KYL2
+
+kylw 3 mdl_KYL3
+
+kyrw 1 mdl_KYR1
+
+kyrw 2 mdl_KYR2
+
+kyrw 3 mdl_KYR3
+
+sminputs 1 aEWM1
+
+sminputs 2 mdl_Gf
+
+sminputs 3 aS
+
+yukawa 5 mdl_ymb
+
+yukawa 6 mdl_ymt
+
+yukawa 15 mdl_ymtau
+
+mass 23 mdl_MZ
+
+mass 15 mdl_MTA
+
+mass 6 mdl_MT
+
+mass 5 mdl_MB
+
+mass 25 mdl_MH
+
+mass 6000005 mdl_MX
+
+mass 6000006 mdl_MTP
+
+mass 6000007 mdl_MBP
+
+mass 6000008 mdl_MY
+
+mass 6002006 mdl_MTP2
+
+mass 6003006 mdl_MTP3
+
+mass 6100001 mdl_MS10
+
+mass 6102001 mdl_MS102
+
+mass 6103001 mdl_MS103
+
+mass 6104001 mdl_MS104
+
+mass 6105001 mdl_MS105
+
+mass 6100002 mdl_MS11
+
+mass 6102002 mdl_MS112
+
+mass 6100003 mdl_MS12
+
+mass 6000011 mdl_MQ11
+
+mass 6000010 mdl_MQ10
+
+mass 6001010 mdl_MQ10M
+
+mass 6000081 mdl_MQ81
+
+mass 6000080 mdl_MQ80
+
+mass 6001080 mdl_MQ80M
+
+mass 6108000 mdl_MS80
+
+mass 6100300 mdl_MS323
+
+decay 23 mdl_WZ
+
+decay 24 mdl_WW
+
+decay 6 mdl_WT
+
+decay 25 mdl_WH
+
+decay 6000005 mdl_WX
+
+decay 6000006 mdl_WTP
+
+decay 6000007 mdl_WBP
+
+decay 6000008 mdl_WY
+
+decay 6002006 mdl_WTP2
+
+decay 6003006 mdl_WTP3
+
+decay 6100001 mdl_WS10
+
+decay 6102001 mdl_WS102
+
+decay 6103001 mdl_WS103
+
+decay 6104001 mdl_WS104
+
+decay 6105001 mdl_WS105
+
+decay 6100002 mdl_WS11
+
+decay 6102002 mdl_WS112
+
+decay 6100003 mdl_WS12
+
+decay 6000011 mdl_WQ11
+
+decay 6000010 mdl_WQ10
+
+decay 6001010 mdl_WQ10M
+
+decay 6000081 mdl_WQ81
+
+decay 6000080 mdl_WQ80
+
+decay 6001080 mdl_WQ80M
+
+decay 6108000 mdl_WS80
+
+decay 6100300 mdl_WS323

@@ -1,0 +1,1 @@
+delLR[a_, b_, index_] := a*del[b, index]-del[a, index]*b;
