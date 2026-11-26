@@ -2,7 +2,7 @@ from matplotlib import pyplot as plt
 import pandas as pd
 
 
-datafile = 'xs-rep-14TeV-fermions.csv'
+datafile = 'xs-rep-100TeV-fermions.csv'
 FONT = 13
 
 style = {
@@ -24,7 +24,7 @@ style = {
     # '90': {'l': '-', 'c': 'k'}
 }
 
-pdfname = datafile[:-4] + '.pdf'
+pdfname = datafile[:-4] + '_final.pdf'
 data = pd.read_csv(datafile, index_col=0)
 mrange = data.index
 
@@ -34,15 +34,16 @@ for rep in style.keys():
             zorder=3 if rep == "35" else 2)
 
 ax.legend(title='SU(3) irrep', ncol=3, fontsize=FONT-1, title_fontsize=FONT, fancybox=True)
-ax.grid(color='lightgrey', axis='both')
+ax.grid(axis='both', linewidth=0.5, linestyle=':')
+ax.tick_params(which='both', direction="in", right=True, top=True)
 
-ax.set_xbound(mrange[0], 3.5)
+ax.set_xbound(mrange[0], 20)
 ax.set_xlabel(r'$M$ [TeV]', fontsize=FONT)
 plt.xticks(fontsize=FONT)
 
 ax.set_yscale('log')
-ax.set_ybound(lower=10**(-5), upper=10**1)
+ax.set_ybound(lower=10**(-6), upper=10**4)
 ax.set_ylabel(r'$\sigma$ [pb]', fontsize=FONT)
 plt.yticks(fontsize=FONT)
 
-fig.savefig(pdfname, dpi=300, pad_inches=0)
+fig.savefig(pdfname, dpi=300, bbox_inches='tight', transparent=True, pad_inches=0.02)

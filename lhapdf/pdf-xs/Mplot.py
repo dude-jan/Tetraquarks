@@ -2,8 +2,8 @@ from matplotlib import pyplot as plt
 import pandas as pd
 
 
-datafile = 'xs-rep-14TeV-fermions.csv'
-pdfname = 'M8_at14TeV.pdf'
+datafile = 'xs-rep-100TeV-fermions.csv'
+pdfname = 'M8_at100TeV_final.pdf'
 FONT = 13
 lw = 1.8
 
@@ -31,15 +31,18 @@ ax.plot(mrange, B300, label=r'$\mathcal{B}_{300}$', linewidth=lw, linestyle='-',
 
 ax.legend(title='multiplets', fontsize=FONT-1, title_fontsize=FONT)
 # ax.set_title('M8', fontsize=FONT+1)
-ax.grid(color='grey', axis='both')
+# ax.grid(color='grey', axis='both')
+ax.grid(axis='both', linewidth=0.5, linestyle=':')
+ax.tick_params(which='both', direction="in", right=True, top=True)
 
-ax.set_xbound(mrange[0], 3.5)
+ax.set_xbound(mrange[0], 20)
 ax.set_xlabel(r'$M$ [TeV]', fontsize=16)
 plt.xticks(fontsize=FONT)
 
+
 ax.set_yscale('log')
-ax.set_ybound(lower=10**(-5), upper=10**1)
+ax.set_ybound(lower=10**(-6), upper=10**4)
 ax.set_ylabel(r'$\sigma$ [pb]', fontsize=FONT)
 plt.yticks(fontsize=FONT)
 
-fig.savefig(pdfname, dpi=300, pad_inches=0)
+fig.savefig(pdfname, dpi=300, bbox_inches='tight', transparent=True, pad_inches=0.02)

@@ -6,7 +6,7 @@ from matplotlib.lines import Line2D
 datafile1 = 'xs-rep-14TeV-fermions.csv'
 datafile2 = 'xs-rep-14TeV-scalars.csv'
 
-pdfname = 'xs-rep-14TeV-combined.pdf'
+pdfname = 'xs-rep-14TeV-combined_final.pdf'
 FONT = 13
 
 style = {
@@ -44,9 +44,8 @@ lhandles = [
     Line2D([0], [0], color="black", linestyle="--", linewidth=1.8, label="scalar"),
 ]
 ax.legend(handles=lhandles, fontsize=FONT-1, fancybox=True, loc='right')
-
-
-ax.grid(color='lightgrey', axis='both')
+ax.grid(axis='both', linewidth=0.5, linestyle=':')
+ax.tick_params(which='both', direction="in", right=True, top=True)
 
 ax.set_xbound(mrange[0], 3.5)
 ax.set_xlabel(r'$M$ [TeV]', fontsize=FONT)
@@ -57,4 +56,4 @@ ax.set_ybound(lower=10**(-5), upper=1)
 ax.set_ylabel(r'$\sigma$ [pb]', fontsize=FONT)
 plt.yticks(fontsize=FONT)
 
-fig.savefig(pdfname, dpi=300, pad_inches=0)
+fig.savefig(pdfname, dpi=300, bbox_inches='tight', transparent=True, pad_inches=0.02)
