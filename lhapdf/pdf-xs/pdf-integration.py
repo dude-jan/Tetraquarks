@@ -156,5 +156,5 @@ def main():
 # comp = sigma_pp_components(500, '3', pdf, 14_000, flavours=(1, 2, 3, 4))
 # print(comp, sum(comp.values()))
 
-datafile = 'test.csv'  # 'xs-rep-100TeV_extended.csv'
-xsrep(datafile, energy = 100.0, mrange = np.linspace(1.0, 20, num=1))
+datafile = 'comparison-fermions.csv'  # 'xs-rep-100TeV_extended.csv'
+xsrep(datafile, energy=13.0, mrange=np.linspace(.2, 1.8, num=10))
